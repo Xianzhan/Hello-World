@@ -1,9 +1,40 @@
 [JDK](#JDK)
+  - [8](#8)
   - [1.7](#1_7)
   - [1.6](#1_6)
   - [1.5](#1_5)
 
 # JDK
+
+## 8
+
+1. 接口默认方法
+
+```java
+interface Foo {
+    default void foo() {
+        // do something
+    }
+}
+```
+
+2. Lambda 表达式 () -> {}
+
+```java
+interface Power {
+    int power(int num);
+}
+Power power = num -> num * num;
+int i = power.power(8);
+```
+
+3. 方法引用 ::
+
+```java
+// java.util.function 包
+Consumer<String> consumer = System.out::println;
+consumer.accept("Hello Java8");
+```
 
 ## 1_7
 
