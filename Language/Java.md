@@ -1,10 +1,123 @@
-[JDK](#JDK)
+[Version](#Version)
+  - [10](#10)
+  - [9](#9)
   - [8](#8)
   - [1.7](#1_7)
   - [1.6](#1_6)
   - [1.5](#1_5)
 
-# JDK
+# Version
+
+## 10
+
+1. 局部类型推断
+
+```java
+public void main(String... args) {
+    var s = "Hello World";
+    System.out.println(s);
+}
+```
+
+## 9
+
+1. Jigsaw (模块化)
+
+模块声明示例
+
+```java
+module com.mycompany.sample { 
+    exports com.mycompany.sample; 
+    requires com.mycompany.common; 
+    provides com.mycompany.common.DemoService with
+        com.mycompany.sample.DemoServiceImpl; 
+}
+```
+
+2. jshell (REPL)
+
+```bat
+jshell> int i = 9;
+jshell> System.out.println(i);
+9
+```
+
+3. 不可变集合
+
+```java
+List.of();
+Set.of();
+Map.of();
+```
+
+4. ProcessHandler 接口
+
+可以对原生进程进行管理，尤其适合于管理长时间运行的进程。在使用 P rocessBuilder 来启动一个进程之后，可以通过 Process.toHandle()方法来得到一个 ProcessHandl e 对象的实例。
+
+```java
+final ProcessBuilder processBuilder = new ProcessBuilder("top") 
+    .inheritIO(); 
+final ProcessHandle processHandle = processBuilder.start().toHandle(); 
+processHandle.onExit().whenCompleteAsync((handle, throwable) -> { 
+    if (throwable == null) { 
+        System.out.println(handle.pid()); 
+    } else { 
+        throwable.printStackTrace(); 
+    } 
+});
+```
+
+5. 平台日志 API 和 服务
+
+Java 9 允许为 JDK 和应用配置同样的日志实现。新增的 System.LoggerFinder 用来管理 JDK 使 用的日志记录器实现。JVM 在运行时只有一个系统范围的 LoggerFinder 实例。LoggerFinder 通 过服务查找机制来加载日志记录器实现。默认情况下，JDK 使用 java.logging 模块中的 java.util.logging 实现。通过 LoggerFinder 的 getLogger()方法就可以获取到表示日志记录器的 System.Logger 实现。应用同样可以使用 System.Logger 来记录日志。这样就保证了 JDK 和应用使用同样的日志实现。我们也可以通过添加自己的 System.LoggerFinder 实现来让 JDK 和应用使用 SLF4J 等其他日志记录框架。 代码清单 9 中给出了平台日志 API 的使用示例。
+
+```java
+public class Main { 
+    private static final System.Logger LOGGER = System.getLogger("Main"); 
+    public static void main(final String[] args) { 
+        LOGGER.log(Level.INFO, "Run!");
+    } 
+}
+```
+
+6. 反应式流 (Reactive Streams)
+
+反应式编程的思想最近得到了广泛的流行。 在 Java 平台上有流行的反应式 库 RxJava 和 R eactor。反应式流规范的出发点是提供一个带非阻塞负压（ non-blocking backpressure ） 的异步流处理规范。反应式流规范的核心接口已经添加到了 Java9 中的 java.util.concurrent.Flow 类中。
+
+Flow 中包含了 Flow.Publisher、Flow.Subscriber、Flow.Subscription 和 F low.Processor 等 4 个核心接口。Java 9 还提供了 SubmissionPublisher 作为 Flow.Publisher 的一个实现。RxJava 2 和 Reactor 都可以很方便的 与 Flow 类的核心接口进行互操作。
+
+7. 并发 
+
+在并发方面，类 CompletableFuture 中增加了几个新的方法。completeAsync 使用一个异步任务来获取结果并完成该 CompletableFuture。orTimeout 在 CompletableFuture 没有在给定的超时时间之前完成，使用 TimeoutException 异常来完成 CompletableFuture。completeOnTimeout 与 o rTimeout 类似，只不过它在超时时使用给定的值来完成 CompletableFuture。新的 Thread.onSpinWai t 方法在当前线程需要使用忙循环来等待时，可以提高等待的效率。
+
+8. Nashorn (ES6 引擎)
+
+Nashorn 是 Java 8 中引入的新的 JavaScript 引擎。Java 9 中的 Nashorn 已经实现了一些 ECMAScript 6 规范中的新特性，包括模板字符串、二进制和八进制字面量、迭代器 和 for..of 循环和箭头函数等。Nashorn 还提供了 API 把 ECMAScript 源代码解析成抽象语法树（ Abstract Syntax Tree，AST ） ，可以用来对 ECMAScript 源代码进行分析。
+
+9. 安全
+
+Java 9 新增了 4 个 SHA- 3 哈希算法，SHA3-224、SHA3-256、SHA3-384 和 S HA3-512。另外也增加了通过 java.security.SecureRandom 生成使用 DRBG 算法的强随机数。 代码清单 13 中给出了 SHA-3 哈希算法的使用示例。
+
+```java
+import org.apache.commons.codec.binary.Hex; 
+public class SHA3 { 
+    public static void main(final String[] args) throws NoSuchAlgorithmException { 
+        final MessageDigest instance = MessageDigest.getInstance("SHA3-224"); 
+        final byte[] digest = instance.digest("".getBytes()); 
+        System.out.println(Hex.encodeHexString(digest)); 
+    } 
+}
+```
+
+10. 接口私有方法
+
+```java
+interface Foo {
+    private foo() {
+        // do something
+    }
+}
+```
 
 ## 8
 
@@ -35,6 +148,10 @@ int i = power.power(8);
 Consumer<String> consumer = System.out::println;
 consumer.accept("Hello Java8");
 ```
+
+4. Optional
+
+NullPointerException 
 
 ## 1_7
 
