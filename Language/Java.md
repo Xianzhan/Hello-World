@@ -1,5 +1,5 @@
-[Native](#Native)
-  - [Primitive](#Primitive)
+[Native](#native)
+  - [Primitive](#primitive)
 
 [Version](#Version)
   - [10](#10)
