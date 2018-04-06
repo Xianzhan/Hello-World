@@ -1,3 +1,6 @@
+[Native](#Native)
+  - [Primitive](#Primitive)
+
 [Version](#Version)
   - [10](#10)
   - [9](#9)
@@ -5,6 +8,18 @@
   - [1.7](#1_7)
   - [1.6](#1_6)
   - [1.5](#1_5)
+
+# Native
+
+## Primitive
+
+C++ | Java
+:---:|:---:
+`typedef unsigned char   jboolean`| `boolean`
+`typedef unsigned short  jchar`|`char`
+`typedef short           jshort`|`short`
+`typedef float           jfloat`|`float`
+`typedef double          jdouble`|`double`
 
 # Version
 
