@@ -1,3 +1,5 @@
+[ClassFile](#classfile)
+
 [Native](#native)
   - [Primitive](#primitive)
 
@@ -8,6 +10,12 @@
   - [1.7](#1_7)
   - [1.6](#1_6)
   - [1.5](#1_5)
+  
+[resources](#resources)
+
+# ClassFile
+
+[实例分析JAVA CLASS的文件结构](http://mp.weixin.qq.com/s/WiO97u0cyqpdoEkVOZ6D_Q)
 
 # Native
 
@@ -278,3 +286,9 @@ for (String s : strings) { //
     // do something
 }
 ```
+
+# resources
+
+[自己关于VM的帖的目录 - RednaxelaFX](http://rednaxelafx.iteye.com/blog/362738)
+
+[关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)
