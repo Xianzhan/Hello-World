@@ -3,13 +3,7 @@
 [Native](#native)
   - [Primitive](#primitive)
 
-[Version](#Version)
-  - [10](#10)
-  - [9](#9)
-  - [8](#8)
-  - [1.7](#1_7)
-  - [1.6](#1_6)
-  - [1.5](#1_5)
+[Version](#version)
   
 [resources](#resources)
 
