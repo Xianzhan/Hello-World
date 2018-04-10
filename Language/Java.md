@@ -31,7 +31,23 @@ C++ | Java
 `typedef float           jfloat`|`float`
 `typedef double          jdouble`|`double`
 
-```cpp
+```h
+// jni_md.h
+#define JNICALL
+
+typedef int jint;
+#ifdef _LP64
+typedef long jlong;
+#else
+typedef long long jlong;
+#endif
+
+typedef signed char jbyte;
+
+#endif /* !_JAVASOFT_JNI_MD_H_ */
+
+
+// jni.h
 #ifdef __cplusplus
 
 class _jobject {};
