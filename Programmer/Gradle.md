@@ -1,4 +1,6 @@
 [Base](#base)
+  - [配置](#配置)
+  - [.gradle](#gradle)
 
 # Base
 
@@ -20,4 +22,24 @@ Windows:
 
 ```bat
 GRADLE_USER_HOME=c:/gradle/.gradle
+```
+
+## gradle
+
+```gradle
+// build
+// apply 是一个方法, 省略了括号 ()
+apply plugin:'java'
+
+version = '0.1'
+
+// repositories 也是一个方法, {} 里面是一个闭包
+repositories {
+    mavenCentral() // 参数
+}
+
+
+dependencies {
+    compile 'commons-codec:commons-codec:1.6'
+}
 ```
