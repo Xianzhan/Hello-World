@@ -375,6 +375,6 @@ for (String s : strings) { //
 
 # resources
 
-[自己关于VM的帖的目录 - RednaxelaFX](http://rednaxelafx.iteye.com/blog/362738)
-
-[关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)
+[自己关于VM的帖的目录 - RednaxelaFX](http://rednaxelafx.iteye.com/blog/362738)<br>
+[关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)<br>
+[module-info.java](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)
