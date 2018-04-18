@@ -377,4 +377,5 @@ for (String s : strings) { //
 
 [自己关于VM的帖的目录 - RednaxelaFX](http://rednaxelafx.iteye.com/blog/362738)<br>
 [关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)<br>
-[module-info.java](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)
+[module-info.java](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)<br>
+[POJO VO DAO BO 等缩写的意义](http://mp.weixin.qq.com/s/8CBlzV2nqbtzVmqA1vKz-g)
