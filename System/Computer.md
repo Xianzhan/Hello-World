@@ -12,13 +12,15 @@
 
 [resources](#resources)
 
-计算机最关键的三个部分：CPU,内存,I/O控制芯片。
-
-![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180412105858.png)
+![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180425152407.png)
 
 # 硬件
 
 逻辑门; 布尔运算; multiplexor (多路复用器); 触发器 (flip-flop); 寄存器 (register); RAM 单元; 计数器; 硬件描述语言 (HDL, Hardware Description Language); 芯片的仿真及测试.
+
+计算机最关键的三个部分：CPU,内存,I/O控制芯片。
+
+![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180412105858.png)
 
 # 体系架构
 
