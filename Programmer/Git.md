@@ -11,6 +11,8 @@
   - [合并与衍合](#合并与衍合)
   - [远程操作](#远程操作)
 
+[resources](#resources)
+
 # Download
 
 [国内淘宝镜像](https://github.com/waylau/git-for-win)
@@ -182,3 +184,9 @@ git push <remote> <branch>   //将本地master分支推送到<remote>的<branch>
 git push <remote>:<branch/tag>   //删除远程分支或标签
 git push --tags   //上传所有标签
 ```
+
+# resources
+
+[常用 Git 命令清单](https://mp.weixin.qq.com/s/RYYGU9jGd-uZLft1hk--cg)<br>
+[日常使用 Git 的 19 个建议](https://mp.weixin.qq.com/s/fHM9knL4rDNv8nMpXU8dsg)<br>
+[SegmentFault 技术周刊 Vol.27 - Git 学习宝典：程序员走江湖必备](https://segmentfault.com/a/1190000009893041)
