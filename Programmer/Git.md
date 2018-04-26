@@ -187,6 +187,7 @@ git push --tags   //上传所有标签
 
 # resources
 
+[Git 操作规范](https://mp.weixin.qq.com/s/XjjFoz9WRRNv42v-RWZc9w)<br>
 [常用 Git 命令清单](https://mp.weixin.qq.com/s/RYYGU9jGd-uZLft1hk--cg)<br>
 [日常使用 Git 的 19 个建议](https://mp.weixin.qq.com/s/fHM9knL4rDNv8nMpXU8dsg)<br>
 [SegmentFault 技术周刊 Vol.27 - Git 学习宝典：程序员走江湖必备](https://segmentfault.com/a/1190000009893041)
