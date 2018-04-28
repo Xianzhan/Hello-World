@@ -28,6 +28,7 @@
 
 英文术语 | 中文译法
 ---:|:---
+ABI | application binary interface 应用二进制接口
 allocation | (内存) 分配
 assembly | 汇编; 汇编语言
 assember | 汇编编译器
