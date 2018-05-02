@@ -29,6 +29,7 @@
 英文术语 | 中文译法
 ---:|:---
 ABI | application binary interface 应用二进制接口
+ALU | Arithmetic Logic Unit 算术逻辑单元
 allocation | (内存) 分配
 assembly | 汇编; 汇编语言
 assember | 汇编编译器
@@ -43,6 +44,7 @@ BO | Business Object, 用于表示一个业务对象. BO 包括了业务逻辑�
 
 英文术语 | 中文译法
 ---:|:---
+CPU | Central Processing Unit 中央处理单元
 class | 类
 class type | "类" 类型
 compiler | 编译器
@@ -61,6 +63,7 @@ dispose | 清除
 
 英文术语 | 中文译法
 ---:|:---
+fetch | 取; 取指令
 field | 域; 字段
 function | 函数; 功能
 
@@ -69,6 +72,7 @@ function | 函数; 功能
 英文术语 | 中文译法
 ---:|:---
 identifier | 标识符
+instruction | 指令
 invoke | 唤起 (执行)
 label | 标签
 
@@ -76,6 +80,7 @@ label | 标签
 
 英文术语 | 中文译法
 ---:|:---
+memory | 内存
 method | 方法
 
 # O 
@@ -91,6 +96,7 @@ object instance | 对象实例
 
 英文术语 | 中文译法
 ---:|:---
+PC | Program counter 程序计数器
 PO | Persistant Object, 用于表示数据库中的一条记录映射成的 Java 对象. PO 仅仅用于表示数据, 没有任何数据操作, 遵守 Java Bean 规范
 POJO | Plain Ordinary Java Object 的缩写，表示一个简单 java 对象。上面说的 PO、VO、DTO 都是典型的 POJO。而 DAO、BO 一般都不是 POJO，只提供一些调用方法。
 parse/parsing | (语法) 分析
@@ -105,6 +111,7 @@ procedural | 过程化 (的)
 
 英文术语 | 中文译法
 ---:|:---
+ROM | Read-Only Memory 只读内存
 reference | 引用
 
 # S
