@@ -2,6 +2,7 @@
 
 [Native](#native)
   - [Primitive](#primitive)
+  - [Thread](#thread)
 
 [Version](#version)
   
@@ -102,6 +103,11 @@ typedef jarray jobjectArray;
 #define JNI_FALSE 0
 #define JNI_TRUE  1
 ```
+
+## Thread
+
+[JVM原理与实现——Thread](https://juejin.im/entry/5960852cf265da6c2e0f8a31)<br>
+[java线程理解以及openjdk中的实现](https://my.oschina.net/xpbob/blog/1626775)
 
 # Version
 
