@@ -48,6 +48,7 @@ CPU | Central Processing Unit 中央处理单元
 class | 类
 class type | "类" 类型
 compiler | 编译器
+concurrency | 并发, 一个**时间段**内运行多个程序
 constant | 常量
 constructor | 构造函数
 
@@ -99,6 +100,7 @@ object instance | 对象实例
 PC | Program counter 程序计数器
 PO | Persistant Object, 用于表示数据库中的一条记录映射成的 Java 对象. PO 仅仅用于表示数据, 没有任何数据操作, 遵守 Java Bean 规范
 POJO | Plain Ordinary Java Object 的缩写，表示一个简单 java 对象。上面说的 PO、VO、DTO 都是典型的 POJO。而 DAO、BO 一般都不是 POJO，只提供一些调用方法。
+parallelism | 并行, 一个**时间点**同时运行多个程序
 parse/parsing | (语法) 分析
 parser | (语法) 分析器
 parse table | (语法) 分析表
