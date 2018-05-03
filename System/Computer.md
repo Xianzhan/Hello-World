@@ -37,6 +37,8 @@
 
 词法分析; 自顶向下的语法分析; 符号表 (symbol table); 基于堆栈 (stack-based) 的虚拟机; 代码生成; 数组和对象的实现.
 
+![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180503102918.png)
+
 # 数据结构和算法
 
 堆栈; 哈希表; 链表; 递归; 算术算法; 几何算法; 运行效率.
