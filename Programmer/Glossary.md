@@ -113,6 +113,7 @@ procedural | 过程化 (的)
 
 英文术语 | 中文译法
 ---:|:---
+RAM | Random-Access Memory 随机访问存储器
 ROM | Read-Only Memory 只读内存
 reference | 引用
 
