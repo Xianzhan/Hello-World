@@ -6,6 +6,8 @@
 
 [D](#d)
 
+[E](#e)
+
 [F](#f)
 
 [I](#i)
@@ -59,6 +61,12 @@ constructor | 构造函数
 DAO | Data Access Object, 处于持久层, 用于表示一个数据访问对象. DAO 封装对数据库的所有操作, 与 PO 一起使用.
 DTO | Data Transfer Object, 表示一个数据传输对象. 通常用于不同服务器或服务不同分层之间的数据传输
 dispose | 清除
+
+# E 
+
+英文术语 | 中文译法
+---:|:---
+ECF | Exceptional Control Flow 异常控制流
 
 # F
 
