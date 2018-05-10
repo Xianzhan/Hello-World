@@ -16,7 +16,14 @@
 
 # 硬件
 
-逻辑门; 布尔运算; multiplexor (多路复用器); 触发器 (flip-flop); 寄存器 (register); RAM 单元; 计数器; 硬件描述语言 (HDL, Hardware Description Language); 芯片的仿真及测试.
+逻辑门; <br>
+布尔运算; <br>
+multiplexor (多路复用器); <br>
+触发器 (flip-flop); <br>
+寄存器 (register); <br>
+RAM 单元; 计数器; <br>
+硬件描述语言 (HDL, Hardware Description Language); <br>
+芯片的仿真及测试.<br>
 
 计算机最关键的三个部分：CPU,内存,I/O控制芯片。
 
@@ -24,18 +31,32 @@
 
 # 体系架构
 
-内存管理; 数学计算程序库; 基本 I/O 驱动程序; 屏幕管理; 文件 I/O; 对高级语言的支持.
+内存管理; <br>
+数学计算程序库; <br>
+基本 I/O 驱动程序; <br>
+屏幕管理; <br>
+文件 I/O; <br>
+对高级语言的支持.<br>
 
 [【底层原理】基本内存管理（上）](https://mp.weixin.qq.com/s/MGEMmrCxTfi8K8spebsC_w)<br>
 [【系统编程】高性能网络I/O入门（一）](https://mp.weixin.qq.com/s/IUlwCPvf8okbHsbfd1q2rA)
 
 # 程序设计语言
 
-基于对象 (object-based) 的设计和编程模式; 抽象数据类型; 作用域; 语法和语义; 引用 (reference) 机制.
+基于对象 (object-based) 的设计和编程模式; <br>
+抽象数据类型; <br>
+作用域; <br>
+语法和语义; <br>
+引用 (reference) 机制.<br>
 
 # 编译器
 
-词法分析; 自顶向下的语法分析; 符号表 (symbol table); 基于堆栈 (stack-based) 的虚拟机; 代码生成; 数组和对象的实现.
+词法分析; <br>
+自顶向下的语法分析; <br>
+符号表 (symbol table); <br>
+基于堆栈 (stack-based) 的虚拟机; <br>
+代码生成; <br>
+数组和对象的实现.<br>
 
 ![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180503102918.png)
 
@@ -46,11 +67,22 @@
 
 # 数据结构和算法
 
-堆栈; 哈希表; 链表; 递归; 算术算法; 几何算法; 运行效率.
+堆栈; <br>
+哈希表; <br>
+链表; <br>
+递归; <br>
+算术算法; <br>
+几何算法; <br>
+运行效率.<br>
 
 # 软件工程
 
-模块化设计; 接口/实现范式; API 设计和文档; 主动式测试 (即极限编程理论中的单元测试等); 广义的程序设计概念; 质量保证体系.
+模块化设计; <br>
+接口/实现范式; <br>
+API 设计和文档; <br>
+主动式测试 (即极限编程理论中的单元测试等); <br>
+广义的程序设计概念; <br>
+质量保证体系.<br>
 
 # resources
 
