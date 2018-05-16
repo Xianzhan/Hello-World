@@ -371,4 +371,5 @@ for (String s : strings) { //
 [关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)<br>
 [module-info.java](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)<br>
 [POJO VO DAO BO 等缩写的意义](http://mp.weixin.qq.com/s/8CBlzV2nqbtzVmqA1vKz-g)<br>
-[关于Class.getResource和ClassLoader.getResource的路径问题](https://www.cnblogs.com/yejg1212/p/3270152.html)
+[关于Class.getResource和ClassLoader.getResource的路径问题](https://www.cnblogs.com/yejg1212/p/3270152.html)<br>
+[Download](http://www.oracle.com/technetwork/java/javase/archive-139210.html)
