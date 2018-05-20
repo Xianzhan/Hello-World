@@ -126,6 +126,8 @@ public void main(String... args) {
 
 1. Jigsaw (模块化)
 
+[module-info.java](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)<br>
+
 模块声明示例
 
 ```java
@@ -370,7 +372,6 @@ for (String s : strings) { //
 [【RPC 专栏】深入理解RPC之序列化篇--总结篇](http://mp.weixin.qq.com/s?__biz=MzUzMTA2NTU2Ng==&mid=2247484483&idx=1&sn=b58e64b13743d3f40b8c9c3ee7ec885e&chksm=fa497bf2cd3ef2e47851b447801ec54bb8be29c81cdf450df2a257b3a2d4d97e264f9ca8586e&scene=0#rd)<br>
 [自己关于VM的帖的目录 - RednaxelaFX](http://rednaxelafx.iteye.com/blog/362738)<br>
 [关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)<br>
-[module-info.java](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)<br>
 [POJO VO DAO BO 等缩写的意义](http://mp.weixin.qq.com/s/8CBlzV2nqbtzVmqA1vKz-g)<br>
 [关于Class.getResource和ClassLoader.getResource的路径问题](https://www.cnblogs.com/yejg1212/p/3270152.html)<br>
 [Download](http://www.oracle.com/technetwork/java/javase/archive-139210.html)
