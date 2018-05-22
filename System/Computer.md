@@ -65,6 +65,7 @@ RAM 单元; 计数器; <br>
 - 异常处理程序运行在 *内核模式* 下, 这意味着它们对所有的系统资源都有完全的访问权限.
 
 [【底层原理】基本内存管理（上）](https://mp.weixin.qq.com/s/MGEMmrCxTfi8K8spebsC_w)<br>
+[【底层原理】网络数据传输时经历了哪些buffer](https://mp.weixin.qq.com/s/ZaQ6rpT_jOyaEtW7YPNXZw)<br>
 [【系统编程】高性能网络I/O入门（一）](https://mp.weixin.qq.com/s/IUlwCPvf8okbHsbfd1q2rA)
 
 # 程序设计语言
