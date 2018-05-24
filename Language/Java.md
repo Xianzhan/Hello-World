@@ -1,22 +1,33 @@
-[ClassFile](#classfile)
+[JDK](#jdk)
 
-[Native](#native)
-  - [Primitive](#primitive)
-  - [Thread](#thread)
+[JVM](#jvm)
+  - [ClassFile](#classfile)
+  - [Native](#native)
+    - [Primitive](#primitive)
+    - [Thread](#thread)
 
 [Version](#version)
   
 [resources](#resources)
 
-# ClassFile
+# JDK
+
+[Java多线程-线程池ThreadPoolExecutor构造方法和规则](https://blog.csdn.net/qq_25806863/article/details/71126867)<br>
+
+# JVM
+
+[关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)<br>
+[自己关于VM的帖的目录 - RednaxelaFX](http://rednaxelafx.iteye.com/blog/362738)<br>
+
+## ClassFile
 
 [实例分析JAVA CLASS的文件结构](http://mp.weixin.qq.com/s/WiO97u0cyqpdoEkVOZ6D_Q)
 
-# Native
+## Native
 
 [openjdk 源码](https://github.com/dmlloyd/openjdk)
 
-## Primitive
+### Primitive
 
 C++ | Java
 :---:|:---:
@@ -104,7 +115,7 @@ typedef jarray jobjectArray;
 #define JNI_TRUE  1
 ```
 
-## Thread
+### Thread
 
 [JVM原理与实现——Thread](https://juejin.im/entry/5960852cf265da6c2e0f8a31)<br>
 [java线程理解以及openjdk中的实现](https://my.oschina.net/xpbob/blog/1626775)
@@ -370,8 +381,6 @@ for (String s : strings) { //
 # resources
 
 [【RPC 专栏】深入理解RPC之序列化篇--总结篇](http://mp.weixin.qq.com/s?__biz=MzUzMTA2NTU2Ng==&mid=2247484483&idx=1&sn=b58e64b13743d3f40b8c9c3ee7ec885e&chksm=fa497bf2cd3ef2e47851b447801ec54bb8be29c81cdf450df2a257b3a2d4d97e264f9ca8586e&scene=0#rd)<br>
-[自己关于VM的帖的目录 - RednaxelaFX](http://rednaxelafx.iteye.com/blog/362738)<br>
-[关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)<br>
 [POJO VO DAO BO 等缩写的意义](http://mp.weixin.qq.com/s/8CBlzV2nqbtzVmqA1vKz-g)<br>
 [关于Class.getResource和ClassLoader.getResource的路径问题](https://www.cnblogs.com/yejg1212/p/3270152.html)<br>
 [Download](http://www.oracle.com/technetwork/java/javase/archive-139210.html)
