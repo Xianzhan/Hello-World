@@ -2,7 +2,9 @@
 
 [Dockerfile](#dockerfile)
 
-[mysql](#mysql)
+[MySQL](#mysql)
+
+[resources](#resources)
 
 # Base
 
@@ -94,3 +96,7 @@ bind-address         = 0.0.0.0
 max_connections      = 505
 max_user_connections = 500
 ```
+
+# resources
+
+[基于 Docker 搭建 MySQL 主从复制](https://mp.weixin.qq.com/s/m9ZD_KNrinBkv95fuZVoFA)<br>
