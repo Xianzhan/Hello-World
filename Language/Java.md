@@ -1,7 +1,10 @@
 [JDK](#jdk)
+  - [Proxy](#proxy)
+  - [Thread](#thread)
 
 [JVM](#jvm)
   - [ClassFile](#classfile)
+  - [GC](#gc)
   - [Native](#native)
     - [Primitive](#primitive)
     - [Thread](#thread)
@@ -11,6 +14,12 @@
 [resources](#resources)
 
 # JDK
+
+## Proxy
+
+[【RPC 专栏】深入理解 RPC 之动态代理篇](https://mp.weixin.qq.com/s/VyX3v3vdMP4VnGHMB46FwA)<br>
+
+## Thread
 
 [Java多线程-线程池ThreadPoolExecutor构造方法和规则](https://blog.csdn.net/qq_25806863/article/details/71126867)<br>
 
@@ -22,6 +31,10 @@
 ## ClassFile
 
 [实例分析JAVA CLASS的文件结构](http://mp.weixin.qq.com/s/WiO97u0cyqpdoEkVOZ6D_Q)
+
+## GC
+
+[G1 垃圾收集器之对象分配过程](https://mp.weixin.qq.com/s/eLbibVWsuqXeNOvMMut0XA)<br>
 
 ## Native
 
