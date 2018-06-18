@@ -46,6 +46,7 @@ BO | Business Object, 用于表示一个业务对象. BO 包括了业务逻辑�
 
 英文术语 | 中文译法
 ---:|:---
+COFF | Common file format (PE、ELF 的原型)
 CPU | Central Processing Unit 中央处理单元
 class | 类
 class type | "类" 类型
@@ -67,6 +68,7 @@ dispose | 清除
 英文术语 | 中文译法
 ---:|:---
 ECF | Exceptional Control Flow 异常控制流
+ELF | Executable Linkable Format Linux 可执行文件格式
 
 # F
 
@@ -106,6 +108,7 @@ object instance | 对象实例
 英文术语 | 中文译法
 ---:|:---
 PC | Program counter 程序计数器
+PE | Protable Executable Windows 下的可执行文件格式
 PO | Persistant Object, 用于表示数据库中的一条记录映射成的 Java 对象. PO 仅仅用于表示数据, 没有任何数据操作, 遵守 Java Bean 规范
 POJO | Plain Ordinary Java Object 的缩写，表示一个简单 java 对象。上面说的 PO、VO、DTO 都是典型的 POJO。而 DAO、BO 一般都不是 POJO，只提供一些调用方法。
 parallelism | 并行, 一个**时间点**同时运行多个程序
