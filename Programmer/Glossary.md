@@ -12,6 +12,10 @@
 
 [I](#i)
 
+[J](#j)
+
+[L](#l)
+
 [M](#m)
 
 [O](#o)
@@ -68,6 +72,7 @@ dispose | 清除
 英文术语 | 中文译法
 ---:|:---
 ECF | Exceptional Control Flow 异常控制流
+EJB | Enterprise Java Bean 企业 Java bean
 ELF | Executable Linkable Format Linux 可执行文件格式
 
 # F
@@ -85,6 +90,21 @@ function | 函数; 功能
 identifier | 标识符
 instruction | 指令
 invoke | 唤起 (执行)
+label | 标签
+
+# J
+
+英文术语 | 中文译法
+---:|:---
+JAF | （Java Action FrameWork）JAVA安全认证框架。提供一些安全控制方面的框架。让开发者通过各种部署和自定义实现自己的个性安全控制策略。
+JMS | （Java Message Service）JAVA消息服务。主要实现各个应用程序之间的通讯。包括点对点和广播。
+JNDI | （Java Naming & Directory Interface）JAVA命名目录服务。主要提供的功能是：提供一个目录系统，让其它各地的应用程序在其上面留下自己的索引，从而满足快速查找和定位分布式应用程序的功能。
+JTA | （Java Transaction API）JAVA事务服务。提供各种分布式事务服务。应用程序只需调用其提供的接口即可。
+
+# L
+
+英文术语 | 中文译法
+---:|:---
 label | 标签
 
 # M
@@ -125,6 +145,7 @@ procedural | 过程化 (的)
 英文术语 | 中文译法
 ---:|:---
 RAM | Random-Access Memory 随机访问存储器
+RMI | Remote Method Invocation 远程方法调用
 ROM | Read-Only Memory 只读内存
 reference | 引用
 
