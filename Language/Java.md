@@ -32,6 +32,7 @@
 # JVM
 
 [关于Jvm知识看这一篇就够了 - 纯洁的微笑](https://zhuanlan.zhihu.com/p/34426768)<br>
+[江南白衣 | 关键系统的JVM参数推荐(2018仲夏版)](https://mp.weixin.qq.com/s/FHY0MelBfmgdRpT4zWF9dQ)<br>
 [自己关于VM的帖的目录 - RednaxelaFX](http://rednaxelafx.iteye.com/blog/362738)<br>
 
 ## ClassFile
