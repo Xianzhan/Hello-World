@@ -1,1 +1,1 @@
-# Hello-World
+推荐使用 chrome 浏览器, 并使用插件 [octotree](https://github.com/ovity/octotree) 阅读此博客
