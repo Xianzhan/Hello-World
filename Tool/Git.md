@@ -19,6 +19,13 @@
 
 # 常用命令
 
+![status](../.resource/Tool-Git-status.png)
+
+- workspace: 工作区
+- Index/Stage: 暂存区
+- Repository: 仓库区(或本地仓库)
+- Remote: 远程仓库
+
 ## 全局配置
 
 ```

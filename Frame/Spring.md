@@ -2,7 +2,7 @@
 
 [SpEL](#spel)
 
-[resources](#resources)
+[资源](#资源)
 
 # Interview
 
@@ -15,6 +15,6 @@ Spring Expression Language
 
 [Spring的EL表达式](https://blog.csdn.net/keda8997110/article/details/52767087)<br>
 
-# resources
+# 资源
 
 [Spring 源码导读](https://mp.weixin.qq.com/s/-Ce5T6LIzFe-TLTxmjYuSQ)<br>

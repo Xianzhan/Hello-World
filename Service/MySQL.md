@@ -1,6 +1,6 @@
-[resources](#resources)
+[资源](#资源)
 
-# resources
+# 资源
 
 [MySQL 的变量分类总结](https://mp.weixin.qq.com/s/M2BUZmudpnltu09dw8-PiQ)<br>
 [MySQL 对于千万级的大表要怎么优化？](https://mp.weixin.qq.com/s/-aC6WWoZsBp1Ap2jy6BNSA)<br>

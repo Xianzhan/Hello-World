@@ -13,7 +13,7 @@
 
 [Features](#features)
   
-[resources](#resources)
+[资源](#资源)
 
 # Interview
 
@@ -144,7 +144,7 @@ typedef jarray jobjectArray;
 
 [JDK Enhancement-Proposal & Roadmap Process](http://openjdk.java.net/jeps/0)<br>
 
-# resources
+# 资源
 
 [【RPC 专栏】深入理解RPC之序列化篇--总结篇](http://mp.weixin.qq.com/s?__biz=MzUzMTA2NTU2Ng==&mid=2247484483&idx=1&sn=b58e64b13743d3f40b8c9c3ee7ec885e&chksm=fa497bf2cd3ef2e47851b447801ec54bb8be29c81cdf450df2a257b3a2d4d97e264f9ca8586e&scene=0#rd)<br>
 [POJO VO DAO BO 等缩写的意义](http://mp.weixin.qq.com/s/8CBlzV2nqbtzVmqA1vKz-g)<br>

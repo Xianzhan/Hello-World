@@ -1,33 +1,20 @@
-# 函数指针
+[指针](#指针)
 
-指针!指针!指针!
+[资源](#资源)
 
-```c++
-#include <iostream>
+# 指针
 
-using namespace std;
-
-/*
- * 普通函数
- */
-void hello(string s);
-
-/*
- * 函数指针
- */
-void (*hello_p)(string);
-
-int main()
-{
-    hello("lee");
-    hello_p = &hello;
-    hello_p("xianzhan");
-
-    return 0;
-}
-
-void hello(string s)
-{
-    cout << "hello " << s << endl;
-}
+```c
+// 普通指向整型的指针
+int *pi;
+// 指向整型常量的指针,可以修改指针的值,但不能修改它所指向的值
+int const *pci;
+// 指向整型的常量指针,此时指针是常量,它的值无法修改,但可以修改它所指向的整型的值
+int * const cpi;
+// 指向整型常量的常量指针,不允许修改
+int const * const cpci;
 ```
+
+# 资源
+
+[【C++】预编译、编译、汇编、链接](https://blog.csdn.net/weixin_40740059/article/details/84075653)
