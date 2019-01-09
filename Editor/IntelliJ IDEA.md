@@ -1,5 +1,7 @@
 [跳转](#跳转)
 
+[资源](#资源)
+
 # 跳转
 
 1. 项目之间跳转
@@ -31,3 +33,7 @@ show bookmarks `Shift + F11`
 4. 收藏
 
 add to favorites `Alt + Shift + F`
+
+# 资源
+
+[从头搭建IntelliJ IDEA环境](https://mp.weixin.qq.com/s/6jXHzkU8JfubhDsQJbwl8Q)<br>

@@ -11,7 +11,7 @@
   - [合并与衍合](#合并与衍合)
   - [远程操作](#远程操作)
 
-[resources](#resources)
+[资源](#资源)
 
 # Download
 
@@ -192,9 +192,10 @@ git push <remote>:<branch/tag>   //删除远程分支或标签
 git push --tags   //上传所有标签
 ```
 
-# resources
+# 资源
 
 [Git 操作规范](https://mp.weixin.qq.com/s/XjjFoz9WRRNv42v-RWZc9w)<br>
 [常用 Git 命令清单](https://mp.weixin.qq.com/s/RYYGU9jGd-uZLft1hk--cg)<br>
 [日常使用 Git 的 19 个建议](https://mp.weixin.qq.com/s/fHM9knL4rDNv8nMpXU8dsg)<br>
-[SegmentFault 技术周刊 Vol.27 - Git 学习宝典：程序员走江湖必备](https://segmentfault.com/a/1190000009893041)
+[SegmentFault 技术周刊 Vol.27 - Git 学习宝典：程序员走江湖必备](https://segmentfault.com/a/1190000009893041)<br>
+[建议你用Git命令完成这次闯关游戏。](https://mp.weixin.qq.com/s/-aZZmSIEY6URAGca2ZOJzw)<br>
