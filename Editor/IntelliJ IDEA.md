@@ -37,3 +37,4 @@ add to favorites `Alt + Shift + F`
 # 资源
 
 [从头搭建IntelliJ IDEA环境](https://mp.weixin.qq.com/s/6jXHzkU8JfubhDsQJbwl8Q)<br>
+[你们都在用IntelliJ IDEA吗？或许你们需要看一下这篇博文](https://zhuanlan.zhihu.com/p/47365808)<br>

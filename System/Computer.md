@@ -159,4 +159,5 @@ API 设计和文档; <br>
 
 # 资源
 
-[程序员的自我修养：温故而知新](https://mp.weixin.qq.com/s/8rQKJxFaFDznrTRHmVNNQA)
+[程序员的自我修养：温故而知新](https://mp.weixin.qq.com/s/8rQKJxFaFDznrTRHmVNNQA)<br>
+[Linux X86 程序启动 – main函数是如何被执行的？](https://luomuxiaoxiao.com/?p=516)<br>
