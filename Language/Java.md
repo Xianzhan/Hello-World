@@ -1,26 +1,26 @@
-[面试](#面试)
+[基础](#基础)
+ - [字符串](#字符串)
+ - [多线程](#多线程)
 
-[多线程](#多线程)
- - [ThreadLocal](#ThreadLocal)
- - [锁](#锁)
+[代理](#代理)
 
- [代理](#代理)
+[特性](#特性)
 
- [特性](#特性)
+[资源](#资源)
 
- [资源](#资源)
+# 基础
 
-# 面试
+## 字符串
 
-[JAVA后端面试100 Q&A之第一篇](https://mp.weixin.qq.com/s/AauQPGo44JrkqND5BLsTQg)<br>
+[一个Java字符串中到底有多少个字符?](https://colobu.com/2019/01/04/how-many-charactors-in-a-java-string/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)<br>
 
-# 多线程
+## 多线程
 
-## ThreadLocal
+### ThreadLocal
 
 [ThreadLocal的使用及原理分析](https://mp.weixin.qq.com/s/bxIkMaCQ0PriZtSWT8wrXw)<br>
 
-## 锁
+### 锁
 
 [Java 中15种锁的介绍](https://mp.weixin.qq.com/s/qWhcgKxrWz0ei_pKlSynpA)<br>
 

@@ -1,6 +1,8 @@
 [AJAX](#AJAX)
   - [跨域](#跨域)
 
+[资源](#资源)
+
 # AJAX
 
 Asynchronous JavaScript and XML（异步的JavaScript与XML技术）
@@ -16,3 +18,7 @@ Asynchronous JavaScript and XML（异步的JavaScript与XML技术）
 ```cmd
 >chrome --disable-web-security --user-data-dir=g:\temp3
 ```
+
+# 资源
+
+[JavaScript的工作原理：解析、抽象语法树（AST）+ 提升编译速度5个技巧](https://www.cnblogs.com/fundebug/p/how-does-javascript-compile.html)<br>
