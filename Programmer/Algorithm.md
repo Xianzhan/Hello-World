@@ -2,22 +2,12 @@
 
 # 算法复杂度速查表
 
-> 数据结构操作
-
-![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180623142120.png)
-
-> 数组排序算法
-
-![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180623142208.jpg)
-
-> 图操作
-
-![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180623142235.png)
-
-> 堆操作
-
-![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180623142245.png)
-
-> 大 O 复杂度图表
-
-![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180623142255.png)
+|排序名称|比较次数|赋值交换次数|时间复杂度|时间复杂度最好|时间复杂度最坏|空间复杂度|稳定|特点|衍生算法|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|插入排序|N-1 到 N(N-1)/2|O(N^2)|O(N^2)|O(N)|O(N^2)|O(1)|是|简单稳定, 适合初始有序|希尔排序|
+|选择排序|N(N-1)/2|O(N)|O(N^2)|O(N^2)|O(N^2)|O(1)|否|简单|双向选择排序|
+|冒泡排序|N-1 到 N(N-1)/2|O(N^2)|O(N^2)|O(N)|O(N^2)|O(1)|是|简单稳定, 效率低|鸡尾酒排序|
+|希尔排序|N-1 到 N(N-1)/2|O(N^2)|O(N^2)|O(N)|O(N^2)|O(1)|否|效率中等|无|
+|堆排序|小于 2NlgN|O(NlgN)|O(NlgN)|O(NlgN)|O(NlgN)|O(1)|否|效率高占内存小, 缓存命中低|多叉堆排序|
+|归并排序|NlgN 到 (2N-1)lgN|O(N)|O(NlgN)|O(NlgN)|O(NlgN)|O(N)|是|效率高稳定|多路归并排序|
+|快速排序|NlgN 到 N(N-1)/2|O(NlgN)|O(NlgN)|O(NlgN)|O(N^2)|O(lgN)|否|效率高不稳定|三向快速排序|
