@@ -1,13 +1,14 @@
-[CMD](#cmd)
-  
-  
-[文件系统](#文件系统)
-  
-[性能](#性能)
- - [netstat](#netstat)
- - [perf](#perf)
- - [top](#top)
- - [uptime](#uptime)
+<!-- TOC -->
+
+- [CMD](#cmd)
+- [文件系统](#文件系统)
+- [性能](#性能)
+    - [netstat](#netstat)
+    - [perf](#perf)
+    - [top](#top)
+    - [uptime](#uptime)
+
+<!-- /TOC -->
 
 # CMD
 

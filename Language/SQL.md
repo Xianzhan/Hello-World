@@ -1,7 +1,10 @@
-[DDL](#DDL)
+<!-- TOC -->
 
-[DML](#DML)
- - [select](#select)
+- [DDL](#ddl)
+- [DML](#dml)
+    - [select](#select)
+
+<!-- /TOC -->
 
 # DDL
 

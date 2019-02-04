@@ -1,4 +1,8 @@
-[Design](#design)
+<!-- TOC -->
+
+- [Design](#design)
+
+<!-- /TOC -->
 
 # Design
 

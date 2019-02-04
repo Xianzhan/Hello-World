@@ -1,10 +1,11 @@
-[Base](#base)
+<!-- TOC -->
 
-[Dockerfile](#dockerfile)
+- [Base](#base)
+- [Dockerfile](#dockerfile)
+- [MySQL](#mysql)
+- [资源](#资源)
 
-[MySQL](#mysql)
-
-[资源](#资源)
+<!-- /TOC -->
 
 # Base
 

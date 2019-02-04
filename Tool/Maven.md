@@ -1,16 +1,19 @@
-[mvn](#mvn)
-  - [clean](#clean)
-  - [compile](#compile)
-  - [generate-sources](#generate-sources)
-  - [install](#install)
-  - [jar](#jar)
-  - [package](#package)
-  - [test](#test)
-  - [validate](#validate)
+<!-- TOC -->
 
-[依赖](#依赖)
- - [依赖范围](#依赖范围)
- - [依赖调解](#依赖调解)
+- [mvn](#mvn)
+    - [clean](#clean)
+    - [compile](#compile)
+    - [generate-sources](#generate-sources)
+    - [install](#install)
+    - [jar](#jar)
+    - [package](#package)
+    - [test](#test)
+    - [validate](#validate)
+- [依赖](#依赖)
+    - [依赖范围](#依赖范围)
+    - [依赖调解](#依赖调解)
+
+<!-- /TOC -->
 
 # mvn
 

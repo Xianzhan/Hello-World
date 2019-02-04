@@ -1,12 +1,16 @@
-[诊断](#诊断)
- - [jcmd](#jcmd)
- - [jhat](#jhat)
- - [jinfo](#jinfo)
- - [jmap](#jmap)
- - [jmc](#jmc)
- - [jstack](#jstack)
- - [jstat](#jstat)
- - [visualvm](#visualvm)
+<!-- TOC -->
+
+- [诊断](#诊断)
+    - [jcmd](#jcmd)
+    - [jhat](#jhat)
+    - [jinfo](#jinfo)
+    - [jmap](#jmap)
+    - [jmc](#jmc)
+    - [jstack](#jstack)
+    - [jstat](#jstat)
+    - [visualvm](#visualvm)
+
+<!-- /TOC -->
 
 # 诊断
 

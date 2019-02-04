@@ -1,6 +1,10 @@
-[Base](#base)
-  - [配置](#配置)
-  - [.gradle](#gradle)
+<!-- TOC -->
+
+- [Base](#base)
+    - [配置](#配置)
+    - [gradle](#gradle)
+
+<!-- /TOC -->
 
 # Base
 
