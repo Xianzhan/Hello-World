@@ -1,5 +1,8 @@
 <!-- TOC -->
 
+- [查阅](#查阅)
+    - [javap](#javap)
+    - [jps](#jps)
 - [诊断](#诊断)
     - [jcmd](#jcmd)
     - [jhat](#jhat)
@@ -11,6 +14,16 @@
     - [visualvm](#visualvm)
 
 <!-- /TOC -->
+
+# 查阅
+
+## javap
+
+查阅 Java 字节码
+
+## jps
+
+打印所有正在运行的 Java 进程。默认输出 Java 进程的 ID 以及主类名。
 
 # 诊断
 
@@ -36,11 +49,11 @@ Java Mission Control, 是一款采样型的集诊断、分析和监控于一体�
 
 ## jstack
 
-Java 堆栈跟踪工具, 主要用于打印指定 Java 进程、核心文件或远程调试服务器的 Java 线程的堆栈跟踪信息
+可以用来打印目标 Java 进程中各个线程的栈轨迹，以及这些线程所持有的锁。
 
 ## jstat
 
-JVM 统计监测工具(Java Statistics Monitoring Tool), 主要用于监测并显示 JVM 的性能统计信息, 包括 GC 统计信息
+允许用户查看目标 Java 进程的类加载、即时编译以及垃圾回收相关的信息。它常用于检测垃圾回收问题以及内存泄露问题。
 
 ## visualvm
 

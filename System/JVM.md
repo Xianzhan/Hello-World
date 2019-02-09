@@ -15,15 +15,27 @@
         - [初始化 Initalization](#初始化-initalization)
         - [使用 Using](#使用-using)
         - [卸载 Unloading](#卸载-unloading)
+    - [字节码](#字节码)
 - [GC](#gc)
     - [垃圾回收算法](#垃圾回收算法)
         - [引用计数法](#引用计数法)
         - [根搜索算法](#根搜索算法)
     - [垃圾回收器](#垃圾回收器)
+        - [Serial](#serial)
+        - [Parallel Scavenge](#parallel-scavenge)
+        - [Parallel New](#parallel-new)
+        - [Serial Old](#serial-old)
+        - [Parallel Old](#parallel-old)
+        - [CMS](#cms)
+        - [G1](#g1)
 
 <!-- /TOC -->
 
+Java 虚拟机（Java Virtual Machine）
+
 # 内存结构
+
+![https://static001.geekbang.org/resource/image/ab/77/ab5c3523af08e0bf2f689c1d6033ef77.png](../.resource/System-JVM-memory_model.png)
 
 ## 线程隔离
 
@@ -67,6 +79,8 @@ Java 8 中用元空间替代了永久代, 元空间并不在虚拟机中，而�
 
 ### 堆(heap)
 
+![https://time.geekbang.org/column/article/13137](../.resource/System-JVM-memory_heap.png)
+
 是虚拟机管理内存中最大的一部分，被所有线程共享，用于存放对象实例(对象、数组)，物理上不连续的内存空间，由于 GC 收集器，分代收集，所以划分为：新生代 Eden、From SurVivor 空间、To SurVivor 空间，allow buffer(分配空间)，可能会划分出多个线程私有的缓冲区，老年代。
 
 **年轻代(Young)**
@@ -81,6 +95,11 @@ Java 8 中用元空间替代了永久代, 元空间并不在虚拟机中，而�
 
 # class 文件格式
 
+1. 基本信息，涵盖了原 class 文件的相关信息。
+2. 常量池，用来存放各种常量以及符号引用。
+3. 字段区域，用来列举该类中的各个字段。
+4. 方法区域，用来列举该类中的各个方法。
+
 Java 虚拟机所使用的一种平台中立(不依赖于特定硬件及操作系统)的二进制格式表示。
 
 [一张图看懂JVM之类装载系统](https://mp.weixin.qq.com/s/UU4qltVgRsj0SG7YmER-Qw)<br>
@@ -89,7 +108,7 @@ Java 虚拟机所使用的一种平台中立(不依赖于特定硬件及操作�
 
 ### 加载 Loading
 
-加载是由 ClassLoader 来完成的，ClassLoader 的主要作用是将 Java 字节码转换成 JVM 中的 java.lang.Class 类对象，其次通过双亲委派模式保证了类加载的唯一性和安全性；但是由于双亲委派的存在，所以启动一个类加载过程的类加载器和最终定义这个类的类加载器可能并不是一个（前者称为初始类加载器，后者称为定义类加载器），故一个 Java 类的定义类加载器是该类所导入的其它 Java 类的初始类加载器（譬如 A、B 两个类均未加载，A 中定义了 B 类型的成员，则 A 的定义类加载器会负责启动 B 的加载过程），这个一定要理解。此外 JVM 判断两个 java.lang.Class 是否相同不仅要依据类的全路径描述符，还要保证是同一个 ClassLoader 加载。
+加载是由 ClassLoader 来完成的，ClassLoader 的主要作用是将 Java 字节码转换成 JVM 中的 java.lang.Class 类对象，其次通过双亲委派模式保证了类加载的唯一性和安全性；但是由于双亲委派的存在，所以启动一个类加载过程的类加载器和最终定义这个类的类加载器可能并不是一个（前者称为初始类加载器，后者称为定义类加载器），故一个 Java 类的定义类加载器是该类所导入的其它 Java 类的初始类加载器（譬如 A、B 两个类均未加载，A 中定义了 B 类型的成员，则 A 的定义类加载器会负责启动 B 的加载过程），这个一定要理解。**此外 JVM 判断两个 java.lang.Class 是否相同不仅要依据类的全路径描述符，还要保证是同一个 ClassLoader 加载。**
 
 ### 链接 Linking
 
@@ -122,6 +141,14 @@ Java 类和接口的初始化过程只会在特定时机发生，具体如下：
 
 ### 卸载 Unloading
 
+## 字节码
+
+1. `invokestatic`: 用于调用静态方法。
+2. `invokespecial`: 用于调用私有实例方法、构造器，以及使用 `super` 关键字调用父类的实例方法或构造器，和所实现接口的默认方法。
+3. `invokevirtual`: 用于调用非私有实例方法。
+4. `invokeinterface`: 用于调用接口方法。
+5. `invokedynamic`: 用于调用动态方法。
+
 # GC
 
 ## 垃圾回收算法
@@ -131,6 +158,34 @@ Java 类和接口的初始化过程只会在特定时机发生，具体如下：
 ### 根搜索算法
 
 ## 垃圾回收器
+
+### Serial
+
+年轻代，单线程，标记-复制算法。
+
+### Parallel Scavenge
+
+年轻代，多线程，标记-复制算法。不能与 [CMS](#CMS) 一起使用。
+
+### Parallel New
+
+年轻代，多线程，标记-复制算法，更加注重吞吐率。
+
+### Serial Old
+
+老年代，单线程，标记-压缩算法。
+
+### Parallel Old
+
+老年代，多线程，标记-压缩算法。
+
+### CMS
+
+老年代，并发的，标记-清除算法。可在程序运行过程中进行垃圾回收，在并发收集失败的情况下，Java 虚拟机会使用其他两个压缩型垃圾回收器进行一次垃圾回收。由于 G1 的出现，CMS 在 Java 9 中被废弃。
+
+### G1
+
+G1 (Garbage First) 是一个横跨新生代和老年代的垃圾回收器。直接将堆分成极其多个区域，每个区域都可以充当 Eden 区、Survivor 区或者老年代中的一个。采用 标记-压缩算法，而且和 CMS 一样都能够在应用程序运行过程并发地进行垃圾回收。优先回收死亡对象较多的区域。
 
 [好文推荐：CMS学习笔记！！！](https://mp.weixin.qq.com/s/-yqJa4dOyzLaK_tJ1x9E7w)<br>
 [好文推荐：G1学习笔记！！！](https://mp.weixin.qq.com/s/CG-k-Vqw3LVUyUjnDpPmFw)<br>

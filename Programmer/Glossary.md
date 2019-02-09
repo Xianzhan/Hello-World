@@ -8,8 +8,10 @@
 - [F](#f)
 - [I](#i)
 - [J](#j)
+- [K](#k)
 - [L](#l)
 - [M](#m)
+- [N](#n)
 - [O](#o)
 - [P](#p)
 - [Q](#q)
@@ -27,6 +29,7 @@
 ---:|:---
 ABI | (Application Binary Interface) 应用二进制接口
 ALU | (Arithmetic Logic Unit) 算术逻辑单元
+API | (Application Programming Interface) 应用编程接口
 APR | (Apache Portable Runtime) Apache Portable Runtime
 allocation | (内存) 分配
 assembly | 汇编; 汇编语言
@@ -71,6 +74,7 @@ ELF | (Executable Linkable Format) Linux 可执行文件格式
 
 英文术语 | 中文译法
 ---:|:---
+FAQ | (Frequently Asked Questions) 常见问题解答
 fetch | 取; 取指令
 field | 域; 字段
 function | 函数; 功能
@@ -79,6 +83,7 @@ function | 函数; 功能
 
 英文术语 | 中文译法
 ---:|:---
+IoT | (Internet of Things) 物联网
 identifier | 标识符
 instruction | 指令
 invoke | 唤起 (执行)
@@ -94,11 +99,19 @@ JMS | （Java Message Service）JAVA消息服务。
 JNDI | （Java Naming & Directory Interface）JAVA命名目录服务。
 JPMS | (Java Platform Module System) JAVA 平台模块化系统
 JTA | （Java Transaction API）JAVA事务服务。
+JVMCI | (JVM Compiler Interface) Java 虚拟机编译器接口
+
+# K
+
+英文术语 | 中文译法
+---:|:---
+KPI | (Key Performance Indicators) 关键绩效指标
 
 # L
 
 英文术语 | 中文译法
 ---:|:---
+LBS | (Location-Based Service) 基于位置的服务
 label | 标签
 
 # M
@@ -107,6 +120,12 @@ label | 标签
 ---:|:---
 memory | 内存
 method | 方法
+
+# N
+
+英文术语 | 中文译法
+---:|:---
+NFC | (Near-field communication) 近距离无线通信
 
 # O 
 
@@ -124,6 +143,7 @@ object instance | 对象实例
 PC | (Program counter) 程序计数器
 PE | (Protable Executable) Windows 下的可执行文件格式
 PO | (Persistant Object) Java 对象, 遵守 Java Bean 规范
+PGC | (Professionally-generated Content) 专业生产内容
 POJO | (Plain Ordinary Java Object)简单 java 对象
 parallelism | 并行, 一个**时间点**同时运行多个程序
 parse/parsing | (语法) 分析
@@ -179,7 +199,9 @@ type conversion | 类型转换
 
 英文术语 | 中文译法
 ---:|:---
+UI | (User Interface) 用户界面
 UAT | (User Acceptance Test) 用户验收测试
+UGC | (User-generated Content) 用户生产内容
 
 # V
 

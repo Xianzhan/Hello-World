@@ -5,13 +5,26 @@
     - [多线程](#多线程)
         - [ThreadLocal](#threadlocal)
         - [锁](#锁)
-- [代理](#代理)
+    - [反射](#反射)
+    - [代理](#代理)
+    - [引用](#引用)
 - [特性](#特性)
 - [资源](#资源)
 
 <!-- /TOC -->
 
 # 基础
+
+类型|默认值|虚拟机内部符号
+:---:|:---:|:---:
+`boolean`|false|Z
+`byte`|0|B
+`short`|0|S
+`char`|`\u0000`|C
+`int`|0|I
+`long`|0L|J
+`float`|+0.0F|F
+`double`|+0.0D|D
 
 ## 字符串
 
@@ -27,9 +40,19 @@
 
 [Java 中15种锁的介绍](https://mp.weixin.qq.com/s/qWhcgKxrWz0ei_pKlSynpA)<br>
 
-# 代理
+## 反射
+
+反射是 Java 语言中一个相当重要的特性，它允许正在运行的 Java 程序观测，甚至是修改程序的动态行为。
+
+反射在 Java 中的应用十分广泛。开发人员日常接触到的 IDE 便运用了这一功能，当然，大部分使用语法树来实现。
+
+## 代理
 
 [动态代理、CGlib、AOP](https://mp.weixin.qq.com/s/lR2pJTy5cbX43YvaQ8uUgQ)<br>
+
+## 引用
+
+[Reference 完全解读](https://www.cnblogs.com/sanzao/p/10343166.html)
 
 # 特性
 
