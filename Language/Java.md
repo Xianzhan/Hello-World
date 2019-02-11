@@ -8,6 +8,7 @@
     - [反射](#反射)
     - [代理](#代理)
     - [引用](#引用)
+- [设计模式](#设计模式)
 - [特性](#特性)
 - [资源](#资源)
 
@@ -53,6 +54,10 @@
 ## 引用
 
 [Reference 完全解读](https://www.cnblogs.com/sanzao/p/10343166.html)
+
+# 设计模式
+
+[深入理解Java的三种工厂模式](https://mp.weixin.qq.com/s/3R42RC26wRq-xscuNEHc6g)<br>
 
 # 特性
 
