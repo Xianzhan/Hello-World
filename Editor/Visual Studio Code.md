@@ -3,6 +3,7 @@
 - [Plugin](#plugin)
     - [编辑](#编辑)
     - [HTTP](#http)
+- [资源](#资源)
 
 <!-- /TOC -->
 
@@ -49,3 +50,7 @@ GitLens 增强了 Visual Studio Code 中内置的 Git 功能，它包含了许�
 作为 web 开发人员，我们经常需要使用 REST api。为了检查 url 和检查响应，使用了 Postman 之类的工具。但是，既然编辑器可以轻松地完成相同的任务，为什么还要使用不同的应用程序呢? REST Client 它允许你发送 HTTP 请求并直接在 Visual Studio 代码中查看响应。
 
 [react 开发 vscode 插件推荐](https://github.com/sundaypig/blog/issues/2)<br>
+
+# 资源
+
+[在用VSCode? 看完这篇文章, 开发效率翻倍!最后一条厉害了~](https://zhuanlan.zhihu.com/p/54164612)<br>
