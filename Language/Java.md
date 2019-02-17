@@ -8,6 +8,7 @@
     - [反射](#反射)
     - [代理](#代理)
     - [引用](#引用)
+    - [Unsafe](#unsafe)
 - [设计模式](#设计模式)
 - [特性](#特性)
 - [资源](#资源)
@@ -53,7 +54,11 @@
 
 ## 引用
 
-[Reference 完全解读](https://www.cnblogs.com/sanzao/p/10343166.html)
+[Reference 完全解读](https://www.cnblogs.com/sanzao/p/10343166.html)<br>
+
+## Unsafe
+
+[【基本功】Java魔法类：Unsafe应用解析](https://mp.weixin.qq.com/s/h3MB8p0sEA7VnrMXFq9NBA)<br>
 
 # 设计模式
 
