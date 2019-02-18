@@ -10,6 +10,7 @@
     - [撤销](#撤销)
     - [分支与标签](#分支与标签)
     - [合并与衍合](#合并与衍合)
+    - [冲突](#冲突)
     - [远程操作](#远程操作)
 - [资源](#资源)
 
@@ -165,6 +166,34 @@ git merge <branch_name>   //"暴力"合并指定分支到当前分支,不管有�
 
 //衍合
 git rebase <branch_name>   //一件件衍合指定分支到当前分支,有差别时提示
+```
+
+## 冲突
+
+```
+your local changes to the following files would be overwitten by merge;
+please commit your changes or stash them before you merge.
+```
+
+一般导致这种原因是服务器端的文件 A 被修改，而刚好该文件 A 被自己修改了，就被报以上错误。 
+若服务器端是新建文件，并不会报此错误。解决办法有以下两种:
+
+1. commit your changes
+
+```shell
+git add fileName
+git commit -m "备注"
+git pull origin master
+```
+
+2. stash them
+
+隐藏当前工作区
+
+```shell
+git stash
+git pull origin master
+git stash pop
 ```
 
 ## 远程操作
