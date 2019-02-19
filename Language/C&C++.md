@@ -54,5 +54,6 @@ int main(void)
 
 # 资源
 
+[cppreference.com](https://en.cppreference.com/w/)<br>
 [【C++】预编译、编译、汇编、链接](https://blog.csdn.net/weixin_40740059/article/details/84075653)<br>
 [C语言：春节回家过年，我发现只有我没有对象！](https://mp.weixin.qq.com/s/QT6abxt5evqxU8kDuhfdHQ)<br>
