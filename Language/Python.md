@@ -14,6 +14,7 @@
     - [模块](#模块)
     - [网络](#网络)
     - [装饰器](#装饰器)
+- [资源](#资源)
 
 <!-- /TOC -->
 
@@ -617,3 +618,7 @@ def say(say_please=False):
 print(say())  # Can you buy me a beer?
 print(say(say_please=True))  # Can you buy me a beer? Please! I am poor :(
 ```
+
+# 资源
+
+[GitHub://wtfpython-cn](https://github.com/leisurelicht/wtfpython-cn)<br>

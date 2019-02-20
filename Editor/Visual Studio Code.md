@@ -1,13 +1,31 @@
 <!-- TOC -->
 
-- [Plugin](#plugin)
-    - [编辑](#编辑)
+- [扩展](#扩展)
+    - [Chrome](#chrome)
     - [HTTP](#http)
+    - [同步](#同步)
+    - [编辑](#编辑)
 - [资源](#资源)
 
 <!-- /TOC -->
 
-# Plugin
+# 扩展
+
+[GitHub://vscode-plugin-demo](https://github.com/sxei/vscode-plugin-demo)<br>
+
+## Chrome
+
+[Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)<br>
+
+## HTTP
+
+**[REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)**
+
+作为 web 开发人员，我们经常需要使用 REST api。为了检查 url 和检查响应，使用了 Postman 之类的工具。但是，既然编辑器可以轻松地完成相同的任务，为什么还要使用不同的应用程序呢? REST Client 它允许你发送 HTTP 请求并直接在 Visual Studio 代码中查看响应。
+
+## 同步
+
+[Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)<br>
 
 ## 编辑
 
@@ -43,14 +61,7 @@ GitLens 增强了 Visual Studio Code 中内置的 Git 功能，它包含了许�
 
 生成 Markdown 标题
 
-## HTTP
-
-**[REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)**
-
-作为 web 开发人员，我们经常需要使用 REST api。为了检查 url 和检查响应，使用了 Postman 之类的工具。但是，既然编辑器可以轻松地完成相同的任务，为什么还要使用不同的应用程序呢? REST Client 它允许你发送 HTTP 请求并直接在 Visual Studio 代码中查看响应。
-
-[react 开发 vscode 插件推荐](https://github.com/sundaypig/blog/issues/2)<br>
-
 # 资源
 
+[react 开发 vscode 插件推荐](https://github.com/sundaypig/blog/issues/2)<br>
 [在用VSCode? 看完这篇文章, 开发效率翻倍!最后一条厉害了~](https://zhuanlan.zhihu.com/p/54164612)<br>
