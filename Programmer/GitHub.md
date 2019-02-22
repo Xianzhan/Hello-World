@@ -1,13 +1,21 @@
 <!-- TOC -->
 
+- [Api](#api)
 - [Architecture](#architecture)
 - [Awesome](#awesome)
 - [Book](#book)
 - [Independent Developer](#independent-developer)
+- [Security](#security)
+- [System](#system)
+- [Web](#web)
 - [Website](#website)
 - [资源](#资源)
 
 <!-- /TOC -->
+
+# Api
+
+[Api](https://github.com/jokermonn/-Api)<br>
 
 # Architecture
 
@@ -28,13 +36,27 @@
 
 # Book
 
+[PLMCodeTemplate](https://github.com/xwjie/PLMCodeTemplate)<br>
 [free-programming-books](https://github.com/EbookFoundation/free-programming-books)<br>
 [free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)<br>
+[system-design-primer](https://github.com/donnemartin/system-design-primer)<br>
 [《Designing Data-Intensive Application》](https://github.com/Vonng/ddia)<br>
 
 # Independent Developer
 
 [chinese-independent-developer](https://github.com/1c7/chinese-independent-developer)<br>
+
+# Security
+
+[Intranet_Penetration_Tips](https://github.com/Ridter/Intranet_Penetration_Tips)<br>
+
+# System
+
+[SystemProgramming](https://github.com/angrave/SystemProgramming)<br>
+
+# Web
+
+[Web](https://github.com/qianguyihao/Web)<br>
 
 # Website
 
