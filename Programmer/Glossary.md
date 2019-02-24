@@ -45,6 +45,8 @@ BO | (Business Object) 业务对象
 
 英文术语 | 中文译法
 ---:|:---
+CD | (Continuous Delivery) 持续交付
+CI | (Continuous Integration) 持续集成
 COFF | (Common File Format) (PE、ELF 的原型)
 CPU | (Central Processing Unit) 中央处理单元
 class | 类
@@ -95,8 +97,11 @@ label | 标签
 ---:|:---
 JAAS | (Java Authentication Authorization Service) Java 认证与授权服务
 JAF | （Java Action FrameWork）JAVA安全认证框架。
+JDI | (Java Debugger Interface)
+JDWP | (Java Debug Wire Protocol)
 JMS | （Java Message Service）JAVA消息服务。
 JNDI | （Java Naming & Directory Interface）JAVA命名目录服务。
+JPDA | (Java Platform Debugger Architecture)
 JPMS | (Java Platform Module System) JAVA 平台模块化系统
 JTA | （Java Transaction API）JAVA事务服务。
 JVMCI | (JVM Compiler Interface) Java 虚拟机编译器接口
