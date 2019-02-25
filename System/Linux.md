@@ -45,3 +45,4 @@
 # 资源
 
 [GitHub://linux](https://github.com/torvalds/linux)<br>
+[Linux X86 程序启动 – main函数是如何被执行的？](https://luomuxiaoxiao.com/?p=516)<br>
