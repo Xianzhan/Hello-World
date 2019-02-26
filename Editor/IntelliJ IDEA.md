@@ -2,6 +2,7 @@
 
 - [快捷键](#快捷键)
     - [跳转](#跳转)
+- [扩展](#扩展)
 - [资源](#资源)
 
 <!-- /TOC -->
@@ -39,6 +40,13 @@ show bookmarks `Shift + F11`
 4. 收藏
 
 add to favorites `Alt + Shift + F`
+
+# 扩展
+
+Alibaba Java Coding Guidelines<br>
+FindBugs-IDEA<br>
+Free MyBatis Plugin<br>
+jclasslib Bytecode viewer<br>
 
 # 资源
 
