@@ -11,6 +11,7 @@
 
 # 扩展
 
+[GitHub://awesome-vscode](https://github.com/viatsko/awesome-vscode)<br>
 [GitHub://vscode-plugin-demo](https://github.com/sxei/vscode-plugin-demo)<br>
 
 ## Chrome
