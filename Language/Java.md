@@ -1,6 +1,7 @@
 <!-- TOC -->
 
 - [基础](#基础)
+    - [原始类型](#原始类型)
     - [字符串](#字符串)
     - [多线程](#多线程)
         - [ThreadLocal](#threadlocal)
@@ -8,7 +9,8 @@
     - [反射](#反射)
     - [代理](#代理)
     - [引用](#引用)
-    - [Unsafe](#unsafe)
+    - [其它](#其它)
+        - [Unsafe](#unsafe)
 - [设计模式](#设计模式)
 - [特性](#特性)
 - [资源](#资源)
@@ -17,16 +19,78 @@
 
 # 基础
 
-类型|默认值|虚拟机内部符号
+**修饰符**
+
+-|-|-
+:--:|:---:|:---:
+`public`|`protected`|`private`
+`abstract`|`static`|`final`
+`transient`|`volatile`|`synchronized`
+`native`| |
+
+**声明**
+
+-|-|-
 :---:|:---:|:---:
-`boolean`|false|Z
-`byte`|0|B
-`short`|0|S
-`char`|`\u0000`|C
-`int`|0|I
-`long`|0L|J
-`float`|+0.0F|F
-`double`|+0.0D|D
+`class`|`interface`|`extends`
+`package`|`throws`|`implements`
+`enum`(Java 5)| |
+
+**原始类型**
+
+-|-|-
+:---:|:---:|:---:
+`boolean`|`byte`|`char`
+`short`|`int`|`long`
+`float`|`double`|
+
+**控制流**
+
+-|-|-
+:---:|:---:|:---:
+`if`|`else`|
+`try`|`catch`|`finally`
+`do`|`while`|
+`for`|`continue`|
+`switch`|`case`|`default`
+`break`|`throw`|`return`
+
+**其它**
+
+-|-|-
+:---:|:---:|:---:
+`this`|`new`|`super`
+`import`|`instanceof`|`void`
+`strictfp`|`assert`|`_`(Java 9)
+
+**禁止使用**
+
+-|-|-
+:---:|:---:|:---:
+`goto`|`const`|
+
+字面值: `true`, `false`, `null`
+
+## 原始类型
+
+类型|默认值|包装类|虚拟机内部符号
+:---:|:---:|:---:|:---:
+`boolean`|false|Boolean|Z
+`byte`|0|Byte|B
+`short`|0|Short|S
+`char`|`\u0000`|Character|C
+`int`|0|Integer|I
+`long`|0L|Long|J
+`float`|+0.0F|Float|F
+`double`|+0.0D|Double|D
+
+```java
+/**
+ * @since Java 5 自动装箱拆箱
+ */
+Integer boxing = 0; // 装箱
+int unboxing = box; // 拆箱
+```
 
 ## 字符串
 
@@ -56,7 +120,9 @@
 
 [Reference 完全解读](https://www.cnblogs.com/sanzao/p/10343166.html)<br>
 
-## Unsafe
+## 其它
+
+### Unsafe
 
 [【基本功】Java魔法类：Unsafe应用解析](https://mp.weixin.qq.com/s/h3MB8p0sEA7VnrMXFq9NBA)<br>
 
