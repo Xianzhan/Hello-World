@@ -4,6 +4,7 @@
 - [Architecture](#architecture)
 - [Awesome](#awesome)
 - [Book](#book)
+- [Frame](#frame)
 - [Independent Developer](#independent-developer)
 - [Security](#security)
 - [System](#system)
@@ -41,6 +42,10 @@
 [free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)<br>
 [system-design-primer](https://github.com/donnemartin/system-design-primer)<br>
 [《Designing Data-Intensive Application》](https://github.com/Vonng/ddia)<br>
+
+# Frame
+
+[开源巨献：Google最热门60款开源项目](https://mp.weixin.qq.com/s/qo-Rot26y92J5whLnvlMaw)<br>
 
 # Independent Developer
 
