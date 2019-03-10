@@ -1,11 +1,18 @@
 <!-- TOC -->
 
 - [基础](#基础)
+    - [面向对象](#面向对象)
+        - [接口(interface)](#接口interface)
+        - [包(package)](#包package)
+    - [变量](#变量)
     - [原始类型](#原始类型)
     - [控制语句](#控制语句)
     - [字符串](#字符串)
+    - [泛型](#泛型)
+    - [注解](#注解)
+    - [异常](#异常)
     - [文件](#文件)
-        - [资源](#资源)
+        - [resources](#resources)
     - [JDBC](#jdbc)
     - [多线程](#多线程)
         - [ThreadLocal](#threadlocal)
@@ -13,11 +20,12 @@
     - [反射](#反射)
     - [代理](#代理)
     - [引用](#引用)
+    - [Lambda](#lambda)
+    - [方法引用](#方法引用)
     - [其它](#其它)
         - [Unsafe](#unsafe)
 - [设计模式](#设计模式)
-- [特性](#特性)
-- [资源](#资源-1)
+- [资源](#资源)
 
 <!-- /TOC -->
 
@@ -76,6 +84,66 @@
 字面值: `true`, `false`, `null`<br>
 标识符：`var`(10)
 
+## 面向对象
+
+1. 封装
+2. 继承
+3. 多态
+
+### 接口(interface)
+
+- 不可实例化, 需类实现
+
+```java
+interface Interface {
+    // 接口只有常量
+    // public static final
+    int CONSTANT = 1;
+
+    // public abstract
+    void method();
+
+    // @since 8 默认方法
+    default void defaultMethod() {
+        System.out.println("default");
+    }
+
+    // @since 8 静态方法
+    static void staticMethod() {
+        System.out.println("static");
+    }
+
+    // @since 9 私有方法
+    private void privateMethod() {
+        System.out.println("private");
+    }
+
+    // @since 9 私有静态方法
+    private static void privateStaticMethod() {
+        System.out.println("private static");
+    }
+}
+```
+
+### 包(package)
+
+包是一个**名称空间**，用于以逻辑方式组织类和接口。将代码放入包中可以使大型软件项目更容易管理。
+
+```java
+// 默认导入的包, 可不显示导入
+import java.lang.*
+
+// @since 5 静态导入
+import static java.lang.System.out;
+```
+
+## 变量
+
+```java
+// @since 10 "局部变量" 的类型推断 var
+var list = new ArrayList<String>();
+```
+
 ## 原始类型
 
 类型|默认值|包装类|虚拟机内部符号
@@ -104,6 +172,27 @@ int hex = 0x7f_ff_ff_ff;  // 十六进制每两位表一个字节
 ## 控制语句
 
 ```java
+// switch 选择
+// 支持 byte, char, short, int
+int value = 0;
+switch (value) {
+    case 0:
+        // do something
+        break;
+    default:
+        break;
+}
+// @since 7 String 类型支持
+String v = "hello";
+switch (v) {
+    case "hello":
+        // do
+        break;
+    default:
+        break;
+}
+
+// for 循环
 int[] array = {0, 1, 2, 3};
 for (int i : array) {
     // @since 5 foreach 循环
@@ -113,13 +202,67 @@ for (int i : array) {
 
 ## 字符串
 
+```java
+public final class String {
+    private final char[] value;
+
+    // @since 9 value 类型由 char[] -> byte[]
+    private final byte[] value;
+}
+```
+
 [一个Java字符串中到底有多少个字符?](https://colobu.com/2019/01/04/how-many-charactors-in-a-java-string/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)<br>
+
+## 泛型
+
+@since 5
+
+类型擦除: 指的就是 Java 源码中的范型信息只允许停留在编译前期，而编译后的字节码文件中将不再保留任何的范型信息。也就是说，范型信息在编译时将会被全部删除，其中范型类型的类型参数则会被替换为 `Object` 类型，并在实际使用时强制转换为指定的目标数据类型。而 C++ 中的模板则会在编译时将模板类型中的类型参数根据所传递的指定数据类型生成相对应的目标代码。
+
+```java
+List<Integer> nums = new ArrayList<Integer>();
+
+// @since 7 泛型推断
+List<Integer> nums = new ArrayList<>();
+```
+
+## 注解
+
+@since 5
+
+`java.lang.annotation`
+
+@since 8 重复注解 `@Repeatable`
+
+## 异常
+
+```
+Throwable
+ → Error
+ → Exception
+    → RuntimeException
+```
+
+```java
+// @since 7 捕获多个异常
+try {
+    Integer.parseInt("hello");
+} catch (NumberFormatException | RuntimeException e) {
+    // e
+}
+
+// @since 7 try-with-resources
+try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+    // do
+}
+```
 
 ## 文件
 
 计算机文件（或称文件、电脑档案、档案），是存储在某种长期储存设备或临时存储设备中的一段数据流，并且归属于计算机文件系统管理之下。
 
 ```java
+// @since 7 Path, Paths
 // `C:\development\project\java\misc>java Main`
 Path root = Paths.get("/");
 System.out.println(root.toAbsolutePath());
@@ -130,7 +273,7 @@ System.out.println(path.toAbsolutePath());
 // Output: C:\development\project\java\misc
 ```
 
-### 资源
+### resources
 
 在 Java 的世界里，经常需要加载各种资源，如 Spring 框架的 `application.xml`，或者是 web 项目的 `web.xml`。
 
@@ -314,6 +457,25 @@ public class SemaphoreExample {
 
 [Reference 完全解读](https://www.cnblogs.com/sanzao/p/10343166.html)<br>
 
+## Lambda
+
+@since 8
+
+Lambda 允许把函数作为一个方法的参数，或者把代码看成数据。
+
+```java
+Runnable run = () -> System.out.println("hello");
+```
+
+## 方法引用
+
+直接引用已有 Java 类或对象的方法。一般有四种不同的方法引用:
+
+1. 构造器引用。语法是 `Class::new`，或者更一般的 `Class<T>::new`，要求构造器方法是没有参数；
+2. 静态方法引用。语法是 `Class::static_method`，要求接受一个 Class 类型的参数；
+3. 特定类的任意对象方法引用。它的语法是 `Class::method`。要求方法是没有参数的；
+4. 特定对象的方法引用，它的语法是 `instance::method`。要求方法接受一个参数，与 3 不同的地方在于，3 是在列表元素上分别调用方法，而 4 是在某个对象上调用方法，将列表元素作为参数传入；
+
 ## 其它
 
 ### Unsafe
@@ -323,10 +485,6 @@ public class SemaphoreExample {
 # 设计模式
 
 [深入理解Java的三种工厂模式](https://mp.weixin.qq.com/s/3R42RC26wRq-xscuNEHc6g)<br>
-
-# 特性
-
-[Java 5～11各个版本新特性史上最全总结](https://mp.weixin.qq.com/s/6PgdGCulBm3Q5o75MJQVAA)<br>
 
 # 资源
 
