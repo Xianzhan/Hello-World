@@ -14,6 +14,24 @@
 
 数据操纵语言(data manipulation language), 就是我们最经常用到的 `SELECT`、`UPDATE`、`INSERT`、`DELETE`。 主要用来对数据库的数据进行一些操作。
 
+**执行顺序**
+
+```sql
+FROM
+    <left_table> ON <join_condition> <join_type>
+JOIN <right_table>
+WHERE
+    <where_condition>
+GROUP BY
+    <group_by_list>
+HAVING
+    <having_condition> SELECT DISTINCT
+        <select_list>
+    ORDER BY
+        <order_by_condition>
+    LIMIT <limit_number>
+```
+
 ## select
 
 *join* 
