@@ -76,13 +76,13 @@
 
 ## ~~appletviewer~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 在Web浏览器之外运行 applet。
 
 ## ~~extcheck~~
 
-> @delete JDK 9<br>
+> @delete 9<br>
 
 > 检测目标 Java Archive（JAR）文件与当前安装的扩展 JAR 文件之间的版本冲突。
 
@@ -104,7 +104,7 @@
 
 ## ~~javah~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 > @see [javac](#javac)
 
 > 从 Java 类生成 C 头文件和源文件。
@@ -115,7 +115,7 @@
 
 ## jdeprscan
 
-> @since JDK 9
+> @since 9
 
 > 您可以使用 `jdeprscan` 工具作为静态分析工具来扫描 jar 文件（或其他类文件聚合）以使用已弃用的 API 元素。
 
@@ -125,13 +125,13 @@
 
 ## jlink
 
-> @since JDK 10<br>
+> @since 10<br>
 
 > 您可以使用 `jlink` 工具将一组模块及其依赖项组合和优化到自定义运行时映像中。
 
 ## jmod
 
-> @since JDK 9<br>
+> @since 9<br>
 
 > 您可以使用 `jmod` 工具创建 JMOD 文件并列出现有 JMOD 文件的内容。
 
@@ -143,7 +143,7 @@
 
 ## ~~jvisualvm~~
 
-> @delete JDK 9
+> @delete 9
 
 > 对 Java 应用程序进行可视化监视，故障排除和配置文件。
 
@@ -163,7 +163,7 @@
 
 ## ~~jmc~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > Java Mission Control 是一个分析，监视和诊断工具套件。
 
@@ -179,7 +179,7 @@
 
 ## jhsdb
 
-> @since JDK 9<br>
+> @since 9<br>
 
 > 您可以使用 `jhsdb` 工具附加到 Java 进程或启动事后调试程序，以便从崩溃的 Java 虚拟机（JVM）中分析核心转储的内容。
 
@@ -189,7 +189,7 @@
 
 ## ~~jhat~~
 
-> @delete JDK 9<br>
+> @delete 9<br>
 
 > 分析 Java 堆。此命令是实验性的，不受支持。
 
@@ -199,7 +199,7 @@
 
 ## ~~jsadebugd~~
 
-> @delete JDK 9<br>
+> @delete 9<br>
 
 > 附加到 Java 进程或核心文件，并充当调试服务器。此命令是实验性的，不受支持。
 
@@ -211,13 +211,13 @@
 
 ## jaccessinspector 
 
-> @since JDK 9<br>
+> @since 9<br>
 
 > 您可以使用 Java Accessibility Utilities API 的 `jaccessinspector` 辅助功能评估工具来检查有关 Java 虚拟机中对象的可访问信息。
 
 ## jaccesswalker
 
-> @since JDK 9<br>
+> @since 9<br>
 
 > 您可以使用 `jaccesswalker` 浏览特定 Java 虚拟机中的组件树，并在树视图中显示层次结构。
 
@@ -225,7 +225,7 @@
 
 ## jshell
 
-> @since JDK 9<br>
+> @since 9<br>
 
 > 您可以使用jshell工具在read-eval-print loop（REPL）中以交互方式评估 Java 编程语言的声明，语句和表达式。
 
@@ -251,7 +251,7 @@
 
 ## ~~policytool~~
 
-> @delete JDK 10<br>
+> @delete 10<br>
 
 > 通过实用程序 GUI 基于用户输入读取和写入纯文本策略文件。
 
@@ -289,26 +289,26 @@
 
 ## ~~pack200~~
 
-> @deprecated JDK 11<br>
+> @deprecated 11<br>
 
 > 将 JAR 文件打包到压缩的 pack200 文件中以进行 Web 部署。
 
 ## ~~unpack200~~
 
-> @deprecated JDK 11<br>
+> @deprecated 11<br>
 
 > 将 `pack200` 生成的打包文件转换为 JAR 文件以进行 Web 部署。
 
 ## ~~javapackager~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 执行与打包和签名 Java 和 JavaFX 应用程序相关的任务。
 
 ## ~~javafxpackager~~
 
-> @deprecated JDK 8<br>
-> @delete JDK 9<br>
+> @deprecated 8<br>
+> @delete 9<br>
 
 > 注意：此工具已重命名为 `javapackager`。可能会在将来的发行版中删除 javafxpackager.exe 文件。请更新您的脚本以使用 `javapackager`。
 
@@ -318,7 +318,7 @@
 
 ## ~~native2ascii~~
 
-> @delete JDK 9<br>
+> @delete 9<br>
 
 > 通过将具有任何支持的字符编码的字符的文件转换为具有 ASCII 或 Unicode 转义的文件来创建可本地化的应用程序，反之亦然。
 
@@ -330,25 +330,25 @@ native2ascii -encoding UTF-8 i18n_zh_CN.properties i18n_ascii.properties
 
 ## ~~tnameserv~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 接口定义语言（IDL）。
 
 ## ~~idlj~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 为指定的接口定义语言（IDL）文件生成 Java 绑定。
 
 ## ~~orbd~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 使客户端能够在 CORBA 环境中的服务器上查找和调用持久对象。
 
 ## ~~servertool~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 为开发人员提供易于使用的界面，以注册，取消注册，启动和关闭持久性服务器。
 
@@ -356,7 +356,7 @@ native2ascii -encoding UTF-8 i18n_zh_CN.properties i18n_ascii.properties
 
 ## ~~javaws~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 启动 Java Web Start。
 
@@ -364,24 +364,24 @@ native2ascii -encoding UTF-8 i18n_zh_CN.properties i18n_ascii.properties
 
 ## ~~schemagen~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 为 Java 类中引用的每个名称空间生成模式。
 
 ## ~~wsgen~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 读取 Web 服务端点实现（SEI）类，并为 Web 服务部署和调用生成所有必需的工件。
 
 ## ~~wsimport~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 生成可以打包在 Web 应用程序归档（WAR）文件中的 JAX-WS 可移植工件，并提供 Ant 任务。
 
 ## ~~xjc~~
 
-> @delete JDK 11<br>
+> @delete 11<br>
 
 > 将 XML 模式文件编译为完全注释的 Java 类。
