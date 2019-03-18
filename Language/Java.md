@@ -230,7 +230,7 @@ public final class String {
 
 ## 泛型
 
-@since 5
+> @since 5
 
 类型擦除: 指的就是 Java 源码中的范型信息只允许停留在编译前期，而编译后的字节码文件中将不再保留任何的范型信息。也就是说，范型信息在编译时将会被全部删除，其中范型类型的类型参数则会被替换为 `Object` 类型，并在实际使用时强制转换为指定的目标数据类型。而 C++ 中的模板则会在编译时将模板类型中的类型参数根据所传递的指定数据类型生成相对应的目标代码。
 
@@ -243,11 +243,11 @@ List<Integer> nums = new ArrayList<>();
 
 ## 注解
 
-@since 5
+> @since 5
 
 `java.lang.annotation`
 
-@since 8 重复注解 `@Repeatable`
+> @since 8 重复注解 `@Repeatable`
 
 ## 异常
 
@@ -474,7 +474,7 @@ public class SemaphoreExample {
 
 ## Lambda
 
-@since 8
+> @since 8
 
 Lambda 允许把函数作为一个方法的参数，或者把代码看成数据。
 
