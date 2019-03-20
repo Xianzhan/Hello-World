@@ -126,6 +126,610 @@ javac [options] [sourcefiles] [classes] [@argfiles]
 
 编译器有一组在当前开发环境中支持的标准选项。另外一组非标准选项是特定于当前虚拟机和编译器实现的，将来可能会发生更改。非标准选项以 `-X` 选项开始。
 
+**标准选项**
+
+- `-Akey[=value]`
+
+指定传递给注解处理器的选项。这些选项不是由 `javac` 直接解释的，而是提供给各个处理器使用的。键值应该是由点(`.`)分隔的一个或多个标识符。
+
+- `-cp path or -classpath path`
+
+指定在何处查找用户类文件，以及(可选)注解处理器和源文件。这个选项将会覆盖用户系统的环境变量 *CLASSPATH*。如果没有指定 *CLASSPATH*、`-cp` 或 `-classpath`，则用户类路径是当前目录。
+
+如果没有指定 `-sourcepath` 选项，那么还将搜索用户类路径以查找源文件。
+
+如果没有指定 `-processorpath` 选项，则还将搜索类路径以查找注解处理器。
+
+- `-Djava.ext.dirs=directories`
+
+覆盖已安装扩展的位置。
+
+- `-Djava.endorsed.dirs=directories`
+
+覆盖已认可的标准路径的位置。
+
+- `-d directory`
+
+设置类文件的目标目录。该目录必须已经存在，因为 `javac` 不创建它。如果类是包的一部分，那么 `javac` 将类文件放在反映包名称的子目录中，并根据需要创建目录。
+
+如果指定 `-d C:\myclasses`，且该类名为 `com.mypackage.MyClass`。则类文件是 `C:\myclasses\com\mypackage\MyClass.class`。
+
+如果没有指定 `-d` 选项，那么 `javac` 将每个类文件放在与生成类文件的源文件相同的目录中。
+
+注意: `-d` 选项指定的目录不会自动添加到用户类路径中。
+
+- `-encoding encoding`
+
+设置源文件编码名称，如 EUC-JP 和 UTF-8。如果未指定 `-encoding` 选项，则使用平台默认转换器。
+
+- `-endorseddirs directories`
+
+覆盖已认可的标准路径的位置。
+
+- `-extdirs directories`
+
+覆盖 ext 目录的位置。目录变量是一个用冒号分隔的目录列表。搜索指定目录中的每个 JAR 文件以查找类文件。所有找到的 JAR 文件都成为类路径的一部分。
+
+- `-g`
+
+生成所有调试信息，包括局部变量。默认情况下，只生成行号和源文件信息。
+
+- `-g:none`
+
+不生成任何调试信息。
+
+- `-g:[keyword list]`
+
+只生成由逗号分隔的关键字列表指定的某些调试信息。有效的关键词是:<br>
+`source`: 源文件调试信息。<br>
+`lines`: 行号调试信息。<br>
+`vars`: 局部变量调试信息。<br>
+
+- `-help`
+
+打印标准选项的概要。
+
+- `-implicit:[class, none]`
+
+控制为隐式加载的源文件生成类文件。要自动生成类文件，请使用 `-implicit:class`。若要禁止类文件生成，请使用 `-implicit:none`。如果未指定此选项，则默认为自动生成类文件。在这种情况下，如果在进行注解处理时生成了此类文件，编译器将发出警告。当显式设置 `-implicit` 选项时，不会发出警告。
+
+- `-Joption`
+
+将选项传递给 Java 虚拟机(JVM)，其中的选项是 Java 启动程序参考页面中描述的选项之一。例如，`-J-Xms48m` 将启动内存设置为 48MB。
+
+注意: *CLASSPATH*、`-classpath`、`-bootclasspath` 和 `-extdirs` 选项不指定用于运行 `javac` 的类。尝试使用这些选项和变量自定义编译器实现是有风险的，并且常常不能完成您想要的。如果必须自定义编译器实现，则使用 `-J` 选项将选项传递给底层Java启动程序。
+
+- `-nowarn`
+
+禁用警告消息。此选项的操作与 `-Xlint:none` 选项相同。
+
+- `-parameters`
+
+在生成的类文件中存储构造函数和方法的形式参数名，以便反射 API 中的`java.lang.reflect.Executable.getParameters` 方法可以检索它们。
+
+- `-proc: [none, only]`
+
+控制是否完成注解处理和编译。`-proc:none` 表示编译不需要注释处理。`-proc:only`  表示只进行注释处理，不进行任何后续编译。
+
+- `-processor class1 [,class2,class3...]`
+
+要运行的注解处理器的名称。这将绕过默认的发现过程。
+
+- `-processorpath path`
+
+指定在何处找到注解处理器。如果不使用此选项，则搜索类路径以查找处理器。
+
+- `-s dir`
+
+指定放置生成的源文件的目录。该目录必须已经存在，因为 `javac` 不创建它。如果类是包的一部分，那么编译器将源文件放在反映包名称的子目录中，并根据需要创建目录。
+
+如果您指定 `-s C:\mysrc`，并且类名为 `com.mypackage.MyClass`。则将源文件放入 `C:\mysrc\com\mypackage\MyClass.java`。
+
+- `-source release`
+
+指定接受的源代码版本。允许释放以下值:<br>
+`1.3`: 编译器不支持断言、泛型或 Java SE 1.3 之后引入的其他语言特性。<br>
+`1.4`: 编译器接受包含断言的代码，这些断言是在 Java SE 1.4 中引入的。<br>
+`1.5`: 编译器接受包含泛型和 Java SE 5 中引入的其他语言特性的代码。<br>
+`5`: 同 `1.5`。<br>
+`1.6`: Java SE 6 中没有引入任何语言更改。然而，源文件中的编码错误现在被报告为错误，而不是像在 Java Platform Standard Edition 的早期版本中那样被报告为警告。<br>
+`6`: 同 `1.6`。<br>
+`1.7`: 编译器接受带有 Java SE 7 中引入的特性的代码。<br>
+`7`: 同 `1.7`。<br>
+`1.8`: 编译器接受带有 Java SE 8 中引入的特性的代码。<br>
+`8`: 同 `1.8`。<br>
+
+- `-sourcepath sourcepath`
+
+指定搜索类或接口定义的源代码路径。与用户类路径一样，在 Oracle Solaris 上，源路径条目用冒号(:)分隔，在 Windows 上用分号(;)分隔，可以是目录、JAR 归档文件或 ZIP 归档文件。如果使用包，则目录或归档文件中的本地路径名必须反映包名。
+
+注意: 通过类路径找到的类可能会在找到它们的源文件时重新编译。
+
+- `-verbose`
+
+使用详细输出，其中包括有关加载的每个类和编译的每个源文件的信息。
+
+- `-version`
+
+打印版本信息。
+
+- `-werror`
+
+发生警告时终止编译。
+
+- `-X`
+
+显示关于非标准选项和出口的信息。
+
+**交叉编译选项**
+
+默认情况下，类是根据 `javac` 附带的平台的引导程序和扩展类编译的。但是 `javac` 也支持交叉编译，其中类是根据不同 Java 平台实现的引导程序和扩展类编译的。在交叉编译时，使用 `-bootclasspath` 和 `-extdirs` 选项非常重要。
+
+- `-target version`
+
+生成针对虚拟机指定版本的类文件。类文件将在指定的目标上和以后的版本上运行，但不会在 JVM 的早期版本上运行。有效的目标是 `1.1`、`1.2`、`1.3`、`1.4`、`1.5`(也是 `5`)、`1.6`(也是 `6`)、`1.7`(也是 `7`)和 `1.8`(也是 `8`)。
+
+与 `-source` 相匹配。
+
+- `-bootclasspath bootclasspath`
+
+根据指定的引导类集交叉编译。与用户类路径一样，引导类路径条目由冒号(:)分隔，可以是目录、JAR 归档文件或 ZIP 归档文件。
+
+**紧凑的配置文件选项**
+
+从 JDK 8 开始，`javac` 编译器支持紧凑的概要文件。使用紧凑的概要文件，不需要整个 Java 平台的应用程序可以以更小的占用空间部署和运行。compact profiles 功能可以用来缩短应用程序商店的下载时间。该特性使捆绑 JRE 的 Java 应用程序的部署更加紧凑。这个特性在小型设备中也很有用。
+
+所支持的概要文件值是 compact1、compact2 和 compact3。这些是附加层。每个编号较高的紧凑概要文件都包含具有较小编号名称的概要文件中的所有 APIs。
+
+- `-profile`
+
+当使用压缩概要文件时，此选项指定编译时的概要文件名称。例如:
+
+```bash
+javac -profile compact1 Hello.java
+```
+
+`javac` 不编译使用任何不在指定概要文件中的 Java SE APIs 的源代码。下面是一个错误消息的例子，导致试图编译这样的源代码:
+
+```bash
+cd jdk1.8.0/bin
+./javac -profile compact1 Paint.java
+Paint.java:5: error: Applet is not available in profile 'compact1'
+import java.applet.Applet;
+```
+
+在本例中，可以通过修改源代码使其不使用 Applet 类来纠正错误。您还可以通过不使用 `-profile` 选项编译来纠正错误。然后编译将针对全套 Java SE APIs 运行。(紧凑的概要文件中没有一个包含 Applet 类。)
+
+使用压缩概要文件编译的另一种方法是使用 `-bootclasspath` 选项来指定 *rt.jar* 文件的路径，该文件指定概要文件的映像。相反，使用 `-profile` 选项不需要在编译时在系统上显示概要文件映像。这在交叉编译时很有用。
+
+**非标准选项**
+
+- `-Xbootclasspath/p:path`
+
+向引导类路径添加后缀。
+
+- `-Xbootclasspath/a:path`
+
+为引导类路径添加前缀。
+
+- `-Xbootclasspath/:path`
+
+重写引导类文件的位置。
+
+- `-Xdoclint:[-]group [/access]`
+
+启用或禁用特定的检查组，其中 `group` 是以下值之一: `accessibility`、`syntax`、`reference`、`html` 或 `missing`。有关这些检查组的更多信息，请参见 `javadoc` 命令的 `-Xdoclint` 选项。在 `javac` 命令中，默认情况下禁用 `-Xdoclint` 选项。
+
+变量 `access` 指定 `-Xdoclint` 选项检查的类和成员的最小可见性级别。它可以有以下值之一(按最不可见到最不可见的顺序): `public`、`protected`、`package` 和 `private`。例如，下面的选项检查访问级别受保护或更高(包括 protected、package 和 public)的类和成员(带有所有组检查):
+
+```
+-Xdoclint:all/protected
+```
+
+以下选项支持所有访问级别的所有组检查，但它不会检查具有访问级别包或更高(包括 package 和public)的类和成员的 HTML 错误:
+
+```
+-Xdoclint:all,-html/package
+```
+
+- `-Xdoclint:none`
+
+禁用所有组的检查。
+
+- `-Xdoclint:all[/access]`
+
+启用所有组的检查。
+
+- `-Xlint`
+
+启用所有建议的警告。在这个版本中，建议启用所有可用的警告。
+
+- `-Xlint:all`
+
+启用所有建议的警告。在这个版本中，建议启用所有可用的警告。
+
+- `-Xlint:none`
+
+禁用所有警告。
+
+- `-Xlint:name`
+
+禁用警告的名字。
+
+- `-Xlint:-name`
+
+禁用警告的名字。
+
+- `-Xmaxerrs number`
+
+设置要打印的最大错误数。
+
+- `-Xmaxwarns number`
+
+设置要打印的警告的最大数量。
+
+- `-Xstdout filename`
+
+向指定文件发送编译器消息。默认情况下，编译器消息转到 `System.err`。
+
+- `-Xprefer:[newer,source]`
+
+指定在为类型找到源文件和类文件时要读取哪个文件。如果使用 `-Xprefer:newer` 选项，那么它将读取源文件或类文件中较新的类型(默认)。如果使用 `-Xprefer:source` 选项，那么它将读取源文件。当您希望确保任何注解处理器都可以访问使用 *SOURCE* 保留策略声明的注释时，请使用 `-Xprefer:source`。
+
+- `-Xpkginfo:[always,legacy,nonempty]`
+
+控制 `javac` 是否从 *package-info.java* 文件生成 *package-info.class* 文件。此选项的可能模式参数包括以下内容。<br>
+`always`: 始终为每个 *package-info.java* 文件生成一个 *package-info.class* 文件。如果使用 Ant 这样的构建系统，这个选项可能很有用，因为 Ant 检查每个 *.java* 文件是否有对应的 *.class* 文件。<br>
+`legacy`: 仅当 *package-info.java* 包含注解时才生成 *package-info.class* 文件。如果 *package-info.java* 只包含注释，则不要生成 *package-info.class* 文件。注意: 可以生成一个 *package-info.class* 文件，但是如果 *package-info.java* 文件中的所有注解都有 `RetentionPolicy.SOURCE`，那么这个文件就是空的。<br>
+`nonempty`: 只有当 *package-info.java* 包含带有 `RetentionPolicy.CLASS` 或 `RetentionPolicy.RUNTIME` 的注释时，才生成 *package-info.class* 文件。
+
+- `-Xprint`
+
+为调试目的打印指定类型的文本表示形式。既不执行注解处理，也不执行编译。输出的格式可能会改变。
+
+- `-XprintProcessorInfo`
+
+打印有关要求处理器处理哪些注解的信息。
+
+- `-XprintRounds`
+
+打印关于初始和后续注解处理器的信息。
+
+> 使用 `-Xlint` 选项启用或禁用警告
+
+使用 `-Xlint:name` 选项启用警告名称，其中 `name` 是以下警告名称之一。注意，您可以使用 `-Xlint:-name:` 选项禁用警告。
+
+- `cast`
+
+警告不必要和冗余的强制转换，例如:
+
+```java
+String s = (String) "Hello!"
+```
+
+- `classfile`
+
+警告与类文件内容相关的问题。
+
+- `deprecation`
+
+警告使用废弃的方法或类，例如:
+
+```java
+java.util.Date myDate = new java.util.Date();
+int currentDay = myDate.getDay();
+```
+
+`java.util.Date.getDay` 方法从 JDK 1.1 开始就被弃用了
+
+- `dep-ann`
+
+警告使用 `@deprecated` Javadoc 注释记录但没有 `@Deprecated` 注解的项，例如:
+
+```java
+/**
+  * @deprecated As of Java SE 7, replaced by {@link #newMethod()}
+  */
+public static void deprecatedMethood() { }
+public static void newMethod() { }
+```
+
+- `divzero`
+
+警告除以 0，例如:
+
+```java
+int divideByZero = 42 / 0;
+```
+
+- `empty`
+
+警告 `if` 语句之后的空语句，例如:
+
+```java
+class E {
+    void m() {
+         if (true) ;
+    }
+}
+```
+
+- `fallthrough`
+
+检查切换块是否存在故障，并为找到的任何故障提供警告消息。切换用例是切换块中的用例，而不是块中的最后一个用例，它的代码不包含 break 语句，允许代码执行从该用例切换到下一个用例。例如，这个开关块中 case 1 标签后面的代码并没有以 break 语句结束:
+
+```java
+switch (x) {
+case 1:
+  System.out.println("1");
+  // No break statement here.
+case 2:
+  System.out.println("2");
+}
+```
+
+如果在编译这段代码时使用了 `-Xlint:fallthrough` 选项，那么编译器会发出一个警告，提示可能的 case 跳转，并给出有关 case 的行号。
+
+- `finally`
+
+警告不能正常完成 *finally* 子句，例如:
+
+```java
+public static int m() {
+    try {
+       throw new NullPointerException();
+    } catch (NullPointerException(); {
+        System.err.println("Caught NullPointerException.");
+        return 1;
+    } finally {
+        return 0;
+    }
+}
+```
+
+编译器为本例中的 *finally* 块生成一个警告。当调用 int 方法时，它返回一个值 0。当 try 块退出时，将执行 *finally* 块。在本例中，当控件被转移到 *catch* 块时，int 方法退出。然而，*finally* 块必须执行，因此它被执行，即使控制被转移到方法之外。
+
+- `options`
+
+警告与使用命令行选项相关的问题。看到交叉编译选项。
+
+- `overrides`
+
+警告有关方法重写的问题。例如，考虑以下两个类:
+
+```java
+public class ClassWithVarargsMethod {
+  void varargsMethod(String... s) { }
+}
+
+public class ClassWithOverridingMethod extends ClassWithVarargsMethod {
+   @Override
+   void varargsMethod(String[] s) { }
+}
+```
+
+编译器生成一个类似于下面的警告:
+
+```
+warning: [override] varargsMethod(String[]) in ClassWithOverridingMethod 
+overrides varargsMethod(String...) in ClassWithVarargsMethod; overriding
+method is missing '...'
+```
+
+当编译器遇到 `ClassWithVarargsMethod.varargsMethod(String...)` 方法时，它将 *varargsMethod* 方法的形式参数 `String...` 转换为 `String[]`。而当编译器遇到重载方法 `ClassWithOverridingMethod.varargsMethod(String[])` 时也会尝试上面动作。
+
+- `path`
+
+警告命令行上的无效路径元素和不存在的路径目录(关于类路径、源路径和其他路径)。这些警告不能用 `@SuppressWarnings` 注解加以抑制，例如:
+
+```cmd
+javac -Xlint:path -classpath C:\nonexistentpath Example.java
+```
+
+- `processing`
+
+警告有关注解处理的问题。当您有一个具有注解的类，并且您使用的注解处理器不能处理这种类型的异常时，编译器将生成此警告。例如，下面是一个简单的注解处理器:
+
+```java
+/**
+ * Source file AnnocProc.java
+ */
+import java.util.*;
+import javax.annotation.processing.*;
+import javax.lang.model.*;
+import java.lang.model.element.*;
+
+@SupportedAnnotationTypes("NotAnno")
+public class AnnoProc extends AbstractProcessor {
+  public boolean process(Set<? extends TypeElement> elems, RoundEnvironment renv){
+     return true;
+  }
+
+  public SourceVersion getSupportedSourceVersion() {
+     return SourceVersion.latest();
+   }
+}
+
+/**
+ * Source file AnnosWithoutProcessors.java
+ */
+@interface Anno { }
+ 
+@Anno
+class AnnosWithoutProcessors { }
+```
+
+下面的命令编译注释处理器 *AnnoProc*，然后对源文件 *Annoswithoutprocessor.java* 运行这个注释处理器:
+
+```cmd
+javac AnnoProc.java
+javac -cp . -Xlint:processing -processor AnnoProc -proc:only AnnosWithoutProcessors.java
+```
+
+当编译器对源文件 *AnnosWithoutProcessors.java* 运行注解处理器时，它会产生以下警告:
+
+```cmd
+warning: [processing] No processor claimed any of these annotations: Anno
+```
+
+要解决这个问题，可以将在 *AnnosWithoutProcessors* 类中定义和使用的注解从 *Anno* 重命名为 *NotAnno*。
+
+- `rawtypes`
+
+警告未选中的原始类型操作。下面的语句生成一个 *rawtypes* 警告:
+
+```java
+void countElements(List l) { ... }
+```
+
+下面的示例不会生成 *rawtypes* 警告
+
+```java
+void countElements(List<?> l) { ... }
+```
+
+*List* 是一个原始类型。然而, *List<?>* 是一个无界通配符参数化类型。因为 *List* 是一个参数化的接口，所以总是指定它的类型参数。在本例中，*List* 形式参数指定为无界通配符(`?`)作为其形式类型参数，这意味着 *countElements* 方法可以接受列表接口的任何实例化。
+
+- `Serial`
+
+警告可序列化类上缺少 *serialVersionUID* 定义，例如:
+
+```java
+public class PersistentTime implements Serializable {
+  private Date time;
+ 
+   public PersistentTime() {
+     time = Calendar.getInstance().getTime();
+   }
+ 
+   public Date getTime() {
+     return time;
+   }
+}
+```
+
+编译器生成以下警告:
+
+```cmd
+warning: [serial] serializable class PersistentTime has no definition of
+serialVersionUID
+```
+
+如果可序列化类没有显式声明名为 *serialVersionUID* 的字段，则序列化运行时环境根据类的各个方面计算该类的默认 *serialVersionUID* 值，如 Java 对象序列化规范中所述。但是，强烈建议所有可序列化的类都显式声明 *serialVersionUID* 值，因为计算 *serialVersionUID* 值的默认过程对类细节非常敏感，类细节可能因编译器实现的不同而不同，因此可能会导致意外的失效
+
+- `static`
+
+警告有关使用 static 方法的问题，例如:
+
+```java
+class XLintStatic {
+    static void m1() { }
+    void m2() { this.m1(); }
+}
+```
+
+编译器生成以下警告:
+
+```cmd
+warning: [static] static method should be qualified by type name, 
+XLintStatic, instead of by an expression
+```
+
+为了解决这个问题，你可以调用静态方法 *m1* 如下:
+
+```java
+XLintStatic.m1();
+```
+
+- `try`
+
+警告有关使用 *try* 块的问题，包括 *try-with-resources* 语句。例如，由于没有使用 *try* 块中声明的资源 *ac*，因此会为下面的语句生成一个警告:
+
+```java
+try (AutoCloseable ac = getResource()) {}
+```
+
+- `unchecked`
+
+提供 Java 语言规范规定的未检查转换警告的更多细节，例如:
+
+```java
+List l = new ArrayList<Number>();
+List<String> ls = l;  // unchecked warning
+```
+
+在类型擦除期间，`ArrayList<Number>` 和 `List<String>` 类型分别变为 `ArrayList` 和 `List`。
+
+- `varargs`
+
+警告变量参数(varargs)方法的不安全使用，特别是那些包含不可具体化参数的方法，例如:
+
+```java
+public class ArrayBuilder {
+  public static <T> void addToList (List<T> listArg, T... elements) {
+    for (T x : elements) {
+      listArg.add(x);
+    }
+  }
+}
+```
+
+注意: 不可具体化类型是在运行时类型信息不完全可用的类型。
+
+> 命令行参数文件
+
+要缩短或简化 `javac` 命令，可以指定一个或多个文件，其中包含 `javac` 命令的参数(`-J` 选项除外)。这使您能够在任何操作系统上创建任意长度的 `javac` 命令。
+
+参数文件可以包含任何组合中的 `javac` 选项和源文件名。文件中的参数可以用空格或新行字符分隔。如果文件名包含嵌入式空格，则将整个文件名放在双引号中。
+
+参数文件中的文件名相对于当前目录，而不是参数文件的位置。这些列表中不允许使用通配符(`*`)(例如用于指定 **.java*)。不支持使用 at 符号(`@`)递归地解释文件。不支持 `-J` 选项，因为它们被传递给启动程序，启动程序不支持参数文件。
+
+在执行 `javac` 命令时，传入每个参数文件的路径和名称，并以 at 符号(`@`)为前导字符。当 `javac` 命令遇到以 at 符号(`@`)开头的参数时，它将该文件的内容展开到参数列表中。
+
+**例1 -单参数文件**
+
+您可以使用一个名为 *argfile* 的参数文件来保存所有 `javac` 参数:
+
+```cmd
+javac @argfile
+```
+
+这个参数文件可以包含示例 2 中所示的两个文件的内容
+
+**例2 -两个参数文件**
+
+您可以创建两个参数文件: 一个用于 `javac` 选项，另一个用于源文件名。注意，以下列表没有行延续字符。
+
+创建一个名为 options 的文件，该文件包含以下内容:
+
+```
+-d classes
+-g
+-sourcepath C:\java\pubs\ws\1.3\src\share\classes
+```
+
+创建一个名为 classes 的文件，其中包含以下内容:
+
+```
+MyClass1.java
+MyClass2.java
+MyClass3.java
+```
+
+然后，运行 `javac` 命令如下:
+
+```cmd
+javac @options @classes
+```
+
+**例3 -带路径的参数文件**
+
+参数文件可以有路径，但是文件中的任何文件名都是相对于当前工作目录的(不是 path1 或 path2):
+
+```cmd
+javac @path1/options @path2/classes
+```
+
 ## javadoc
 
 > 从 Java 源文件生成 API 文档的 HTML 页面。
