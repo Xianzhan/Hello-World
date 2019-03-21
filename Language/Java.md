@@ -206,6 +206,13 @@ switch (v) {
     default:
         break;
 }
+// @since 12 JEP 325: Switch Expressions (Preview)
+switch (day) {
+    case MONDAY, FRIDAY, SUNDAY -> System.out.println(6);
+    case TUESDAY                -> System.out.println(7);
+    case THURSDAY, SATURDAY     -> System.out.println(8);
+    case WEDNESDAY              -> System.out.println(9);
+}
 
 // for 循环
 int[] array = {0, 1, 2, 3};
@@ -214,6 +221,8 @@ for (int i : array) {
     System.out.println(i);
 }
 ```
+
+[JEP 325: Switch Expressions (Preview)](http://openjdk.java.net/jeps/325)<br>
 
 ## 字符串
 
@@ -255,7 +264,21 @@ List<Integer> nums = new ArrayList<>();
 Throwable
  → Error
  → Exception
+    → ClassNotFoundException
+    → CloneNotSupportedException
+    → IOException
+       → EOFException
+       → FileNotFoundException
+       → MalformedURLException
+       → UnknownHostException
     → RuntimeException
+       → ArithmeticException
+       → ClassCastException
+       → IllegalArgumentException
+       → IllegalStateException
+       → IndexOutOfBoundsException
+       → NoSuchElementException
+       → NullPointerException
 ```
 
 ```java
