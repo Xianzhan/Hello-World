@@ -88,6 +88,154 @@
 
 > 处理 Java Archive（JAR）文件。
 
+> 概要
+
+- `jar c[efmMnv0] [entrypoint] [jarfile] [manifest] [-C dir] file ... [-Joption ...] [@arg-file ...]`
+
+创建 JAR 文件
+
+- `jar u[efmMnv0] [entrypoint] [jarfile] [manifest] [-C dir] file ... [-Joption ...] [@arg-file ...]`
+
+更新 JAR 文件
+
+- `jar x[vf] [jarfile] file ... [-Joption ...] [@arg-file ...]`
+
+提取 JAR 文件
+
+- `jar t[vf] [jarfile] file ... [-Joption ...] [@arg-file ...]`
+
+列出 JAR 文件的内容
+
+- `jar i jarfile [-Joption ...] [@arg-file ...]`
+
+将索引添加到 JAR 文件中
+
+> 描述
+
+`jar` 命令是一个通用的存档和压缩工具，基于 *ZIP* 和 *ZLIB* 压缩格式。但是，`jar` 命令主要用于将 Java applet 或应用程序打包到单个归档文件中。当 applet 或应用程序的组件(文件、图像和声音)被组合到一个单独的归档文件中时，可以由 Java 代理(比如浏览器)在一个单独的 HTTP 事务中下载它们，而不需要为每个部分建立新的连接。这极大地提高了下载时间。`jar` 命令还压缩文件，这进一步提高了下载时间。
+
+`jar` 命令的语法类似于 `tar` 命令的语法。它有几个操作模式，由一个强制操作参数定义。其他参数要么是修改操作行为的选项，要么是执行操作所需的操作数。
+
+> 操作参数
+
+使用 `jar` 命令时，必须通过指定以下操作参数之一来选择要执行的操作。您可以将它们与命令行上的其他单字母选项混合使用，但通常操作参数是指定的第一个参数。
+
+- `c`
+
+创建一个新的 JAR 存档。
+
+- `i`
+
+为 JAR 存档生成索引信息。
+
+- `t`
+
+列出 JAR 归档文件的内容。
+
+- `u`
+
+更新 JAR 存档。
+
+- `x`
+
+从 JAR 归档文件中提取文件。
+
+> 选项
+
+使用以下选项自定义如何创建、更新、提取或查看 JAR 文件:
+
+- `e`
+
+将 *entrypoint* 操作数指定的类设置为绑定到可执行 JAR 文件中的独立 Java 应用程序的入口点。此选项的使用创建或覆盖清单文件中的 `Main-Class` 属性值。当创建(`c`)或更新(`u`) JAR 文件时，可以使用 `e` 选项。
+
+例如，下面的命令使用 *Main.class* 文件创建 *Main.jar* 存档，其中清单中的 `Main-Class` 属性值设置为 `Main`:
+
+```cmd
+jar cfe Main.jar Main Main.class
+```
+
+如果入口点类名在包中，那么它可以使用点(.)或斜杠(/)作为分隔符。例如，如果 *Main.class* 在一个名为 *mydir* 的包中，则可以通过以下方法之一指定入口点:
+
+```cmd
+jar -cfe Main.jar mydir/Main mydir/Main.class
+jar -cfe Main.jar mydir.Main mydir/Main.class
+```
+
+注意：当一个特定清单还包含 `Main-Class` 属性时，同时指定 `m` 和 `e` 选项，会导致一个模糊的 `Main-Class` 规范。这种模糊性会导致错误，并终止 `jar` 命令的创建或更新操作。
+
+- `f`
+
+设置文件使用 *jarfile* 操作数指定的创建 JAR 文件的名称(`c`)、更新(`u`), (`x`)中提取, 或查看(`t`)省略 `f` 选项并使用 *jarfile* 操作指示 JAR 命令接受来自 stdin 的 JAR 文件的名称(`x` 和 `t`)或将 JAR 文件发送到stdout (`c` 和 `u`)。
+
+- `m`
+
+在 `jar` 命令的清单文件中(位于 *META-INF/MANIFEST.MF* 的归档文件中)包含清单操作数指定的文件中的属性名和值。`jar` 命令将属性的名称和值添加到 `jar` 文件中，除非已经存在具有相同名称的条目，在这种情况下，`jar` 命令将更新属性的值。当创建(`c`)或更新(`u`) JAR 文件时，可以使用 `m` 选项。
+
+可以将特殊用途的名称-值属性对添加到默认清单文件中不包含的清单中。例如，您可以添加指定供应商信息、发布信息、包密封或使 `jar` 绑定的应用程序可执行的属性。有关使用 `m` 选项的示例，请[参见](https://docs.oracle.com/javase/tutorial/deployment/jar/index.html)
+
+- `M`
+
+不创建清单文件条目(针对 `c` 和 `u`)，或者在清单文件条目存在时删除清单文件条目(针对 `u`)。当创建(`c`)或更新(`u`) JAR 文件时，可以使用 `M` 选项。
+
+- `n`
+
+当创建(`c`) JAR 文件时，这个选项将使归档文件规范化，这样内容就不会受到 `pack200`(1)命令的打包和解包操作的影响。如果没有这种规范化，签名 JAR 的签名可能会无效。
+
+- `v`
+
+将详细输出生成为标准输出。
+
+- `0`
+
+(0)在不使用 ZIP 压缩的情况下创建(`c`)或更新(`u`) JAR 文件。
+
+- `-C dir`
+
+当创建(`c`)或更新(`u`) JAR 文件时，此选项在处理文件操作数指定的文件时临时更改目录。它的操作与 `tar` 实用程序的 `-C` 选项类似。例如，下面的命令更改到 *classes* 目录并将 *Bar.class* 文件从该目录添加到 *my.jar*:
+
+```cmd
+jar uf my.jar -C classes Bar.class
+```
+
+下面的命令将更改到 *classes* 目录并将 *classes* 目录中的所有文件添加到 *my.jar* 中(不需要在 JAR 文件中创建一个类目录)，然后在更改到 *bin* 目录将 *Xyz.class* 添加到 *my.jar* 之前，将更改回原始目录。
+
+```cmd
+jar uf my.jar -C classes . -C bin Xyz.class
+```
+
+如果类包含文件 *bar1* 和 *bar2*，那么在运行前面的命令之后，JAR 文件将包含以下内容:
+
+```cmd
+% jar tf my.jar
+META-INF/
+META-INF/MANIFEST.MF
+bar1
+bar2
+Xyz.class
+```
+
+> 操作对象
+
+`jar` 命令可以识别以下操作数。
+
+- file
+
+当创建(`c`)或更新(`u`) JAR 文件时，文件操作数定义了应该添加到存档中的文件或目录的路径和名称。当提取(`x`)或列出 JAR 文件的内容(`t`)时，文件操作数定义要提取或列出的文件的路径和名称。必须指定至少一个有效的文件或目录。用空格分隔多个文件操作数。如果使用了 *entrypoint*、*jarfile* 或 *manifest* 操作数，则必须在它们之后指定文件操作数。
+
+- entrypoint
+
+当创建(`c`)或更新(`u`) JAR 文件时，*entrypoint* 操作数定义类的名称，该类应该是绑定到可执行 JAR 文件中的独立 Java 应用程序的入口点。如果存在 `e` 选项，则必须指定入口操作数。
+
+- jarfile
+
+定义要创建(`c`)、更新(`u`)、提取(`x`)或查看(`t`)的文件的名称。如果有 `f` 选项，必须指定 *jarfile* 操作数。省略 `f` 选项，*jarfile* 操作数指示 `jar` 命令接受来自 stdin(用于 `x` 和 `t`)的 jar 文件名，或者将 jar 文件发送到 stdout(用于 `c` 和 `u`)。
+
+当索引(`i`) JAR 文件时，指定不带 `f` 选项的 *jarfile* 操作数。
+
+- manifest
+
+当创建(`c`)或更新(`u`) JAR 文件时，*manifest* 操作数用清单中包含的属性的名称和值定义预先存在的清单文件。*MANIFEST.MF* 在 JAR 文件中。如果存在 `f` 选项，则必须指定清单操作数。
+
 ## java
 
 > 启动 Java 应用程序。
