@@ -882,11 +882,85 @@ javac @path1/options @path2/classes
 
 > 从 Java 源文件生成 API 文档的 HTML 页面。
 
+> 概要
+
+```bash
+# packages 要记录的包的名称，用空格分隔，例如java.lang java.lang.reflect java.awt。如果还想记录子包，请使用 -subpackages 选项指定包。
+#          默认情况下，javadoc 在当前目录和子目录中查找指定的包。使用 -sourcepath 选项指定查找包的目录列表。
+# source-files 要记录的 Java 源文件的名称，用空格分隔，例如 Class.java Object.java Button.java。默认情况下，javadoc 在当前目录中查找指定的类。但是，您可以指定类文件的完整路径并使用通配符，例如 /home/src/java/awt/Graphics*.java。还可以指定相对于当前目录的路径。
+# options 命令行选项，用空格分隔。
+# @argfiles 包含 javadoc 命令选项列表的文件的名称，包名和源文件名，按任意顺序排列。
+javadoc {packages|source-files} [options] [@argfiles]
+```
+
+> 源文件
+
+`javadoc` 命令生成的输出源自以下类型的源文件: 用于类的 Java 语言源文件(*.java*)、包注释文件、概述注释文件和其他未处理的文件。
+
+**package-info.java**
+
+```java
+/**
+ * Provides the classes necessary to create an  
+ * applet and the classes an applet uses 
+ * to communicate with its applet context.
+ * <p>
+ * The applet framework involves two entities:
+ * the applet and the applet context.
+ * An applet is an embeddable window (see the
+ * {@link java.awt.Panel} class) with a few extra
+ * methods that the applet context can use to 
+ * initialize, start, and stop the applet.
+ *
+ * @since 1.0
+ * @see java.awt
+ */
+package java.lang.applet;
+```
+
+**package.html**
+
+```html
+<HTML>
+<BODY>
+Provides the classes necessary to create an applet and the 
+classes an applet uses to communicate with its applet context.
+<p>
+The applet framework involves two entities: the applet
+and the applet context. An applet is an embeddable
+window (see the {@link java.awt.Panel} class) with a
+few extra methods that the applet context can use to
+initialize, start, and stop the applet. 
+
+@since 1.0 
+@see java.awt
+</BODY>
+</HTML>
+```
+
 ## ~~javah~~
 
 > @delete 11<br>
-> @see [javac](#javac)<br>
+> @see [javac -h](#javac)<br>
 > 从 Java 类生成 C 头文件和源文件。
+
+> 概要
+
+```bash
+# options 命令行选项。
+# fully-qualified-class-name 要转换为 C 头文件和源文件的类的完全限定位置。
+javah [options] fully-qualified-class-name ...
+```
+
+> 描述
+
+`javah` 命令生成实现本机方法所需的 C 头文件和源文件。C 程序使用生成的头文件和源文件从本机源代码引用对象的实例变量。*.h* 文件包含一个 *struct* 定义，其布局与对应类的布局平行。*struct* 中的字段对应于类中的实例变量。
+
+头文件的名称及其内部声明的结构派生自类的名称。当传递给 `javah` 命令的类位于包中时，包名被添加到头文件名和结构名称的开头。下划线(`_`)用作名称分隔符。
+
+默认情况下，`javah` 命令为命令行中列出的每个类创建一个头文件，并将文件放在当前目录中。使用 `-stubs` 选项创建源文件。使用 `-o` 选项将列出的所有类的结果连接到一个文件中。
+
+Java 本机接口(JNI)不需要头信息或存根文件。`javah` 命令仍然可以用来生成 JNI-style 的本机方法所需的本机方法函数原型。`javah` 命令默认情况下生成 JNI-style 的输出，并将结果放在 *.h* 文件中。
 
 ## javap
 
