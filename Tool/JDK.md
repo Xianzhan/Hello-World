@@ -966,6 +966,190 @@ Java 本机接口(JNI)不需要头信息或存根文件。`javah` 命令仍然�
 
 > 反汇编一个或多个类文件。
 
+> 概要
+
+```bash
+# options 命令行选项。
+# classfile 用空格分隔的一个或多个类，用于处理 DocFooter.class 等注解。您可以指定一个可以在类路径中找到的类，通过它的文件名或 URL，例如 file:///home/user/myproject/src/DocFooter.class。
+javap [options] classfile...
+```
+
+> 描述
+
+`javap` 命令反汇编一个或多个类文件。输出取决于所使用的选项。当不使用任何选项时，`javap` 命令将打印传递给它的包、受保护的和公共字段，以及类的方法。`javap` 命令将输出打印到 *stdout*。
+
+> 选项
+
+- `-help`
+- `--help`
+- `?`
+
+为 `javap` 命令打印一条帮助消息。
+
+- `-version`
+
+打印版本信息。
+
+- `-l`
+
+打印行和局部变量表。
+
+- `-public`
+
+只显示公共类和成员。
+
+- `-protected`
+
+只显示受保护的类和公共类以及成员。
+
+- `-private`
+- `-p`
+
+显示所有类和成员。
+
+- `-Joption`
+
+将指定的选项传递给 JVM。例如:
+
+```bash
+javap -J-version
+javap -J-Djava.security.manager -J-Djava.security.policy=MyPolicy MyClassName
+```
+
+有关 JVM 选项的更多信息，请参见 `java` 命令文档。
+
+- `-s`
+
+打印内部类型签名。
+
+- `-sysinfo`
+
+显示正在处理的类的系统信息(路径、大小、日期、MD5 散列)。
+
+- `-constants`
+
+显示 *static final* 常数。
+
+- `-c`
+
+为类中的每个方法打印分解后的代码，例如，包含 Java 字节码的指令。
+
+- `-verbose`
+
+打印堆栈大小、局部变量数量和方法参数。
+
+- `-bootclasspath path`
+
+指定加载引导类的路径。默认情况下，引导类是实现位于 jre/lib/rt.jar 和其他几个 JAR 文件中的核心 Java 平台的类。
+
+- `-extdir dirs`
+
+覆盖搜索已安装扩展的位置。扩展的默认位置是 java.ext.dirs 的值。
+
+> 例子
+
+编译以下 DocFooter 类:
+
+```java
+import java.awt.*;
+import java.applet.*;
+ 
+public class DocFooter extends Applet {
+        String date;
+        String email;
+ 
+        public void init() {
+                resize(500,100);
+                date = getParameter("LAST_UPDATED");
+                email = getParameter("EMAIL");
+        }
+ 
+        public void paint(Graphics g) {
+                g.drawString(date + " by ",100, 15);
+                g.drawString(email,290,15);
+        }
+}
+```
+
+使用 `javap DocFooter.class` 命令将输出如下：
+
+```bash
+Compiled from "DocFooter.java"
+public class DocFooter extends java.applet.Applet {
+  java.lang.String date;
+  java.lang.String email;
+  public DocFooter();
+  public void init();
+  public void paint(java.awt.Graphics);
+}
+```
+
+`javap -c DocFooter.class`
+
+```bash
+Compiled from "DocFooter.java"
+public class DocFooter extends java.applet.Applet {
+  java.lang.String date;
+  java.lang.String email;
+
+  public DocFooter();
+    Code:
+       0: aload_0       
+       1: invokespecial #1                  // Method
+java/applet/Applet."<init>":()V
+       4: return        
+
+  public void init();
+    Code:
+       0: aload_0       
+       1: sipush        500
+       4: bipush        100
+       6: invokevirtual #2                  // Method resize:(II)V
+       9: aload_0       
+      10: aload_0       
+      11: ldc           #3                  // String LAST_UPDATED
+      13: invokevirtual #4                  // Method
+ getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      16: putfield      #5                  // Field date:Ljava/lang/String;
+      19: aload_0       
+      20: aload_0       
+      21: ldc           #6                  // String EMAIL
+      23: invokevirtual #4                  // Method
+ getParameter:(Ljava/lang/String;)Ljava/lang/String;
+      26: putfield      #7                  // Field email:Ljava/lang/String;
+      29: return        
+
+  public void paint(java.awt.Graphics);
+    Code:
+       0: aload_1       
+       1: new           #8                  // class java/lang/StringBuilder
+       4: dup           
+       5: invokespecial #9                  // Method
+ java/lang/StringBuilder."<init>":()V
+       8: aload_0       
+       9: getfield      #5                  // Field date:Ljava/lang/String;
+      12: invokevirtual #10                 // Method
+ java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: ldc           #11                 // String  by 
+      17: invokevirtual #10                 // Method
+ java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: invokevirtual #12                 // Method
+ java/lang/StringBuilder.toString:()Ljava/lang/String;
+      23: bipush        100
+      25: bipush        15
+      27: invokevirtual #13                 // Method
+ java/awt/Graphics.drawString:(Ljava/lang/String;II)V
+      30: aload_1       
+      31: aload_0       
+      32: getfield      #7                  // Field email:Ljava/lang/String;
+      35: sipush        290
+      38: bipush        15
+      40: invokevirtual #13                 // Method
+java/awt/Graphics.drawString:(Ljava/lang/String;II)V
+      43: return        
+}
+```
+
 ## jdeprscan
 
 > @since 9<br>
@@ -974,6 +1158,233 @@ Java 本机接口(JNI)不需要头信息或存根文件。`javah` 命令仍然�
 ## jdeps
 
 > Java 类依赖性分析器。
+
+> 概要
+
+```bash
+# options 选项
+# classes 要分析的类的名称。您可以通过类的文件名、目录或 JAR 文件来指定可以在类路径中找到的类。
+jdeps [options] classes ...
+```
+
+> 描述
+
+`jdeps` 命令显示 Java 类文件的*包级*或*类级*依赖关系。输入类可以是 *.class* 文件、目录、JAR 文件的路径名，也可以是分析所有类文件的完全限定类名。选项决定输出。默认情况下，`jdeps` 将依赖项输出到系统输出。它可以在 DOT 语言中生成依赖项(参见 `-dotoutput` 选项)。
+
+> 选项
+
+- `-dotoutput <dir>`
+
+点文件输出的目标目录。如果指定，`jdeps` 将为每个分析的归档文件生成一个点文件，名为 `<archive-file-name>`。点号列出依赖项，以及一个名为 summary 的摘要文件。点列出归档之间的依赖关系。
+
+- `-s`
+- `-summary`
+
+仅打印依赖项摘要。
+
+- `-v`
+- `-verbose`
+
+打印所有类级依赖项。
+
+- `-verbose:package`
+
+打印包级别的依赖项(不包括同一归档中的依赖项)。
+
+- `-verbose:class`
+
+打印类级别的依赖项(不包括同一归档中的依赖项)。
+
+- `-p <pkg name>`
+- `-package <pkg name>`
+
+查找指定包中的依赖项。您可以为不同的包多次指定此选项。`-p` 和 `-e` 选项是互斥的。
+
+- `-e <regex>`
+- `-regex <regex>`
+
+查找与指定正则表达式模式匹配的包中的依赖项。`-p` 和 `-e` 选项是互斥的。
+
+- `-include <regex>`
+
+将分析限制为类匹配模式。此选项筛选要分析的类列表。它可以与 `-p` 和 `-e` 一起使用，它们将模式应用于依赖项。
+
+- `-jdkinternals`
+
+在 JDK 内部 api 中找到类级依赖项。默认情况下，它会分析 `-classpath` 选项和输入文件中指定的所有类，除非您指定了 `-include` 选项。不能将此选项与 `-p`、`-e` 和 `-s` 选项一起使用。
+
+警告: JDK 内部 api 可能在即将发布的版本中不可访问。
+
+- `-P`
+- `-profile`
+
+显示配置文件或包含包的文件。
+
+- `-apionly`
+
+将分析限制到 api，例如，依赖于公共类的公共成员和受保护成员的签名，包括字段类型、方法参数类型、返回类型和检查异常类型。
+
+- `-R`
+- `-recursive`
+
+递归遍历所有依赖项。
+
+> 例子
+
+分析 Notepad.jar 的依赖关系。
+
+```bash
+jdeps demo\jfc\Notepad\Notepad.jar
+```
+
+```bash
+demo\jfc\Notepad\Notepad.jar -> c:\Program Files\Java\jdk1.8.0\jre\lib\rt.jar
+   <unnamed> (Notepad.jar)
+      -> java.awt                                           
+      -> java.awt.event                                     
+      -> java.beans                                         
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.net                                           
+      -> java.util                                          
+      -> java.util.logging                                  
+      -> javax.swing                                        
+      -> javax.swing.border                                 
+      -> javax.swing.event                                  
+      -> javax.swing.text                                   
+      -> javax.swing.tree                                   
+      -> javax.swing.undo 
+```
+
+使用 `-P` 或 `-profile` 选项来显示记事本所依赖的配置文件。
+
+```bash
+$ jdeps -profile demo\jfc\Notepad\Notepad.jar
+demo\jfc\Notepad\Notepad.jar -> c:\Program Files\Java\jdk1.8.0\jre\lib\rt.jar (Full JRE)
+   <unnamed> (Notepad.jar)
+      -> java.awt                                           Full JRE
+      -> java.awt.event                                     Full JRE
+      -> java.beans                                         Full JRE
+      -> java.io                                            compact1
+      -> java.lang                                          compact1
+      -> java.net                                           compact1
+      -> java.util                                          compact1
+      -> java.util.logging                                  compact1
+      -> javax.swing                                        Full JRE
+      -> javax.swing.border                                 Full JRE
+      -> javax.swing.event                                  Full JRE
+      -> javax.swing.text                                   Full JRE
+      -> javax.swing.tree                                   Full JRE
+      -> javax.swing.undo                                   Full JRE
+```
+
+分析给定类路径中特定类的直接依赖关系，例如 *com.sun.tools.jdeps.Main* jar文件中的 Main 类。
+
+```bash
+$ jdeps -cp lib\tools.jar com.sun.tools.jdeps.Main
+lib\tools.jar -> c:\Program Files\Java\jdk1.8.0\jre\lib\rt.jar
+   com.sun.tools.jdeps (tools.jar)
+      -> java.io                                            
+      -> java.lang 
+```
+
+使用 `-verbose:class` 选项来查找类级依赖项，或者使用 `-v` 或 `-verbose` 选项来包含来自同一个 JAR 文件的依赖项。
+
+```bash
+$ jdeps -verbose:class -cp lib\tools.jar com.sun.tools.jdeps.Main
+ 
+lib\tools.jar -> c:\Program Files\Java\jdk1.8.0\jre\lib\rt.jar
+   com.sun.tools.jdeps.Main (tools.jar)
+      -> java.io.PrintWriter                                
+      -> java.lang.Exception                                
+      -> java.lang.Object                                   
+      -> java.lang.String                                   
+      -> java.lang.System 
+```
+
+使用 `-R` 或 `-recursive` 选项来分析 *com.sun.tools.jdeps.Main* 的传递依赖关系。主类。
+
+```bash
+$ jdeps -R -cp lib\tools.jar com.sun.tools.jdeps.Main
+lib\tools.jar -> c:\Program Files\Java\jdk1.8.0\jre\lib\rt.jar
+   com.sun.tools.classfile (tools.jar)
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.lang.reflect                                  
+      -> java.nio.charset                                   
+      -> java.nio.file                                      
+      -> java.util                                          
+      -> java.util.regex                                    
+   com.sun.tools.jdeps (tools.jar)
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.nio.file                                      
+      -> java.nio.file.attribute                            
+      -> java.text                                          
+      -> java.util                                          
+      -> java.util.jar                                      
+      -> java.util.regex                                    
+      -> java.util.zip                                      
+c:\Program Files\Java\jdk1.8.0\jre\lib\jce.jar -> c:\Program Files\Java\jdk1.8.0\jre\lib\rt.jar
+   javax.crypto (jce.jar)
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.lang.reflect                                  
+      -> java.net                                           
+      -> java.nio                                           
+      -> java.security                                      
+      -> java.security.cert                                 
+      -> java.security.spec                                 
+      -> java.util                                          
+      -> java.util.concurrent                               
+      -> java.util.jar                                      
+      -> java.util.regex                                    
+      -> java.util.zip                                      
+      -> javax.security.auth                                
+      -> sun.security.jca                                   JDK internal API (rt.jar)
+      -> sun.security.util                                  JDK internal API (rt.jar)
+   javax.crypto.spec (jce.jar)
+      -> java.lang                                          
+      -> java.security.spec                                 
+      -> java.util                                          
+c:\Program Files\Java\jdk1.8.0\jre\lib\rt.jar -> c:\Program Files\Java\jdk1.8.0\jre\lib\jce.jar
+   java.security (rt.jar)
+      -> javax.crypto
+```
+
+生成点文件的依赖关系的记事本演示。
+
+```bash
+$ jdeps -dotoutput dot demo\jfc\Notepad\Notepad.jar
+```
+
+`jdeps` 将为每个名为 <filename> 的给定 JAR 文件创建一个点文件。点在 `-dotoutput` 选项中指定的点目录中，还有一个名为 summary 的摘要文件，它将列出 JAR 文件之间的依赖关系
+
+```bash
+$ cat dot\Notepad.jar.dot 
+digraph "Notepad.jar" {
+    // Path: demo\jfc\Notepad\Notepad.jar
+   "<unnamed>"                                        -> "java.awt";
+   "<unnamed>"                                        -> "java.awt.event";
+   "<unnamed>"                                        -> "java.beans";
+   "<unnamed>"                                        -> "java.io";
+   "<unnamed>"                                        -> "java.lang";
+   "<unnamed>"                                        -> "java.net";
+   "<unnamed>"                                        -> "java.util";
+   "<unnamed>"                                        -> "java.util.logging";
+   "<unnamed>"                                        -> "javax.swing";
+   "<unnamed>"                                        -> "javax.swing.border";
+   "<unnamed>"                                        -> "javax.swing.event";
+   "<unnamed>"                                        -> "javax.swing.text";
+   "<unnamed>"                                        -> "javax.swing.tree";
+   "<unnamed>"                                        -> "javax.swing.undo";
+}
+ 
+$ cat dot\summary.dot
+digraph "summary" {
+   "Notepad.jar"                  -> "rt.jar";
+}
+```
 
 ## jlink
 
