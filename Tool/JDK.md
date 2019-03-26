@@ -1402,6 +1402,45 @@ digraph "summary" {
 
 > 启动一个图形控制台，可以监视和管理 Java 应用程序。
 
+> 概要
+
+```bash
+# options 命令行选项。
+# connection = pid | host:port | jmxURL 
+#              pid值是本地 Java 虚拟机(JVM)的进程 ID。JVM 必须使用与运行 jconsole 命令的用户 ID 相同的用户 ID 运行。
+#              host:port 值是运行 JVM 的主机系统的名称，以及 system 属性 com.sun.management.jmxremote.port 指定的端口号。JVM 启动时的端口。
+#              jmxUrl 值是要连接到的 JMX 代理的地址，如 JMXServiceURL 中所述。
+jconsole [options] [connection...]
+```
+
+> 描述
+
+`jconsole` 命令启动一个图形化控制台工具，该工具允许您监视和管理本地或远程机器上的 Java 应用程序和虚拟机。
+
+在 Windows 上，`jconsole` 命令不与控制台窗口关联。但是，当 `jconsole` 命令失败时，它会显示一个包含错误信息的对话框。
+
+> 选项
+
+- `-interval=n`
+
+将更新间隔设置为 n 秒(默认为 4 秒)。
+
+- `-notile`
+
+最初不平铺窗口(用于两个或多个连接)。
+
+- `-pluginpath plugins`
+
+指定要搜索 *JConsole* 插件的目录或 JAR 文件列表。插件路径应该包含一个名为 *META-INF/services/com.sun.tools.jconsole.JConsolePlugin* 的提供程序配置文件。这一行指定实现 *com.sun.tools.jconsole.JConsolePlugin* 的类的完全限定类名。
+
+- `-version`
+
+显示发布信息和退出。
+
+- `-Jflag`
+
+将标志传递给运行 `jconsole` 命令的 JVM。
+
 ## ~~jvisualvm~~
 
 > @delete 9<br>
