@@ -2149,6 +2149,65 @@ jstatd -J-Djava.security.policy=all.policy
 
 > 将诊断命令请求发送到正在运行的 Java 虚拟机（JVM）。
 
+> 概要
+
+```bash
+jcmd [-l|-h|-help]
+
+jcmd pid|main-class PerfCounter.print
+
+jcmd pid|main-class -f filename
+
+jcmd pid|main-class command[ arguments]
+```
+
+> 描述
+
+`jcmd` 实用程序用于将诊断命令请求发送到 JVM。它必须在运行 JVM 的同一台机器上使用，并且具有用于启动 JVM 的相同有效用户和组标识符。
+
+**注意：**
+
+要从远程机器或使用不同的标识符调用诊断命令，可以使用 `com.sun.management.DiagnosticCommandMBean` 接口。
+
+如果没有参数或使用 `-l` 选项运行 `jcmd`，它将打印运行 Java 进程标识符的列表，其中包含用于启动进程的主类和命令行参数。使用 `-h` 或 `-help` 选项运行 `jcmd` 将打印工具的帮助消息。
+
+**注意**：
+
+`jcmd` 实用程序可用于在已经运行的 JVM 中与 Java Flight Recorder (JFR)进行动态交互。您可以使用它来解锁商业功能，启用/启动/停止飞行记录，并从系统中获取各种状态消息。
+
+如果将进程标识符(pid)或主类(main-class)指定为第一个参数，`jcmd` 将诊断命令请求发送给具有指定标识符的 Java 进程，或者发送给具有指定主类名称的所有 Java 进程。还可以通过指定 0 作为流程标识符将诊断命令请求发送到所有可用的 Java流程。使用下列命令之一作为诊断命令请求:
+
+- `Perfcounter.print`
+
+打印指定 Java 进程可用的性能计数器。性能计数器的列表可能会随着 Java 进程而变化。
+
+- `-f filename`
+
+要从中读取诊断命令并将其发送到指定 Java 进程的文件的名称。仅与 `-f` 选项一起使用。文件中的每个命令都必须写在一行上。以数字符号(#)开头的行将被忽略。当读取所有行或包含 stop 关键字的行时，文件的处理结束。
+
+- `command [arguments]`
+
+要发送到指定 Java 进程的命令。通过向该进程发送 *help* 命令，可以获得给定进程的可用诊断命令列表。每个诊断命令都有自己的一组参数。要查看命令的描述、语法和可用参数列表，请使用该命令的名称作为 *help* 命令的参数。
+
+注意:如果任何参数包含空格，必须用单引号或双引号('或")包围它们。此外，必须使用反斜杠(`\`)转义单引号或双引号，以防止操作系统 shell 处理引号。或者，可以用单引号包围这些参数，然后用双引号(或者用双引号，然后用单引号)。
+
+> 选项
+
+选择是相互排斥的。
+
+- `-f filename`
+
+从指定文件中读取命令。只有在将流程标识符或主类指定为第一个参数时，才可以使用此选项。文件中的每个命令都必须写在一行上。以数字符号(#)开头的行将被忽略。当读取所有行或包含 stop 关键字的行时，文件的处理结束。
+
+- `-h`
+- `-help`
+
+打印帮助信息。
+
+- `-l`
+
+打印使用主类和命令行参数运行 Java 进程标识符的列表。
+
 ## jdb
 
 > 查找并修复 Java 平台程序中的错误。
@@ -2162,6 +2221,55 @@ jstatd -J-Djava.security.policy=all.policy
 
 > 生成配置信息。此命令是实验性的，不受支持。
 
+> 概要
+
+```bash
+# option 命令行选项
+# pid 进程 ID
+jinfo [option] pid
+
+# executable 生成核心转储的 Java 可执行文件。
+# core 要打印配置信息的核心文件。
+jinfo [option] executable core
+
+# servier-id 当多个调试服务器运行在同一个远程主机上时，可以使用一个可选的惟一ID。
+# remote-hostname-or-IP 远程调试服务器主机名或IP地址。看到 jsadebugd
+jinfo [option] [servier-id] remote-hostname-or-IP
+```
+
+> 描述
+
+`jinfo` 命令打印指定 Java 进程或核心文件或远程调试服务器的 Java 配置信息。配置信息包括 Java 系统属性和 Java 虚拟机(JVM)命令行标志。如果指定的进程在 64 位 JVM 上运行，那么可能需要指定 `-J-d64` 选项，例如: `jinfo -J-d64 -sysprops pid`。
+
+此实用程序不受支持，并且可能在 JDK 的未来版本中不可用。在没有 *dbgen.dll* 的 Windows 系统中，必须安装用于 Windows 的调试工具才能使这些工具工作。*PATH* 环境变量应该包含目标进程使用的 jvm.dll 的位置，或者生成崩溃转储文件的位置。例如，*set PATH=%JDK_HOME%\jre\bin\client;%PATH%*。
+
+> 选项
+
+- `no-option`
+
+同时打印命令行标志和系统属性名称-值对。
+
+- `-flag name`
+
+打印指定命令行标志的名称和值。
+
+- `-flag name=value`
+
+将指定的命令行标志设置为指定的值。
+
+- `-flags`
+
+打印传递给 JVM 的命令行标志。
+
+- `-sysprops`
+
+将 Java 系统属性打印为名称-值对。
+
+- `-h`
+- `-help`
+
+打印帮助信息。
+
 ## ~~jhat~~
 
 > @delete 9<br>
@@ -2171,6 +2279,63 @@ jstatd -J-Djava.security.policy=all.policy
 
 > 打印进程，核心文件或远程调试服务器的共享对象内存映射或堆内存详细信息。此命令是实验性的，不受支持。
 
+> 概要
+
+```bash
+# options 选项
+# pid 进程 ID
+jmap [options] pid
+
+# executable 生成核心转储的 Java 可执行文件。
+# core 要打印内存映射的核心文件。
+jmap [options] executable core
+
+# server-id 当多个调试服务器运行在同一个远程主机上时，可以使用一个可选的惟一 ID。
+# remote-hostname-or-IP 远程调试服务器主机名或 IP 地址。jsadebugd
+jmap [options] [pid] server-id@] remote-hostname-or-IP
+```
+
+> 描述
+
+`jmap` 命令打印指定进程、核心文件或远程调试服务器的共享对象内存映射或堆内存详细信息。如果指定的进程在 64 位 Java 虚拟机(JVM)上运行，那么可能需要指定 `-J-d64` 选项，例如: `jmap -J-d64 -heap pid`。
+
+注意: 此实用程序不受支持，并且可能在 JDK 的未来版本中不可用。在没有 *dbgen .dll* 文件的 Windows 系统上，必须安装用于 Windows 的调试工具才能使这些工具工作。*PATH* 环境变量应该包含目标进程使用的 *jvm.dll* 文件的位置，或者生成崩溃转储文件的位置，例如: `set PATH=%JDK_HOME%\jre\bin\client;%PATH%`。
+
+> 选项
+
+- `<no option>`
+
+当不使用任何选项时，`jmap` 命令打印共享对象映射。对于目标 JVM 中加载的每个共享对象，将打印开始地址、映射大小和共享对象文件的完整路径。这种行为类似于 Oracle Solaris `pmap` 实用程序。
+
+- `-dump:[live,] format=b, file=filename`
+
+将 *hprof* 二进制格式的 Java 堆转储到文件名。*live* 子选项是可选的，但在指定时，仅转储堆中的活动对象。要浏览堆转储，可以使用 `jhat` 命令来读取生成的文件。
+
+- `-finalizerinfo`
+
+打印关于等待结束的对象的信息。
+
+- `-heap`
+
+打印使用的垃圾收集、头配置和生成级堆使用的堆摘要。此外，还打印了实习字符串的数量和大小。
+
+- `-clstats`
+
+打印 Java 堆的类加载器明智的统计信息。对于每个类加载器，将打印它的名称、它的活动程度、地址、父类加载器以及它加载的类的数量和大小。
+
+- `-F`
+
+当 pid 没有响应时，将此选项与 `jmap -dump` 或 `jmap -histo` 选项一起使用。此模式不支持 `live` 子选项。
+
+- `-h`
+- `-help`
+
+打印帮助信息。
+
+- `-Jflag`
+
+将 *flag* 传递到运行 `jmap` 命令的 Java 虚拟机。
+
 ## ~~jsadebugd~~
 
 > @delete 9<br>
@@ -2179,6 +2344,55 @@ jstatd -J-Djava.security.policy=all.policy
 ## jstack
 
 > 打印 Java 进程，核心文件或远程调试服务器的 Java 线程堆栈跟踪。此命令是实验性的，不受支持。
+
+> 概要
+
+```bash
+# options 选项
+# pid 进程 ID
+jstack [options] pid
+
+# executable 生成核心转储的 Java 可执行文件。
+# core 要打印堆栈跟踪的核心文件。
+jstack [options] executable core
+
+# server-id 当多个调试服务器运行在同一个远程主机上时，可以使用一个可选的惟一 ID。
+# remote-hostname-or-IP 远程调试服务器主机名或IP地址。jsadebugd
+jstack [options] [server-id@] remote-hostname-or-IP
+```
+
+> 描述
+
+`jstack` 命令打印指定 Java 进程、核心文件或远程调试服务器的 Java 线程的 Java 堆栈跟踪。对于每个 Java 帧，打印完整的类名、方法名、字节码索引(BCI)和行号(如果可用)。使用 `-m` 选项，`jstack` 命令使用程序计数器(PC)打印所有线程的 Java 和本机帧。对于每个本机帧，打印出与 PC 最接近的本机符号(如果可用)。C++ 错误的名称不会被打乱。要解调 C++ 名称，可以将此命令的输出通过管道传输到 *c++filt*。当指定的进程在 64 位 Java 虚拟机上运行时，您可能需要指定 `-J-d64` 选项，例如: `jstack -J-d64 -m pid`。
+
+注意: 此实用程序不受支持，并且可能在 JDK 的未来版本中不可用。在没有 *dbgen .dll* 文件的 Windows 系统中，必须安装用于 Windows 的调试工具，以便这些工具能够工作。*PATH* 环境变量需要包含目标进程使用的 *jvm.dll* 的位置，或者生成崩溃转储文件的位置。例如:
+
+```bash
+set PATH=<jdk>\jre\bin\client;%PATH%
+```
+
+> 选项
+
+- `-F`
+
+当 `jstack [-l] pid` 不响应时强制堆栈转储。
+
+- `-l`
+
+长清单。打印关于锁的附加信息，如拥有的 `java.util.concurrent` 的同步器。
+
+- `-m`
+
+打印具有 Java 和本机 C/C++ 框架的混合模式堆栈跟踪。
+
+- `-h`
+- `-help`
+
+打印帮助信息
+
+> 已知 Bugs
+
+在 mixed 模式堆栈跟踪中，`-m` 选项不能用于远程调试服务器。
 
 # Java 辅助功能
 
