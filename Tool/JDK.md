@@ -2556,8 +2556,262 @@ digraph "summary" {
 
 ## jlink
 
-> @since 10<br>
+> @since 9<br>
 > 您可以使用 `jlink` 工具将一组模块及其依赖项组合和优化到自定义运行时映像中。
+
+> 概要
+
+```bash
+# options 用空格分隔的命令行选项
+# modulepath jlink 工具发现可观察模块的路径。这些模块可以是模块化 JAR 文件、JMOD 文件或分解模块。
+# module 要添加到运行时映像的模块的名称。jlink 工具添加了这些模块及其传递依赖项。
+jlink [options] --module-path modulepath --add-modules module [,module...]
+```
+
+> 描述
+
+`jlink` 工具链接一组模块及其传递依赖项，以创建自定义运行时映像。
+
+注意： 开发人员负责更新他们的自定义运行时映像。与自定义运行时映像不同，web 部署的 Java 应用程序在可用时自动从 web 下载应用程序更新。Java 自动更新机制负责每年多次将 JRE 更新到最新的安全版本。自定义运行时映像不支持自动更新。
+
+> 选项
+
+- `--add-modules mod [,mod...]`
+
+将命名模块 mod 添加到默认的根模块集。默认的根模块集是空的。
+
+- `--bind-services`
+
+链接服务提供程序模块及其依赖项。
+
+- `-c ={0|1|2}`
+- `--compress={0|1|2}`
+
+启用压缩资源:
+
+*0*: 不压缩
+
+*1*: 常量字符串分享
+
+*2*: ZIP
+
+- `--disable-plugin pluginname`
+
+禁用指定的插件。
+
+- `--endian {little|big}`
+
+指定生成图像的字节顺序。默认值是系统体系结构的格式。
+
+- `-h`
+- `--help`
+
+打印帮助信息
+
+- `--ignore-signing-information`
+
+在运行时映像中链接带符号的模块 jar 时，抑制致命错误。已签名模块 jar 的签名相关文件不会复制到运行时映像中。
+
+- `--launcher command=module`
+- `--launcher command=module/main`
+
+指定模块的启动器命令名或模块和主类的命令名(模块和主类名之间用斜杠(/)分隔)。
+
+- `--limit-modules mod [,mod...]`
+
+将可观察模块的范围限制在命名模块 *mod* 的传递闭包中，如果有主模块，则加上 `——add-modules` 选项中指定的任何其他模块。
+
+- `--list-plugins`
+
+列出可用的插件，您可以通过命令行选项访问这些插件;
+
+- `-p`
+- `--module-path modulepath`
+
+指定模块路径。
+
+- `--no-header-files`
+
+不包括头文件。
+
+- `--no-man-pages`
+
+不包括手册页。
+
+- `--output path`
+
+指定生成的运行时映像的位置。
+
+- `--save-opts filename`
+
+将 `jlink` 选项保存到指定的文件中。
+
+- `--suggest-providers [name, ...]`
+
+建议提供程序从模块路径实现给定的服务类型。
+
+- `--version`
+
+打印版本信息。
+
+- `@filename`
+
+从指定文件中读取选项。
+
+选项文件是一个文本文件，包含您通常会在命令提示符中输入的选项和值。选项可能出现在一行，也可能出现在几行。您不能为路径名指定环境变量。您可以通过在行首加上一个散列符号(#)来注释行。
+
+下面是 `jlink` 命令的选项文件示例:
+
+```
+#Wed Dec 07 00:40:19 EST 2016
+--module-path C:/Java/jdk9/jmods;mlib
+--add-modules com.greetings
+--output greetingsapp
+```
+
+> 插件
+
+注意：本节中未列出的插件不受支持，可能会发生更改。
+
+对于需要模式列表的插件选项，值是由逗号分隔的元素列表，每个元素使用以下形式:
+
+*glob-pattern*<br>
+*glob:glob-pattern*<br>
+*regex:regex-pattern*<br>
+*@filename*<br>
+
+要获得所有可用插件的完整列表，请运行该命令:
+
+```
+jlink --list-plugins
+```
+
+插件名|选项|描述
+:---|:---|:---
+class-for-name|`--class-for-name`|Class 优化，转换 `Class.forName` 调用常量负载。
+compress|`--compress={0|1|2}[:filter=pattern-list]`|压缩输出映像中的所有资源。
+dedup-legal-notices|`--dedup-legal-notices=[error-if-not-same-content]`|删除所有法律公告的副本。如果 `error-if-not-same-content` 指定，则如果相同文件名的两个文件不同，则为错误。
+exclude-files|`--exclude-files=pattern-list`|指定要排除的文件。
+exclude-jmod-section|`--exclude-jmod-section=section-name`|指定一个 JMOD 节，以排除节名为 man 或 header 的地方。
+exclude-resources|`--exclude-resources=pattern-list`|指定要排除的资源。
+generate-jli-classes|`--generate-jli-classes=@filename[:ignore-version=<true|false>]`|指定文件清单 `java.lang.invoke` 提前生成类。默认情况下，这个插件可以使用一个内置的类列表来预生成。如果这个插件运行在与创建的映像不同的运行时版本上，那么默认情况下代码生成将被禁用，以确保正确性。添加 `ignore-version=true` 以覆盖此行为。
+include-locales|`--include-locales=langtag[,langtag]*`|包含 langtag 是 BCP 47 语言标记的语言环境列表。
+order-resources|`--order-resources=pattern-list`|按优先级顺序排列指定的路径。如果指定了 @filename，那么模式列表中的每一行必须与要排序的路径完全匹配。
+release-info|`--release-info={file|add:key1=value1:key2=value2:...|del:key-list}`|加载、添加或删除发布属性
+strip-debug|`--strip-debug`|从输出图像中删除调试信息
+strip-native-commands|`--strip-native-commands`|排除本机命令(例如 `java/java.exe` 
+system-modules|`--system-modules=retainModuleTarget`|快速加载模块描述符(始终启用)
+vm|`--vm={client|server|minimal|all}`|在输出映像中选择HotSpot VM。默认 all。
+
+> 例子
+
+下面的命令在 `greetingsapp` 目录中创建一个运行时映像。这个命令链接模块 *com.greetings*，其模块定义包含在目录 `mlib` 中。目录 `$JAVA_HOME/jmods` 包含 *java.base.jmod* 和其他标准和 JDK 模块。
+
+```
+jlink --module-path $JAVA_HOME/jmods:mlib --add-modules com.greetings --output greetingsapp
+```
+
+下面的命令列出了运行时映像 `greetingsapp` 中的模块:
+
+```
+greetingsapp/bin/java --list-modules
+com.greetings
+java.base@9
+java.logging@9
+org.astro@1.0
+```
+
+下面的命令在 `compressedrt` 目录中创建一个运行时映像，该目录去掉了调试符号，使用压缩来减少空间，并包含法语语言环境信息:
+
+```
+jlink --module-path $JAVA_HOME/jmods --add-modules jdk.localedata --strip-debug --compress=2 --include-locales=fr --output compressedrt
+```
+
+下面的例子比较了运行时图像 *compressedrt* 和 *fr_rt* 的大小， *fr_rt* 没有去掉调试符号，也不使用压缩:
+
+```
+jlink --module-path $JAVA_HOME/jmods --add-modules jdk.localedata --include-locales=fr --output fr_rt
+
+du -sh ./compressedrt ./fr_rt
+23M     ./compressedrt
+36M     ./fr_rt
+```
+
+下面的例子列出了实现 *java.security.Provider* 的提供者:
+
+```
+jlink --module-path $JAVA-HOME/jmods --suggest-providers java.security.Provider
+
+Suggested providers:
+   java.naming provides java.security.Provider used by java.base
+   java.security.jgss provides java.security.Provider used by java.base
+   java.security.sasl provides java.security.Provider used by java.base
+   java.smartcardio provides java.security.Provider used by java.base
+   java.xml.crypto provides java.security.Provider used by java.base
+   jdk.crypto.cryptoki provides java.security.Provider used by java.base
+   jdk.crypto.ec provides java.security.Provider used by java.base
+   jdk.crypto.mscapi provides java.security.Provider used by java.base
+   jdk.deploy provides java.security.Provider used by java.base
+   jdk.security.jgss provides java.security.Provider used by java.base
+```
+
+下面的示例创建一个名为 *mybuild* 的自定义运行时映像，该映像只包含 *java.naming* 和 *jdk.crypto.cryptoki* 及其依赖项，但没有其他提供程序。注意，这些依赖项必须存在于模块路径中:
+
+```
+jlink --module-path $JAVA_HOME/jmods --add-modules java.naming,jdk.crypto.cryptoki --output mybuild
+```
+
+下面的命令与创建一个名为 *greetingsapp* 的运行时映像的命令类似，只是它将用服务绑定链接从根模块解析的模块; 看 *Configuration.resolveAndBind* 方法。
+
+```
+jlink --module-path $JAVA_HOME/jmods:mlib --add-modules com.greetings --output greetingsapp --bind-services
+```
+
+下面的命令列出了这个命令创建的运行时映像 `greetingsapp` 中的模块:
+
+```
+greetingsapp/bin/java --list-modules
+com.greetings
+java.base@9
+java.compiler@9
+java.datatransfer@9
+java.desktop@9
+java.logging@9
+java.management@9
+java.management.rmi@9
+java.naming@9
+java.prefs@9
+java.rmi@9
+java.scripting@9
+java.security.jgss@9
+java.security.sasl@9
+java.smartcardio@9
+java.xml@9
+java.xml.crypto@9
+jdk.accessibility@9
+jdk.charsets@9
+jdk.compiler@9
+jdk.crypto.cryptoki@9
+jdk.crypto.ec@9
+jdk.crypto.mscapi@9
+jdk.deploy@9
+jdk.dynalink@9
+jdk.internal.opt@9
+jdk.jartool@9
+jdk.javadoc@9
+jdk.jdeps@9
+jdk.jlink@9
+jdk.localedata@9
+jdk.management@9
+jdk.naming.dns@9
+jdk.naming.rmi@9
+jdk.scripting.nashorn@9
+jdk.security.auth@9
+jdk.security.jgss@9
+jdk.unsupported@9
+jdk.zipfs@9
+org.astro@1.0
+```
 
 ## jmod
 
