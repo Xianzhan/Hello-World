@@ -2818,6 +2818,139 @@ org.astro@1.0
 > @since 9<br>
 > 您可以使用 `jmod` 工具创建 JMOD 文件并列出现有 JMOD 文件的内容。
 
+> 概要
+
+```bash
+# create 创建一个新的 JMOD 存档文件。
+# extract 从 JMOD 归档文件中提取所有文件。
+# list 打印所有条目的名称。
+# describe 打印模块细节。
+# hash 确定叶模块并记录直接或间接需要它们的依赖项的散列。
+# options 命令行选项
+# jmod-file 指定要创建或从中检索信息的 JMOD 文件的名称。
+jmod (create|extract|list|describe|hash) [options] jmod-file
+```
+
+> 描述
+
+注意：对于大多数开发任务，包括在模块路径上部署模块或将模块发布到 Maven 存储库，继续将模块打包到模块 JAR 文件中。`jmod` 工具适用于具有本机库或其他配置文件的模块，也适用于您打算使用 `jlink` 工具链接到运行时映像的模块。
+
+JMOD 文件格式允许您聚合 *.class* 文件、元数据和资源之外的其他文件。这种格式是可传输的，但不是可执行的，这意味着您可以在编译时或链接时使用它，但不能在运行时使用。
+
+许多 `jmod` 选项都涉及指定一个路径，该路径的内容被复制到生成的 JMOD 文件中。这些选项复制指定路径的所有内容，包括子目录及其内容，但排除名称与 `--exclude` 选项指定的模式匹配的文件。
+
+使用 `--hash-modules` 选项或 `jmod` 散列命令，您可以在每个模块的描述符中记录允许依赖于它的模块内容的散列，从而将这些模块“绑定”在一起。这样，您就可以允许一个包通过合格的导出导出到一个或多个具有特定名称的模块，而不导出到其他模块。运行时验证模块的记录哈希值是否与运行时解析的哈希值匹配;如果没有，运行时将返回一个错误。
+
+> 选项
+
+- `--class-path path`
+
+指定应用程序 JAR 文件的位置或包含要复制到生成的 JMOD 文件中的类的目录。
+
+- `--cmds path`
+
+指定要复制到生成的 JMOD 文件中的本机命令的位置。
+
+- `--config path`
+
+指定要复制到生成的 JMOD 文件中的用户可编辑配置文件的位置。
+
+- `–-dir path`
+
+指定 `jmod` 从指定的 JMOD 归档文件中提取文件的位置。
+
+- `--dry-run`
+
+执行散列模式的预演。它标识叶子模块及其所需的模块，而不记录任何散列值。
+
+- `--exclude pattern–list`
+
+排除与所提供的以逗号分隔的模式列表匹配的文件，每个元素使用以下表单:
+
+*glob-pattern*<br>
+*glob:glob-pattern*<br>
+*regex:regex-pattern*<br>
+
+- `--hash-modules regex-pattern`
+
+根据匹配给定 *regex-pattern* 的模块的模块图，确定叶子模块并记录直接和间接需要它们的依赖项的散列。散列记录在正在创建的 JMOD 存档文件中，或者在 `jmod hash` 命令指定的模块路径上记录一个 JMOD 存档或模块 JAR。
+
+- `--header-files path`
+
+指定要复制到生成的 JMOD 文件中的头文件的位置。
+
+- `--help`
+- `-h`
+
+打印帮助信息
+
+- `--help-extra`
+
+打印 extra 选项帮助。
+
+- `–-legal-notices path`
+
+指定要复制到生成的 JMOD 文件中的法律通知的位置。
+
+- `--libs path`
+
+指定要复制到生成的 JMOD 文件中的本机库的位置。
+
+- `--main-class class-name`
+
+指定要记录在 `module-info.class` 文件中的主类。
+
+- `--man-pages path`
+
+指定要复制到生成的 JMOD 文件中的手册页的位置。
+
+- `--module-version module-version`
+
+指定要记录在 `module-info.class` 文件中的模块版本。
+
+- `--module-path path`
+- `-p path`
+
+指定模块路径。前置 `--hash-modules`
+
+- `--target-platform platform`
+
+指定目标平台。
+
+- `--version`
+
+打印 `jmod` 工具的版本信息。
+
+- `@filename`
+
+从指定文件中读取选项。
+
+选项文件是一个文本文件，包含通常在命令提示符中输入的选项和值。选项可能出现在一行，也可能出现在几行。您不能为路径名指定环境变量。您可以通过在行首加上一个散列符号(#)来注释行。
+
+下面是 `jmod` 命令的选项文件示例:
+
+```
+#Wed Dec 07 00:40:19 EST 2016
+create --class-path mods/com.greetings --module-path mlib
+  --cmds commands --config configfiles --header-files src/h
+  --libs lib --main-class com.greetings.Main
+  --man-pages man --module-version 1.0
+  --os-arch "x86_x64" --os-name "Mac OS X"
+  --os-version "10.10.5" greetingsmod
+```
+
+> 例子
+
+下面是一个创建 JMOD 文件的例子:
+
+```
+jmod create --class-path mods/com.greetings --cmds commands
+  --config configfiles --header-files src/h --libs lib
+  --main-class com.greetings.Main --man-pages man --module-version 1.0
+  --os-arch "x86_x64" --os-name "Mac OS X"
+  --os-version "10.10.5" greetingsmod 
+```
+
 # 监控 Java 应用
 
 ## jconsole
