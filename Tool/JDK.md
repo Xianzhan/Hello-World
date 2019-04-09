@@ -264,6 +264,8 @@ javaw [options] -jar filename [args]
 public static void main(String[] args)
 ```
 
+自 JDK 9 开始，支持 *JDK_JAVA_OPTIONS* 环境变量。
+
 `java` 命令可以通过加载一个类来启动 JavaFX 应用程序，该类要么具有 *main()* 方法，要么扩展了 javafx.application.Application。在后一种情况下，启动程序 *Application* 类的实例，调用它的 *init()* 方法，然后调用 *start(javafx.stage.Stage)* 方法。
 
 默认情况下，不是 `java` 命令选项的第一个参数是要调用的类的完全限定名。如果指定了 `-jar` 选项，它的参数是包含应用程序的类和资源文件的 JAR 文件的名称。启动类必须由其源代码中的 *Main-Class* 清单头指示。
@@ -301,6 +303,12 @@ Java 虚拟机(JVM)的所有实现都保证支持标准选项。它们用于常�
 
 这些是 JVM 的所有实现都支持的最常用选项。
 
+- `--add-modules module[,module...]`
+
+*JDK 9*
+
+指定除初始模块外要解析的根模块。*module* 可以是 *ALL-DEFAULT*, *ALL-SYSTEM*, *ALL-MODULE-PATH*
+
 - `-agentlib:libname[=options]`
 
 加载指定的本机代理库。在库名称之后，可以使用一个逗号(,)分隔的特定于库的选项列表。
@@ -331,8 +339,15 @@ Java 虚拟机(JVM)的所有实现都保证支持标准选项。它们用于常�
 
 设置系统属性值。属性变量是一个字符串，没有空格表示属性的名称。变量是表示属性值的字符串。如果值是一个带空格的字符串，那么用引号括起来(例如 `-Dfoo="foo bar"`)。
 
-- `-disableassertions[:[packagename]...|:classname]`
+- `-d module name`
+- `--describe-module module_name`
+
+*JDK 9*
+
+描述指定的模块，然后退出。
+
 - `-da[:[packagename]...|:classname]`
+- `-disableassertions[:[packagename]...|:classname]`
 
 禁用断言。默认情况下，断言在所有包和类中都是禁用的。
 
@@ -350,6 +365,12 @@ java -ea:com.wombat.fruitbat... -da:com.wombat.fruitbat.Brickbat MyClass
 - `-dsa`
 
 在所有系统类中禁用断言。
+
+- `--enable-preview`
+
+*JDK 12*
+
+允许类依赖于发布的预览特性。
 
 - `-enableassertions[:[packagename]...|:classname]`
 - `-ea[:[packagename]...|:classname]`
@@ -394,6 +415,17 @@ java -ea:com.wombat.fruitbat... -da:com.wombat.fruitbat.Brickbat MyClass
 
 在版本搜索中包含用户私有的 JREs。
 
+- `--list-modules`
+
+*JDK 9*
+
+列出可观察模块，然后退出。
+
+- `--module module[/mainclass]`
+- `-m`
+
+执行 *mainclass* 指定的模块中的 *main* 类(如果给出)，或者模块中的值(如果没有给出)。换句话说，当模块没有指定 *mainclass* 时，可以使用它，或者在指定值时覆盖它。
+
 - `-no-jre-restrict-search`
 
 从版本搜索中排除用户私有的 JREs。
@@ -413,6 +445,16 @@ java -ea:com.wombat.fruitbat... -da:com.wombat.fruitbat.Brickbat MyClass
 ```bash
 -splash:images/splash.gif
 ```
+
+- `--upgrade-module-path modulepath...`
+
+一个分号(;)分隔的目录列表，其中每个目录都是替换运行时映像中可升级模块的模块目录。
+
+- `--validate-modules`
+
+*JDK 9*
+
+验证所有模块和出口。此选项有助于查找模块路径上与模块之间的冲突和其他错误。
 
 - `-verbose:class`
 
@@ -1424,7 +1466,18 @@ javac [options] [sourcefiles] [classes] [@argfiles]
 
 > 描述
 
-`javac` 命令读取用 Java 编程语言编写的类和接口定义，并将它们编译成字节码类文件。`javac` 命令还可以处理 Java 源文件和类中的注解。<br>
+`javac` 命令读取用 Java 编程语言编写的类和接口定义，并将它们编译成字节码类文件。`javac` 命令还可以处理 Java 源文件和类中的注解。
+
+JDK 9 新增一个环境变量 `JDK_JAVAC_OPTIONS`
+
+```bash
+export JDK_JAVAC_OPTIONS='@"C:\white spaces\argfile"'
+
+export JDK_JAVAC_OPTIONS='"@C:\white spaces\argfile"'
+
+export JDK_JAVAC_OPTIONS='@C:\"white spaces"\argfile'
+```
+
 有两种方法可以将源代码文件名传递给 `javac`:
 
 1. 如果源文件数量少，在命令行上列出文件名即可。
@@ -1448,7 +1501,22 @@ javac [options] [sourcefiles] [classes] [@argfiles]
 
 指定传递给注解处理器的选项。这些选项不是由 `javac` 直接解释的，而是提供给各个处理器使用的。键值应该是由点(`.`)分隔的一个或多个标识符。
 
-- `-cp path or -classpath path`
+- `--add-modules module , module`
+
+*JDK 9*
+
+指定除初始模块外要解析的根模块，或者模块路径 *module* 是 *ALL-MODULE-PATH*。
+
+- `--boot-class-path path`
+- `-bootclasspath path`
+
+重写引导类文件的位置。
+
+注意：`--release` 选项为 JDK 9 以上不支持。
+
+- `--class-path path`
+- `-classpath path`
+- `-cp path`
 
 指定在何处查找用户类文件，以及(可选)注解处理器和源文件。这个选项将会覆盖用户系统的环境变量 *CLASSPATH*。如果没有指定 *CLASSPATH*、`-cp` 或 `-classpath`，则用户类路径是当前目录。
 
@@ -1494,13 +1562,15 @@ javac [options] [sourcefiles] [classes] [@argfiles]
 
 不生成任何调试信息。
 
-- `-g:[keyword list]`
+- `-g:[lines, source, vars]`
 
 只生成由逗号分隔的关键字列表指定的某些调试信息。有效的关键词是:<br>
-`source`: 源文件调试信息。<br>
 `lines`: 行号调试信息。<br>
+`source`: 源文件调试信息。<br>
 `vars`: 局部变量调试信息。<br>
 
+- `-?`
+- `--help`
 - `-help`
 
 打印标准选项的概要。
@@ -1513,7 +1583,39 @@ javac [options] [sourcefiles] [classes] [@argfiles]
 
 将选项传递给 Java 虚拟机(JVM)，其中的选项是 Java 启动程序参考页面中描述的选项之一。例如，`-J-Xms48m` 将启动内存设置为 48MB。
 
-注意: *CLASSPATH*、`-classpath`、`-bootclasspath` 和 `-extdirs` 选项不指定用于运行 `javac` 的类。尝试使用这些选项和变量自定义编译器实现是有风险的，并且常常不能完成您想要的。如果必须自定义编译器实现，则使用 `-J` 选项将选项传递给底层Java启动程序。
+注意: *CLASSPATH*、`-classpath`、`-bootclasspath` 和 `-extdirs` 选项不指定用于运行 `javac` 的类。尝试使用这些选项和变量自定义编译器实现是有风险的，并且常常不能完成您想要的。如果必须自定义编译器实现，则使用 `-J` 选项将选项传递给底层 Java 启动程序。
+
+- `--limit-modules module,module*`
+
+*JDK 9*
+
+限制可观测模块的范围。
+
+- `--module module-name`
+- `-m module-name`
+
+*JDK 9*
+
+只编译指定的模块并检查时间戳。
+
+- `--module-path path`
+- `-p path`
+
+*JDK 9*
+
+指定在何处查找应用程序模块。
+
+- `--module-source-path module-source-path`
+
+*JDK 9*
+
+指定在何处查找多个模块的输入源文件。
+
+- `--module-version version`
+
+*JDK 9*
+
+指定正在编译的模块的版本。
 
 - `-nowarn`
 
@@ -1561,6 +1663,18 @@ javac [options] [sourcefiles] [classes] [@argfiles]
 
 注意: 通过类路径找到的类可能会在找到它们的源文件时重新编译。
 
+- `--system jdk | none`
+
+*JDK 9*
+
+覆盖系统模块的位置。
+
+- `--upgrade-module-path path`
+
+*JDK 9*
+
+覆盖可升级模块的位置。
+
 - `-verbose`
 
 使用详细输出，其中包括有关加载的每个类和编译的每个源文件的信息。
@@ -1569,7 +1683,7 @@ javac [options] [sourcefiles] [classes] [@argfiles]
 
 打印版本信息。
 
-- `-werror`
+- `-Werror`
 
 发生警告时终止编译。
 
@@ -1581,15 +1695,15 @@ javac [options] [sourcefiles] [classes] [@argfiles]
 
 默认情况下，类是根据 `javac` 附带的平台的引导程序和扩展类编译的。但是 `javac` 也支持交叉编译，其中类是根据不同 Java 平台实现的引导程序和扩展类编译的。在交叉编译时，使用 `-bootclasspath` 和 `-extdirs` 选项非常重要。
 
+- `-bootclasspath bootclasspath`
+
+根据指定的引导类集交叉编译。与用户类路径一样，引导类路径条目由冒号(:)分隔，可以是目录、JAR 归档文件或 ZIP 归档文件。
+
 - `-target version`
 
 生成针对虚拟机指定版本的类文件。类文件将在指定的目标上和以后的版本上运行，但不会在 JVM 的早期版本上运行。有效的目标是 `1.1`、`1.2`、`1.3`、`1.4`、`1.5`(也是 `5`)、`1.6`(也是 `6`)、`1.7`(也是 `7`)和 `1.8`(也是 `8`)。
 
 与 `-source` 相匹配。
-
-- `-bootclasspath bootclasspath`
-
-根据指定的引导类集交叉编译。与用户类路径一样，引导类路径条目由冒号(:)分隔，可以是目录、JAR 归档文件或 ZIP 归档文件。
 
 **紧凑的配置文件选项**
 
@@ -2148,19 +2262,55 @@ javap [options] classfile...
 
 > 选项
 
+- `-bootclasspath path`
+
+指定加载引导类的路径。默认情况下，引导类是实现位于 jre/lib/rt.jar 和其他几个 JAR 文件中的核心 Java 平台的类。
+
+- `-c`
+
+为类中的每个方法打印分解后的代码，例如，包含 Java 字节码的指令。
+
+- `-constants`
+
+显示 *static final* 常数。
+
+- `-extdir dirs`
+
+覆盖搜索已安装扩展的位置。扩展的默认位置是 java.ext.dirs 的值。
+
 - `-help`
 - `--help`
 - `?`
 
 为 `javap` 命令打印一条帮助消息。
 
-- `-version`
+- `-Joption`
 
-打印版本信息。
+将指定的选项传递给 JVM。例如:
+
+```bash
+javap -J-version
+javap -J-Djava.security.manager -J-Djava.security.policy=MyPolicy MyClassName
+```
+
+有关 JVM 选项的更多信息，请参见 `java` 命令文档。
 
 - `-l`
 
 打印行和局部变量表。
+
+- `--module module`
+- `-m module`
+
+*JDK 9*
+
+指定包含要分解的类的模块。
+
+- `--module-path path`
+
+*JDK 9*
+
+指定在何处查找应用程序模块。
 
 - `-public`
 
@@ -2175,17 +2325,6 @@ javap [options] classfile...
 
 显示所有类和成员。
 
-- `-Joption`
-
-将指定的选项传递给 JVM。例如:
-
-```bash
-javap -J-version
-javap -J-Djava.security.manager -J-Djava.security.policy=MyPolicy MyClassName
-```
-
-有关 JVM 选项的更多信息，请参见 `java` 命令文档。
-
 - `-s`
 
 打印内部类型签名。
@@ -2194,25 +2333,20 @@ javap -J-Djava.security.manager -J-Djava.security.policy=MyPolicy MyClassName
 
 显示正在处理的类的系统信息(路径、大小、日期、MD5 散列)。
 
-- `-constants`
+- `--system jdk`
 
-显示 *static final* 常数。
+*JDK 9*
 
-- `-c`
+指定在何处查找系统模块。
 
-为类中的每个方法打印分解后的代码，例如，包含 Java 字节码的指令。
-
+- `-v`
 - `-verbose`
 
-打印堆栈大小、局部变量数量和方法参数。
+打印有关所选类的附加信息。
 
-- `-bootclasspath path`
+- `-version`
 
-指定加载引导类的路径。默认情况下，引导类是实现位于 jre/lib/rt.jar 和其他几个 JAR 文件中的核心 Java 平台的类。
-
-- `-extdir dirs`
-
-覆盖搜索已安装扩展的位置。扩展的默认位置是 java.ext.dirs 的值。
+打印版本信息。
 
 > 例子
 
