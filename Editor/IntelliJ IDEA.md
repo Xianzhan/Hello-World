@@ -46,6 +46,7 @@ add to favorites `Alt + Shift + F`
 Alibaba Java Coding Guidelines<br>
 FindBugs-IDEA<br>
 Free MyBatis Plugin<br>
+Rainbow Brackets<br>
 jclasslib Bytecode viewer<br>
 
 # 资源
