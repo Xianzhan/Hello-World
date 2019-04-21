@@ -75,6 +75,8 @@ RAM 单元; 计数器; <br>
 
 # 软件
 
+[操作系统面试题](https://mp.weixin.qq.com/s/sTGsnLf0UhzeMoKHSEJI9g)<br>
+
 # 资源
 
 [程序员的自我修养：温故而知新](https://mp.weixin.qq.com/s/8rQKJxFaFDznrTRHmVNNQA)<br>
