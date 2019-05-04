@@ -46,6 +46,7 @@ BO | (Business Object) 业务对象
 英文术语 | 中文译法
 ---:|:---
 CD | (Continuous Delivery) 持续交付
+CDN | (Content Delivery Network) 内容分发网络
 CI | (Continuous Integration) 持续集成
 COFF | (Common File Format) (PE、ELF 的原型)
 CPU | (Central Processing Unit) 中央处理单元
