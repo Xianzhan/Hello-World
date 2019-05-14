@@ -84,6 +84,17 @@
 字面值: `true`, `false`, `null`<br>
 标识符：`var`(10)
 
+**注释**
+
+`//` & `/**/`
+
+```java
+public static void main(String[] args){
+    // \u000d System.out.println("Hello World!");
+}
+// output: Hello World!
+```
+
 ## 面向对象
 
 1. 封装
