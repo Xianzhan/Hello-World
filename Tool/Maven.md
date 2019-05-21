@@ -1,12 +1,21 @@
 <!-- TOC -->
 
 - [mvn](#mvn)
+    - [antrun](#antrun)
+    - [archetype](#archetype)
+    - [assembly](#assembly)
     - [clean](#clean)
     - [compile](#compile)
+    - [dependency](#dependency)
+    - [enforcer](#enforcer)
     - [generate-sources](#generate-sources)
+    - [help](#help)
     - [install](#install)
     - [jar](#jar)
     - [package](#package)
+    - [release](#release)
+    - [resources](#resources)
+    - [surefire](#surefire)
     - [test](#test)
     - [validate](#validate)
 - [依赖](#依赖)
@@ -16,7 +25,11 @@
 
 <!-- /TOC -->
 
+Maven 本质上是一个插件框架, 它的核心并不执行任何具体的构建任务, 所有这些任务都交给插件来完成, 例如编译源代码是有 `maven-compiler-plugin` 完成的.
+
 # mvn
+
+[Maven Plugins](http://maven.apache.org/plugins/index.html)
 
 `-D` 指定参数, 如 `-Dmaven.test.skip=true` 跳过单元测试<br>
 `-P` 指定 Profile 配置, 可以用于区分环境<br>
@@ -24,6 +37,18 @@
 `-o` 离线执行命令, 即不去远程仓库更新包<br>
 `-X` 显示 maven 允许的 debug 信息<br>
 `-U` 强制去远程更新 snapshot 的插件或依赖, 默认每天只更新一次<br>
+
+## antrun
+
+[maven-antrun-plugin](http://maven.apache.org/plugins/maven-antrun-plugin/)
+
+maven-antrun-plugin 能让用户在 Maven 项目中运行 Ant 任务。用户可以直接在该插件的配置以 Ant 的方式编写 Target， 然后交给该插件的 `run` 目标去执行。在一些由 Ant 往 Maven 迁移的项目中，该插件尤其有用。此外当你发现需要编写一些自定义程度很高的任务，同时又觉 得 Maven 不够灵活时，也可以以 Ant 的方式实现之。maven-antrun-plugin 的 `run` 目标通常与生命周期绑定运行。
+
+## archetype
+
+[maven-archetype-plugin](http://maven.apache.org/archetype/maven-archetype-plugin/)
+
+Archtype 指项目的骨架，Maven 初学者最开始执行的 Maven 命令可能就是 `mvn archetype:generate`，这实际上就是让 maven-archetype-plugin 生成一个很简单的项目骨架，帮助开发者快速上手。可能也有人看到一些文档写了 `mvn archetype:create`， 但实际上 create 目标已经被弃用了，取而代之的是 generate 目标，该目标使用交互式的方式提示用户输入必要的信息以创建项目，体验更好。 maven-archetype-plugin 还有一些其他目标帮助用户自己定义项目原型，例如你由一个产品需要交付给很多客户进行二次开发，你就可以为 他们提供一个 Archtype，帮助他们快速上手。
 
 创建 maven 项目: <br>
 ```
@@ -34,6 +59,12 @@ mvn archetype:create
     
 mvn archetype:generate
 ```
+
+## assembly
+
+[maven-assembly-plugin](http://maven.apache.org/plugins/maven-assembly-plugin/)
+
+maven-assembly-plugin 的用途是制作项目分发包，该分发包可能包含了项目的可执行文件、源代码、readme、平台脚本等等。 maven-assembly-plugin 支持各种主流的格式如 zip、tar.gz、jar 和 war 等，具体打包哪些文件是高度可控的，例如用户可以 按文件级别的粒度、文件集级别的粒度、模块级别的粒度、以及依赖级别的粒度控制打包，此外，包含和排除配置也是支持的。maven-assembly-plugin 要求用户使用一个名为 assembly.xml 的元数据文件来表述打包，它的 single 目标可以直接在命令行调用，也可以被绑定至生命周期。
 
 ## clean 
 
@@ -51,6 +82,18 @@ mvn clean
 mvn compile
 ```
 
+## dependency
+
+[maven-dependency-plugin](http://maven.apache.org/plugins/maven-dependency-plugin/)
+
+maven-dependency-plugin 最大的用途是帮助分析项目依赖，`dependency:list` 能够列出项目最终解析到的依赖列表，`dependency:tree` 能进一步的描绘项目依赖树，`dependency:analyze` 可以告诉你项目依赖潜在的问题，如果你有直接使用到的却未声明的依赖，该目标就会发出警告。maven-dependency-plugin 还有很多目标帮助你操作依赖文件，例如 `dependency:copy-dependencies` 能将项目依赖从本地 Maven 仓库复制到某个特定的文件夹下面。
+
+## enforcer
+
+[maven-enforcer-plugin](http://maven.apache.org/plugins/maven-enforcer-plugin/)
+
+在一个稍大一点的组织或团队中，你无法保证所有成员都熟悉 Maven，那他们做一些比较愚蠢的事情就会变得很正常，例如给项目引入了外部的  SNAPSHOT 依赖而导致构建不稳定，使用了一个与大家不一致的 Maven 版本而经常抱怨构建出现诡异问题。maven-enforcer-plugin 能够帮助你避免之类问题，它允许你创建一系列规则强制大家遵守，包括设定 Java 版本、设定 Maven 版本、禁止某些依赖、禁止 SNAPSHOT 依赖。只要在一个父 POM 配置规则，然后让大家继承，当规则遭到破坏的时候，Maven 就会报错。除了标准的规则之外，你还可以扩展该插 件，编写自己的规则。maven-enforcer-plugin 的 enforce 目标负责检查规则，它默认绑定到生命周期的 validate 阶段。
+
 ## generate-sources
 
 生成源码包
@@ -58,6 +101,13 @@ mvn compile
 ```
 mvn generate-sources
 ```
+
+## help
+
+[maven-help-plugin](http://maven.apache.org/plugins/maven-help-plugin/)
+
+maven-help-plugin 是一个小巧的辅助工具，最简单的 `help:system` 可以打印所有可用的环境变量和 Java 系统属性。`help:effective-pom` 和 `help:effective-settings` 最为有用，它们分别打印项目的有效 POM 和有效 settings，有效 POM 是指合并了所有父 POM（包括 Super POM）后的 XML，当你不确定 POM 的某些信息从何而来时，就可以查看有效 POM。有效 settings 同理，特别是当你发现自己配置的 settings.xml 没有生效时，就可以用 help:effective-settings 来验证。此外，maven-help-plugin 的 describe 目标可以帮助你描述任何一个 Maven 插件的信息，还有 all-profiles 目标和 active-profiles 目标帮助查看项目的 Profile。
+
 
 ## install
 
@@ -89,6 +139,24 @@ mvn jar:jar
 ```
 mvn package
 ```
+
+## release
+
+[maven-release-plugin](http://maven.apache.org/plugins/maven-release-plugin/)
+
+maven-release-plugin 的用途是帮助自动化项目版本发布，它依赖于 POM 中的 SCM 信息。`release:prepare` 用来准备版本发布，具体的工作包括检查是否有未提交代码、检查是否有 SNAPSHOT 依赖、升级项目的 SNAPSHOT 版本至 RELEASE 版本、为项目打标签等等。`release:perform` 则是签出标签中的 RELEASE 源码，构建并发布。版本发布是非常琐碎的工作，它涉及了各种检查，而且由于该工作仅仅是偶尔需要，因此手动操作很容易遗漏一些细节，maven-release-plugin 让该工作变得非常快速简便，不易出错。maven-release-plugin 的各种目标通常直接在命令行调用，因为版本发布显然不是日常构建生命周期的一部分。
+
+## resources
+
+[maven-resources-plugin](http://maven.apache.org/plugins/maven-resources-plugin/)
+
+为了使项目结构更为清晰，Maven 区别对待 Java 代码文件和资源文件，maven-compiler-plugin 用来编译 Java 代码，maven-resources-plugin 则用来处理资源文件。默认的主资源文件目录是 src/main/resources，很多用户会需要添加额外的资源文件目录，这个时候就可以通过配置 maven-resources-plugin 来实现。此外，资源文件过滤也是 Maven 的一大特性，你可以在资源文件中使用 ${propertyName} 形式的 Maven 属性，然后配置 maven-resources-plugin 开启对资源文件的过滤，之后就可以针对不同环境通过命令行或者 Profile 传入属性的值，以实现更为灵活的构建。
+
+## surefire
+
+[maven-surefire-plugin](http://maven.apache.org/plugins/maven-surefire-plugin/)
+
+可能是由于历史的原因，Maven 2/3 中用于执行测试的插件不是 maven-test-plugin，而是 maven-surefire-plugin。其实大部分时间内，只要你的测试类遵循通用的命令约定（以 Test 结尾、以 TestCase 结尾、或者以 Test 开头），就几乎不用知晓该插件的存在。然而在当你想要跳过测试、排除某些 测试类、或者使用一些 TestNG 特性的时候，了解 maven-surefire-plugin 的一些配置选项就很有用了。例如 `mvn test -Dtest=FooTest` 这样一条命令的效果是仅运行 FooTest 测试类，这是通过控制 maven-surefire-plugin 的 test 参数实现的。
 
 ## test
 
