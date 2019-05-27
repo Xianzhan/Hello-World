@@ -1,6 +1,7 @@
 <!-- TOC -->
 
 - [command](#command)
+- [发行版](#发行版)
 - [资源](#资源)
 
 <!-- /TOC -->
@@ -9,6 +10,11 @@
 
 [97 条前端可能用到的 Linux 常用命令总结](https://mp.weixin.qq.com/s/DuMVH1-kxkIpUzxDs7p4og)<br>
 [Linux命令大全搜索工具](https://wangchujiang.com/linux-command/)<br>
+
+# 发行版
+
+
+![../.resource/System-JVM-memory_heap.png](../.resource/System-Linux-distribute.jpg)
 
 # 资源
 
