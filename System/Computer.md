@@ -79,6 +79,7 @@ RAM 单元; 计数器; <br>
 
 # 资源
 
+[simple-computer](https://github.com/djhworld/simple-computer)<br>
 [程序员的自我修养：温故而知新](https://mp.weixin.qq.com/s/8rQKJxFaFDznrTRHmVNNQA)<br>
 [来点硬核的：什么是RDMA？](https://mp.weixin.qq.com/s/b6NaCu0_M-__XHWpKODx6w)<br>
 [【底层原理】基本内存管理（上）](https://mp.weixin.qq.com/s/MGEMmrCxTfi8K8spebsC_w)<br>
