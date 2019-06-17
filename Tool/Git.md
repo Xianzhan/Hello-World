@@ -1,6 +1,7 @@
 <!-- TOC -->
 
 - [Download](#download)
+- [配置 SSH Key](#配置-ssh-key)
 - [常用命令](#常用命令)
     - [全局配置](#全局配置)
     - [创建版本库](#创建版本库)
@@ -19,6 +20,20 @@
 # Download
 
 [国内淘宝镜像](https://github.com/waylau/git-for-win)
+
+# 配置 SSH Key
+
+```bash
+# 123 是你自己注册GitHub的邮箱
+ssh-keygen -t rsa -C "123@qq.com"
+
+# 去用户主目录找 .ssh 文件夹
+# id_rsa 是私钥，不能泄露
+# id_rsa.pub 是公钥，可以公开
+# 复制 id_rsa.pub 到 GitHub -> Settings -> SSH and GPG keys
+# test
+ssh -T git@github.com
+```
 
 # 常用命令
 
