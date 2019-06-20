@@ -11,8 +11,6 @@
 
 ## 盒子模型
 
-![](https://raw.githubusercontent.com/Xianzhan/resources/master/pictures/20180331232258.png)
-
 标准盒子模型: 宽度 = content + padding + border + margin
 
 ## 选择器
