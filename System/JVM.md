@@ -1,6 +1,7 @@
 <!-- TOC -->
 
 - [内存结构](#内存结构)
+    - [锁](#锁)
     - [线程隔离](#线程隔离)
         - [虚拟机栈(stack)](#虚拟机栈stack)
         - [本地方法栈(native stack)](#本地方法栈native-stack)
@@ -35,6 +36,10 @@ Java 虚拟机（Java Virtual Machine）
 # 内存结构
 
 ![https://static001.geekbang.org/resource/image/ab/77/ab5c3523af08e0bf2f689c1d6033ef77.png](../.resource/System-JVM-memory_model.png)
+
+## 锁
+
+[Java锁的升级策略 偏向锁 轻量级锁 重量级锁](https://www.cnblogs.com/pomer-huang/p/10965228.html)<br>
 
 ## 线程隔离
 

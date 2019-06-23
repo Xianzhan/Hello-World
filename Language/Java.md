@@ -533,7 +533,7 @@ Runnable run = () -> System.out.println("hello");
 
 # 设计模式
 
-[深入理解Java的三种工厂模式](https://mp.weixin.qq.com/s/3R42RC26wRq-xscuNEHc6g)<br>
+[设计模式看了又忘，忘了又看？](https://blog.csdn.net/u011642663/article/details/90613637)<br>
 
 # 资源
 
