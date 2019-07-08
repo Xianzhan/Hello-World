@@ -2,6 +2,7 @@
 
 - [command](#command)
 - [发行版](#发行版)
+- [设置](#设置)
 - [资源](#资源)
 
 <!-- /TOC -->
@@ -15,6 +16,17 @@
 
 
 ![../.resource/System-JVM-memory_heap.png](../.resource/System-Linux-distribute.jpg)
+
+# 设置
+
+- 终端 Tab 忽略大小写
+
+```bash
+# home
+touch .inputrc
+# set completion-ignore-case on
+vim .inputrc
+```
 
 # 资源
 
