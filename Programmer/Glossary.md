@@ -196,6 +196,7 @@ syntax analyzer | 语法分析器
 
 英文术语 | 中文译法
 ---:|:---
+TTY | Teletypewriter 电传打字机
 token | 字元
 tokenize | 字元化
 tokenizer | 字元转化器
