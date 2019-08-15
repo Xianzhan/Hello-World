@@ -151,6 +151,7 @@ PE | (Protable Executable) Windows 下的可执行文件格式
 PO | (Persistant Object) Java 对象, 遵守 Java Bean 规范
 PGC | (Professionally-generated Content) 专业生产内容
 POJO | (Plain Ordinary Java Object)简单 java 对象
+PV | （page view）即页面浏览量
 parallelism | 并行, 一个**时间点**同时运行多个程序
 parse/parsing | (语法) 分析
 parser | (语法) 分析器
@@ -173,7 +174,9 @@ QPS | (Query Per Second) 每秒处理请求数
 RAM | (Random-Access Memory) 随机访问存储器
 RMI | (Remote Method Invocation) 远程方法调用
 ROM | (Read-Only Memory) 只读内存
+RPS | Requests Per Second 吞吐率
 RT | (Response Time) 响应时间
+RV | （repeat visitors）重复访问者数量
 reference | 引用
 
 # S
@@ -197,6 +200,7 @@ syntax analyzer | 语法分析器
 英文术语 | 中文译法
 ---:|:---
 TTY | Teletypewriter 电传打字机
+TPS | Transactions Per Second 每秒处理的事务数目
 token | 字元
 tokenize | 字元化
 tokenizer | 字元转化器
@@ -209,6 +213,7 @@ type conversion | 类型转换
 UI | (User Interface) 用户界面
 UAT | (User Acceptance Test) 用户验收测试
 UGC | (User-generated Content) 用户生产内容
+UV | （Unique Visitor）指独立访客访问数
 
 # V
 
