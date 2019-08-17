@@ -26,6 +26,9 @@
     - [方法引用](#方法引用)
     - [其它](#其它)
         - [Unsafe](#unsafe)
+- [GUI](#gui)
+    - [AWT](#awt)
+    - [Swing](#swing)
 - [设计模式](#设计模式)
 - [资源](#资源)
 
@@ -544,6 +547,38 @@ Runnable run = () -> System.out.println("hello");
 ### Unsafe
 
 [【基本功】Java魔法类：Unsafe应用解析](https://mp.weixin.qq.com/s/h3MB8p0sEA7VnrMXFq9NBA)<br>
+
+# GUI
+
+## AWT
+
+```shell
+                Container --- LayoutManager
+        +----------+---------+
+        |          |         |
+       Panel     Window   ScrollPane
+        |        +--+--+
+        |        |     |
+      Applet   Frame Dialog
+```
+
+## Swing
+
+```shell
+                             Object
+        +----------------------+------------------+
+        |                                         |
+      Container                                AWT Components...
+   +----+-----+-----------------+
+   |          |                 |
+ Panel      Window          JComponent
+   |       +--+-------+      +--+------+--------------+--------+------------+
+   |       |          |      |         |              |        |            |
+ Applet  Frame     Dialog  JLable  JAastractButton JPanel JTextComponent JScrollPane
+   |       |          |          +-----+------+            +---+----+
+   |       |          |          |            |            |        |
+ JApplet JFrame     JDialog     JButton  JToggleButton JTextField JTextArea
+```
 
 # 设计模式
 
