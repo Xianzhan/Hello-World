@@ -33,8 +33,31 @@
 
 # 发行版
 
+```shell
+Arch
 
-![../.resource/System-JVM-memory_heap.png](../.resource/System-Linux-distribute.jpg)
+Debian
+ +- Knoppix
+ |   +- Morphix
+ |       +- Hiwix Hiweed
+ |           +- Deepin
+ +- Ubuntu
+
+Red Hat
+ +- Red Hat Enterprise
+ |   +- CentOS
+ |   +- Oracle Enterprise
+ +- Fedora Core
+     +- Fedora
+         +- Moblin 2
+         |   +- MeeGo
+         +- Fusion
+
+SLS
+ +- Slackware
+     +- S.u.S.E
+         +- SuSE
+```
 
 # 设置
 
