@@ -20,6 +20,7 @@
 - [T](#t)
 - [U](#u)
 - [V](#v)
+- [资源](#资源)
 
 <!-- /TOC -->
 
@@ -221,3 +222,7 @@ UV | （Unique Visitor）指独立访客访问数
 ---:|:---
 VO | (Value Object) 用于表示与前端交互的 Java 对象
 variable | 变量
+
+# 资源
+
+[后端开发术语大全](https://mp.weixin.qq.com/s/i4MAVUnDbP1tsdxaQpkjAQ)<br>
