@@ -29,6 +29,7 @@
 - [GUI](#gui)
     - [AWT](#awt)
     - [Swing](#swing)
+- [模块](#模块)
 - [设计模式](#设计模式)
 - [资源](#资源)
 
@@ -579,6 +580,16 @@ Runnable run = () -> System.out.println("hello");
    |       |          |          |            |            |        |
  JApplet JFrame     JDialog     JButton  JToggleButton JTextField JTextArea
 ```
+
+# 模块
+
+> @since 9<br>
+> 使开发人员更容易地构建和维护库和大型应用程序;<br>
+> 提高 Java SE 平台实现的安全性和可维护性，特别是 JDK;<br>
+> 提高应用程序性能;<br>
+> 使 Java SE 平台和 JDK 能够缩小规模，以便在小型计算设备和密集的云部署中使用。<br>
+
+[Project Jigsaw](http://openjdk.java.net/projects/jigsaw/)<br>
 
 # 设计模式
 
