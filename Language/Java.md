@@ -589,6 +589,30 @@ Runnable run = () -> System.out.println("hello");
 > 提高应用程序性能;<br>
 > 使 Java SE 平台和 JDK 能够缩小规模，以便在小型计算设备和密集的云部署中使用。<br>
 
+```java
+// 模块名
+module my.module.name {
+
+    // 可以添加 requires 子句，声明模块在编译时和运行时(按名称)依赖于其他模块
+    requires java.desktop;
+
+    // 其他依赖 my.module.name 模块的模块, 也可以访问 java.logging 模块
+    requires public java.logging;
+
+    // 可以添加 exports 子句来声明模块使特定包中的所有且仅为公共类型可供其他模块使用
+    exports my.module;
+    // 只暴露给 other.module 模块
+    exports my.module to other.module
+
+    // 运行时通过反射访问
+    opens my.module;
+
+    // SPI
+    uses service.module.Provider;
+    provides service.module.Provider with service.module.ProviderImpl;
+}
+```
+
 [Project Jigsaw](http://openjdk.java.net/projects/jigsaw/)<br>
 
 # 设计模式
