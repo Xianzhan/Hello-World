@@ -1,11 +1,24 @@
 <!-- TOC -->
 
+- [Settings](#settings)
+    - [Plugins](#plugins)
 - [快捷键](#快捷键)
     - [跳转](#跳转)
-- [扩展](#扩展)
 - [资源](#资源)
 
 <!-- /TOC -->
+
+# Settings
+
+## Plugins
+
+name|description
+:---:|:---
+Alibaba Java Coding Guidelines|阿里 Java 编码建议
+FindBugs-IDEA|Java 代码漏洞扫描, 仅支持 Java 8 及以下
+Free MyBatis Plugin|Java MyBatis 框架
+jclasslib Bytecode viewer|查看 Java 字节码
+Rainbow Brackets|彩虹括号
 
 # 快捷键
 
@@ -40,14 +53,6 @@ show bookmarks `Shift + F11`
 4. 收藏
 
 add to favorites `Alt + Shift + F`
-
-# 扩展
-
-Alibaba Java Coding Guidelines<br>
-FindBugs-IDEA<br>
-Free MyBatis Plugin<br>
-Rainbow Brackets<br>
-jclasslib Bytecode viewer<br>
 
 # 资源
 
