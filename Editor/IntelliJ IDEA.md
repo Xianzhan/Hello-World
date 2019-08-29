@@ -1,6 +1,11 @@
 <!-- TOC -->
 
 - [Settings](#settings)
+    - [Editor](#editor)
+        - [General](#general)
+        - [Code Style](#code-style)
+        - [Font](#font)
+        - [File Encodings](#file-encodings)
     - [Plugins](#plugins)
 - [快捷键](#快捷键)
     - [跳转](#跳转)
@@ -9,6 +14,28 @@
 <!-- /TOC -->
 
 # Settings
+
+## Editor
+
+### General
+
+**Code Completion**
+
+[ ] Match case
+
+### Code Style
+
+Line separator: Unix and macOS (\n)
+
+### Font
+
+Font: Consolas
+Size: 14
+Line spacing: 1.2
+
+### File Encodings
+
+UTF-8
 
 ## Plugins
 
