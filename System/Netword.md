@@ -14,11 +14,34 @@
 
 ### 三次握手
 
+```shell
+            C   S
+   SYN_SEND |   |
+            | ↘ | 
+            |   | SYN_RCV
+            | ↙ | 
+Established |   |
+            | ↘ |
+            |   | Established
+       data | ↔ | data
+```
+
 1. 第一次握手(SYN=1, seq=x)，发送完毕后，客户端进入 SYN_SEND 状态
 2. 第二次握手(SYN=1, ACK=1, seq=y, ACKnum=x+1)， 发送完毕后，服务器端进入 SYN_RCVD 状态。
 3. 第三次握手(ACK=1，ACKnum=y+1)，发送完毕后，客户端进入 ESTABLISHED 状态，当服务器端接收到这个包时，也进入 ESTABLISHED 状态，TCP 握手，即可以开始数据传输。
 
 ### 四次挥手
+
+```shell
+           C   S
+      data | ↔ | data
+           |   |
+FIN_WAIT_1 | ↘ | 
+           | ↙ | CLOSE_WAIT
+FIN_WAIT_2 | ↙ | 
+ TIME_WAIT | ↘ | LAST_ACK
+    CLOSED |   | CLOSE
+```
 
 1. 第一次挥手(FIN=1，seq=a)，发送完毕后，客户端进入 FIN_WAIT_1 状态
 2. 第二次挥手(ACK=1，ACKnum=a+1)，发送完毕后，服务器端进入 CLOSE_WAIT 状态，客户端接收到这个确认包之后，进入 FIN_WAIT_2 状态
