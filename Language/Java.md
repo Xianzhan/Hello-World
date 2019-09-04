@@ -265,6 +265,7 @@ public final class String {
 }
 ```
 
+[面试官问：为什么String的hashCode选择 31 作为乘子?](https://mp.weixin.qq.com/s/JbXzqeOzd6pnPHTKM5h5AA)<br>
 [一个Java字符串中到底有多少个字符?](https://colobu.com/2019/01/04/how-many-charactors-in-a-java-string/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)<br>
 
 ## 泛型
