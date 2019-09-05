@@ -6,6 +6,7 @@
 
 # 资源
 
+[InnoDB一棵B+树可以存放多少行数据？](https://mp.weixin.qq.com/s/aAR9YVBuhxdffz1xqHK7rQ)<br>
 [MySQL 的变量分类总结](https://mp.weixin.qq.com/s/M2BUZmudpnltu09dw8-PiQ)<br>
 [MySQL 对于千万级的大表要怎么优化？](https://mp.weixin.qq.com/s/-aC6WWoZsBp1Ap2jy6BNSA)<br>
 [MySQL 的索引是什么？怎么优化？](https://mp.weixin.qq.com/s/TG5J2SznE2cZAuA0noJ8eA)<br>
