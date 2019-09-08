@@ -1,5 +1,7 @@
 <!-- TOC -->
 
+- [应用层](#应用层)
+    - [WebSocket](#websocket)
 - [传输层](#传输层)
     - [TCP](#tcp)
         - [三次握手](#三次握手)
@@ -7,6 +9,12 @@
         - [粘包拆包](#粘包拆包)
 
 <!-- /TOC -->
+
+# 应用层
+
+## WebSocket
+
+[全双工通信的 WebSocket](https://mp.weixin.qq.com/s/-h9UM800bODnEMbfHvKtDw)<br>
 
 # 传输层
 
