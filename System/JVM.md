@@ -28,6 +28,7 @@
         - [Parallel Old](#parallel-old)
         - [CMS](#cms)
         - [G1](#g1)
+- [资源](#资源)
 
 <!-- /TOC -->
 
@@ -567,3 +568,7 @@ G1 收集器之所以能够建立可预测的停顿时间模型，因为他能�
 4. 筛选回收（Live Data Counting and Evacuation）： 首先对各个 Region 的回收价值和成本进行排序，根据用户所期望的 GC 停顿时间来制定回收计划，这一阶段是可以与用户程序一起并发执行的，但是因为只回收部分 Region，时间是用户可控的，而且停顿用户线程将大幅度提高收集效率。
 
 [好文推荐：G1学习笔记！！！](https://mp.weixin.qq.com/s/CG-k-Vqw3LVUyUjnDpPmFw)<br>
+
+# 资源
+
+[jvm的逃逸分析](https://mp.weixin.qq.com/s/EPx0i7CXu3amNHYYa5hR4w)<br>
