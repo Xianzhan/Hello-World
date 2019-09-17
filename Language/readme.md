@@ -6,6 +6,8 @@
 
 # 诞生
 
+[Family](https://ccrma.stanford.edu/courses/250a-fall-2005/docs/ComputerLanguagesChart.png)<br>
+
 ```shell
 1954 Fortran
 1958 Lisp

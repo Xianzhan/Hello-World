@@ -38,6 +38,7 @@
 # Book
 
 [PLMCodeTemplate](https://github.com/xwjie/PLMCodeTemplate)<br>
+[ruanyf/free-books](https://github.com/ruanyf/free-books)<br>
 [free-programming-books](https://github.com/EbookFoundation/free-programming-books)<br>
 [free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)<br>
 [system-design-primer](https://github.com/donnemartin/system-design-primer)<br>
