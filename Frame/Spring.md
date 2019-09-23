@@ -60,6 +60,9 @@ destroy-method 调用定制的销毁方法
 
 # 资源
 
+[Spring 事务管理（一）快速入门](https://mp.weixin.qq.com/s/yw5qZg3X2U5b2jjU9PI5Qw)<br>
+[Spring 事务管理（二）分布式事务管理之JTA与链式事务](https://mp.weixin.qq.com/s/Z20VyyzdWysJC6U0lMEvoQ)<br>
 [Spring 源码导读](https://mp.weixin.qq.com/s/-Ce5T6LIzFe-TLTxmjYuSQ)<br>
-[Spring事务管理（一）快速入门](https://mp.weixin.qq.com/s/yw5qZg3X2U5b2jjU9PI5Qw)<br>
-[Spring事务管理（二）分布式事务管理之JTA与链式事务](https://mp.weixin.qq.com/s/Z20VyyzdWysJC6U0lMEvoQ)<br>
+[【Spring 源码】Spring IOC 容器源码分析（一）](https://mp.weixin.qq.com/s/IJKQH8sM_yjts3gIvAEjUQ)<br>
+[【Spring 源码】Spring IOC 容器源码分析（二）](https://mp.weixin.qq.com/s/UU53oy9gujS6DRV1yvY9Uw)<br>
+[【Spring 源码】Spring IOC 容器源码分析（三）](https://mp.weixin.qq.com/s/IodWklm9IZT5icJdimTYqw)<br>
