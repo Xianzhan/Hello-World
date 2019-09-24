@@ -60,6 +60,7 @@ destroy-method 调用定制的销毁方法
 
 # 资源
 
+[Spring AOP 使用介绍，从前世到今生](https://mp.weixin.qq.com/s/KOV_lWOTPYMi8-2kFZCS9Q)<br>
 [Spring 事务管理（一）快速入门](https://mp.weixin.qq.com/s/yw5qZg3X2U5b2jjU9PI5Qw)<br>
 [Spring 事务管理（二）分布式事务管理之JTA与链式事务](https://mp.weixin.qq.com/s/Z20VyyzdWysJC6U0lMEvoQ)<br>
 [Spring 源码导读](https://mp.weixin.qq.com/s/-Ce5T6LIzFe-TLTxmjYuSQ)<br>
