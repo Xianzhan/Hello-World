@@ -26,6 +26,7 @@
 - [故障排除](#故障排除)
     - [jcmd](#jcmd)
     - [jdb](#jdb)
+    - [jfr](#jfr)
     - [jhsdb](#jhsdb)
     - [jinfo](#jinfo)
     - [~~jhat~~](#jhat)
@@ -33,8 +34,10 @@
     - [~~jsadebugd~~](#jsadebugd)
     - [jstack](#jstack)
 - [Java 辅助功能](#java-辅助功能)
+    - [jabswitch](#jabswitch)
     - [jaccessinspector](#jaccessinspector)
     - [jaccesswalker](#jaccesswalker)
+    - [javaw](#javaw)
 - [Language Shell](#language-shell)
     - [jshell](#jshell)
 - [脚本](#脚本)
@@ -49,8 +52,8 @@
     - [ktab](#ktab)
 - [远程方法调用](#远程方法调用)
     - [rmic](#rmic)
-    - [rmiregistry](#rmiregistry)
     - [rmid](#rmid)
+    - [rmiregistry](#rmiregistry)
     - [serialver](#serialver)
 - [~~部署应用和 Applets~~](#部署应用和-applets)
     - [~~pack200~~](#pack200)
@@ -187,6 +190,11 @@
 
 > 查找并修复 Java 平台程序中的错误。
 
+## jfr
+
+> @since 13<br>
+> 解析和打印飞行记录器文件<br>
+
 ## jhsdb
 
 > @since 9<br>
@@ -220,15 +228,28 @@
 
 # Java 辅助功能
 
+## jabswitch
+
+> @since 13<br>
+> Windows Only<br>
+> 启用或禁用 Java 访问桥接<br>
+
 ## jaccessinspector 
 
 > @since 9<br>
-> 您可以使用 Java Accessibility Utilities API 的 `jaccessinspector` 辅助功能评估工具来检查有关 Java 虚拟机中对象的可访问信息。
+> Windows Only<br>
+> 您可以使用 Java Accessibility Utilities API 的 `jaccessinspector` 辅助功能评估工具来检查有关 Java 虚拟机中对象的可访问信息。<br>
 
 ## jaccesswalker
 
 > @since 9<br>
-> 您可以使用 `jaccesswalker` 浏览特定 Java 虚拟机中的组件树，并在树视图中显示层次结构。
+> Windows Only<br>
+> 您可以使用 `jaccesswalker` 浏览特定 Java 虚拟机中的组件树，并在树视图中显示层次结构。<br>
+
+## javaw
+
+> Windows Only<br>
+> javaw 命令与 java 相同，只是 javaw 没有相关的控制台窗口。如果不希望出现命令提示窗口，请使用 javaw。然而，如果启动失败，javaw 启动程序将显示一个包含错误信息的对话框。javaw 命令与 java 相同，只是 javaw 没有相关的控制台窗口。如果不希望出现命令提示窗口，请使用 javaw。然而，如果启动失败，javaw 启动程序将显示一个包含错误信息的对话框。
 
 # Language Shell
 
@@ -264,15 +285,18 @@
 
 ## kinit
 
-> 获取并缓存 Kerberos 票据授予票据。这个工具在功能上与其他 Kerberos 实现(如 SEAM 和 MIT 参考实现)中常见的 `kinit` 工具类似。在运行 `kinit` 之前，用户必须在密钥分发中心(KDC)注册为主体。
+> Windows Only<br>
+> 获取并缓存 Kerberos 票据授予票据。这个工具在功能上与其他 Kerberos 实现(如 SEAM 和 MIT 参考实现)中常见的 `kinit` 工具类似。在运行 `kinit` 之前，用户必须在密钥分发中心(KDC)注册为主体。<br>
 
 ## klist
 
-> 使您可以查看本地凭据缓存和密钥表中的条目。
+> Windows Only<br>
+> 使您可以查看本地凭据缓存和密钥表中的条目。<br>
 
 ## ktab
 
-> 允许用户管理存储在本地密钥表中的主体名称和服务密钥。keytab 中列出的主体和密钥对允许在主机上运行的服务对密钥分发中心(KDC)进行身份验证。在配置使用 Kerberos 的服务器之前，必须在运行服务器的主机上设置一个 keytab。注意，使用 `ktab` 工具对 keytab 进行的任何更新都不会影响 Kerberos 数据库。如果更改 keytab 中的键，还必须对 Kerberos 数据库进行相应的更改。
+> Windows Only<br>
+> 允许用户管理存储在本地密钥表中的主体名称和服务密钥。keytab 中列出的主体和密钥对允许在主机上运行的服务对密钥分发中心(KDC)进行身份验证。在配置使用 Kerberos 的服务器之前，必须在运行服务器的主机上设置一个 keytab。注意，使用 `ktab` 工具对 keytab 进行的任何更新都不会影响 Kerberos 数据库。如果更改 keytab 中的键，还必须对 Kerberos 数据库进行相应的更改。<br>
 
 # 远程方法调用
 
@@ -280,13 +304,13 @@
 
 > 为使用 Java 远程方法协议（JRMP）或 Internet Inter-Orb 协议（IIOP）的远程对象生成存根，框架和绑定类。还生成对象管理组（OMG）接口定义语言（IDL）
 
-## rmiregistry
-
-> 在当前主机上的指定端口上启动远程对象注册表。
-
 ## rmid
 
 > 启动激活系统守护程序，该守护程序允许在 Java 虚拟机（JVM）中注册和激活对象。
+
+## rmiregistry
+
+> 在当前主机上的指定端口上启动远程对象注册表。
 
 ## serialver
 
