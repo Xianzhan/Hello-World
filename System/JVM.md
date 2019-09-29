@@ -10,6 +10,7 @@
         - [元空间](#元空间)
         - [堆(heap)](#堆heap)
 - [class 文件格式](#class-文件格式)
+    - [magic](#magic)
     - [生命周期](#生命周期)
         - [加载 Loading](#加载-loading)
         - [链接 Linking](#链接-linking)
@@ -28,6 +29,7 @@
         - [Parallel Old](#parallel-old)
         - [CMS](#cms)
         - [G1](#g1)
+        - [ZGC](#zgc)
 - [资源](#资源)
 
 <!-- /TOC -->
@@ -184,6 +186,12 @@ Java 8 中用元空间替代了永久代, 元空间并不在虚拟机中，而�
 Java 虚拟机所使用的一种平台中立(不依赖于特定硬件及操作系统)的二进制格式表示。
 
 [一张图看懂JVM之类装载系统](https://mp.weixin.qq.com/s/UU4qltVgRsj0SG7YmER-Qw)<br>
+
+## magic
+
+```
+CAFEBABE
+```
 
 ## 生命周期
 
@@ -568,6 +576,10 @@ G1 收集器之所以能够建立可预测的停顿时间模型，因为他能�
 4. 筛选回收（Live Data Counting and Evacuation）： 首先对各个 Region 的回收价值和成本进行排序，根据用户所期望的 GC 停顿时间来制定回收计划，这一阶段是可以与用户程序一起并发执行的，但是因为只回收部分 Region，时间是用户可控的，而且停顿用户线程将大幅度提高收集效率。
 
 [好文推荐：G1学习笔记！！！](https://mp.weixin.qq.com/s/CG-k-Vqw3LVUyUjnDpPmFw)<br>
+
+### ZGC
+
+[The Z Garbage Collector](http://openjdk.java.net/projects/zgc/)<br>
 
 # 资源
 

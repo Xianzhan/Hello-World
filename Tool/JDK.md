@@ -113,6 +113,16 @@
 
 > 启动 Java 应用程序。
 
+**日志**
+
+```shell
+# Java 8 之前
+-XX:+PrintGCDetails -Xloggc:<gc-log-file-path>
+
+# Java 9 及更高版本
+-Xlog:gc*:file=<gc-log-file-path>
+```
+
 ## javac
 
 > 读取 Java 类和接口定义，并将它们编译为字节码和类文件。
