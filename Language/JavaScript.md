@@ -20,5 +20,6 @@ Asynchronous JavaScript and XML（异步的JavaScript与XML技术）
 
 # 资源
 
+[ES6、ES7、ES8、ES9、ES10 新特性一览](https://mp.weixin.qq.com/s/PwK5xdiRvb7hK8sYSjV2JA)<br>
 [GitHub://33-js-concepts](https://github.com/stephentian/33-js-concepts)<br>
 [JavaScript的工作原理：解析、抽象语法树（AST）+ 提升编译速度5个技巧](https://www.cnblogs.com/fundebug/p/how-does-javascript-compile.html)<br>
