@@ -44,6 +44,7 @@ name|description
 Alibaba Java Coding Guidelines|阿里 Java 编码建议
 FindBugs-IDEA|Java 代码漏洞扫描, 仅支持 Java 8 及以下
 Free MyBatis Plugin|Java MyBatis 框架
+Grazie|检查简单的拼写错误，还具有一定的智能，可以在语法出错时提出警告。
 jclasslib Bytecode viewer|查看 Java 字节码
 Rainbow Brackets|彩虹括号
 
