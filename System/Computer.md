@@ -140,6 +140,7 @@ RAM 单元; 计数器; <br>
 
 # 资源
 
+[GeeksforGeeks Operating System](https://www.geeksforgeeks.org/operating-systems/)<br>
 [simple-computer](https://github.com/djhworld/simple-computer)<br>
 [程序员的自我修养：温故而知新](https://mp.weixin.qq.com/s/8rQKJxFaFDznrTRHmVNNQA)<br>
 [来点硬核的：什么是RDMA？](https://mp.weixin.qq.com/s/b6NaCu0_M-__XHWpKODx6w)<br>
