@@ -19,7 +19,7 @@
 
 <!-- /TOC -->
 
-![](../.resource/System-Computer-hardware_hierarchy.png)
+![](../../.resource/System/Computer/readme/hardware_hierarchy.png)
 
 # 硬件
 
@@ -34,7 +34,7 @@ RAM 单元; 计数器; <br>
 
 计算机最关键的三个部分：CPU,内存,I/O控制芯片。
 
-![](../.resource/System-Computer-hardware_composition.png)
+![](../../.resource/System/Computer/readme/hardware_composition.png)
 
 ## 中央处理器
 

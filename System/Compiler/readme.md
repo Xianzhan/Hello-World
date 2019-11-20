@@ -94,27 +94,27 @@ x = 2
 
 **语义分析 Semantic analysis**
 
-![Semantic analysis](../.resource/System-Compiler-semantic_analysis.png)
+![Semantic analysis](../../.resource/System/Compiler/readme/semantic_analysis.png)
 
 划分句子成分
 
 **语法分析 Syntax analysis**
 
-![Syntax analysis](../.resource/System-Compiler-syntax_analysis.png)
+![Syntax analysis](../../.resource/System/Compiler/readme/syntax_analysis.png)
 
 识别句子的各类短语
 
 **词法分析 Lexical analysis**
 
-![Lexical analysis](../.resource/System-Compiler-lexical_analysis.png)
+![Lexical analysis](../../.resource/System/Compiler/readme/lexical_analysis.png)
 
 确定单词的词性或者说词类
 
-![Translation](../.resource/System-Compiler-translation.png)
+![Translation](../../.resource/System/Compiler/readme/translation.png)
 
 **结构**
 
-![Structure](../.resource/System-Compiler-structure.png)
+![Structure](../../.resource/System/Compiler/readme/structure.png)
 
 ## 词法分析/扫描(Scanning)
 
@@ -151,11 +151,11 @@ output: 1 while <WHILE, ->
 
 赋值语句的语法分析树
 
-![](../.resource/System-Compiler-parse_tree_assign.png)
+![](../../.resource/System/Compiler/readme/parse_tree_assign.png)
 
 变量声明语句的语法分析树
 
-![](../.resource/System-Compiler-parse_tree_declare.png)
+![](../../.resource/System/Compiler/readme/parse_tree_declare.png)
 
 ## 语义分析
 
