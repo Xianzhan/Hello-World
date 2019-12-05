@@ -27,3 +27,4 @@
 [应聘架构师，面试最容易被问啥？](https://mp.weixin.qq.com/s/njZeSILcDp1_2nOCy7G8fw)<br>
 [有意思的业务，有意思的架构设计（含Google三驾马车）](https://mp.weixin.qq.com/s/HClQh9ra79Q0nBKfj1mQkw)<br>
 [云架构师进阶攻略（完整版）](https://mp.weixin.qq.com/s/9IKG9Weh4ERK9j20yecJkg)<br>
+[支付宝架构到底有多牛逼！没看完我就跪了！](https://mp.weixin.qq.com/s/CpY1lJafPCUrmD_rOS0byA)<br>

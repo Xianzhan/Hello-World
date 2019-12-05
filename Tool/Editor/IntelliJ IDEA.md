@@ -87,3 +87,4 @@ add to favorites `Alt + Shift + F`
 [GitHub://IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial)<br>
 [从头搭建IntelliJ IDEA环境](https://mp.weixin.qq.com/s/6jXHzkU8JfubhDsQJbwl8Q)<br>
 [你们都在用IntelliJ IDEA吗？或许你们需要看一下这篇博文](https://zhuanlan.zhihu.com/p/47365808)<br>
+[恕我直言，IDEA 的 Debug 调试，你可能只用了 10%](https://mp.weixin.qq.com/s/ZVtzGy4UFmFd5cqRBILgfg)<br>
