@@ -584,3 +584,4 @@ G1 收集器之所以能够建立可预测的停顿时间模型，因为他能�
 # 资源
 
 [jvm的逃逸分析](https://mp.weixin.qq.com/s/EPx0i7CXu3amNHYYa5hR4w)<br>
+[GC垃圾回收——总结](https://mp.weixin.qq.com/s/SHhoxhYK9kY0DQUeIffEZg)<br>

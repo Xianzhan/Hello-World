@@ -9,6 +9,7 @@
     - [高级语言层](#高级语言层)
     - [应用层](#应用层)
 - [诞生](#诞生)
+- [资源](#资源)
 
 <!-- /TOC -->
 
@@ -95,3 +96,7 @@ MOV DS,AX
 1997 J
 2000 C#
 ```
+
+# 资源
+
+[Hello World的秘密](https://mp.weixin.qq.com/s/n9wJBVWPLoIlJox3lqQyVg)<br>

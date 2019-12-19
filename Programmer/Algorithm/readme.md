@@ -265,3 +265,4 @@ Boyer-Moore 算法
 [GitHub://LeetCodeAnimation](https://github.com/MisterBooo/LeetCodeAnimation)<br>
 [GitHub://javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)<br>
 <算法图解><br>
+[算法合集](https://mp.weixin.qq.com/s/76GU8JtWntEesWoARKzR9g)<br>
