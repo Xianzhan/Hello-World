@@ -29,3 +29,4 @@
 [云架构师进阶攻略（完整版）](https://mp.weixin.qq.com/s/9IKG9Weh4ERK9j20yecJkg)<br>
 [支付宝架构到底有多牛逼！没看完我就跪了！](https://mp.weixin.qq.com/s/CpY1lJafPCUrmD_rOS0byA)<br>
 [如何快速构建一款联机游戏?](https://mp.weixin.qq.com/s/KXmJzqJXvXzQqS8goDaraw)<br>
+[如何设计一个安全的对外接口?](https://mp.weixin.qq.com/s/yiPzAB5kBUFCoveMG0iicg)<br>
