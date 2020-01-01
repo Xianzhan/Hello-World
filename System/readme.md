@@ -1,86 +1,29 @@
 <!-- TOC -->
 
-- [操作系统](#操作系统)
-    - [基本功能](#基本功能)
-    - [相关概念](#相关概念)
-- [进程](#进程)
-    - [主存中的进程形态](#主存中的进程形态)
-    - [进程与线程](#进程与线程)
+- [分布式](#分布式)
+- [资源](#资源)
 
 <!-- /TOC -->
 
-# 操作系统
+# 分布式
 
-## 基本功能
+[分布式架构知识体系必读](https://mp.weixin.qq.com/s/ybkenT9uU8SR5roAK9M_0w)<br>
+[为自己搭建一个分布式 IM(即时通讯) 系统](https://www.cnblogs.com/crossoverJie/p/10206724.html)<br>
+[支付系统如何进行分布式改造](https://mp.weixin.qq.com/s/9M3h7PhlosuRSMHFx_FbqA)<br>
 
-- 操作系统是管理计算机硬件和软件资源的计算机程序
-    - 处理器资源
-    - IO 设备资源
-    - 存储器资源
-    - 文件资源
-- 管理配置内存、决定资源供需顺序、控制输入输出设备等
-- 提供用户和系统交互的操作界面
+# 资源
 
-## 相关概念
-
-- 并发性
-    - 并行: 指两个或多个事件可以在同一时刻发生
-    - 并发: 指两个或多个事件可以在同一时间间隔发生
-- 共享性
-    - 表现为操作系统中的资源可供多个并发的程序共同使用
-    - 这种共同使用的形式称之为资源共享
-- 虚拟性
-    - 虚拟性表现为把一个物体实体转变为若干个逻辑实体
-    - 物理实体是真实存在的, 逻辑实体是虚拟的
-    - 虚拟的技术主要由时分复用技术和空分复用技术
-    - 资源在时间上进行复用, 不同程序并发使用
-    - 多道程序分时使用计算机的硬件资源
-- 异步性
-    - 在多道程序环境下, 允许多个进程并发执行
-    - 进程在使用资源时可能需要等待或放弃
-
-[操作系统面试题](https://mp.weixin.qq.com/s/sTGsnLf0UhzeMoKHSEJI9g)<br>
-[操作系统兴衰史](https://mp.weixin.qq.com/s/xmbv7tFWLillGBtVmHLu5g)<br>
-
-# 进程
-
-- 没有配置 OS 之前, 资源属于当前运行的程序
-- 配置 OS 之后, 引入多道程序设计的概念
-- 合理的隔离资源、运行环境, 提升资源利用率
-
-*为什么需要进程*
-
-- 进程是系统进行资源分配和调度的基本单位
-- 进程作为程序独立运行的载体保障程序正常执行
-- 进程的存在使得操作系统资源的利用率大幅提升
-
-## 主存中的进程形态
-
-**进程控制块(PCB)**
-
-- 用于描述和控制进程运行的通用数据结构
-- 记录进程当前状态和控制进程运行的全部信息
-- PCB 使得进程是能够独立运行的基本单位
-- PCB 是操作系统进行调度经常被读取的信息
-- PCB 是常驻内存的, 存放在系统专门开辟的 PCB 区域内
-
-标识符: 唯一标记一个进程, 用于区别其他进程
-
-状态: 标记进程的进程状态, 如: 运行态
-
-程序计数器: 进程即将被执行的下一条指令的地址
-
-内存指针: 程序代码、进程数据相关指针
-
-上下文数据: 进程执行时处理器存储的数据
-
-IO 状态信息: 被进程 IO 操作所占用的文件列表
-
-记账信息: 使用处理器时间、时钟数总和等
-
-## 进程与线程
-
-- 线程时操作系统进行运行调度的最小单位
-- 包含在进程之中, 是进程中实际运行工作的单位
-- 一个进程可以并发多个线程, 每个线程执行不同的任务
-- 进程的线程共享进程资源
+[Github://awesome](https://github.com/sindresorhus/awesome)<br>
+[Github://DreamOfTheRedChamber/system-design](https://github.com/DreamOfTheRedChamber/system-design)<br>
+[Github://SystemProgramming](https://github.com/angrave/SystemProgramming)<br>
+[Github://architecture.of.internet-product](https://github.com/davideuler/architecture.of.internet-product)<br>
+[Github://architect-awesome](https://github.com/xingshaocheng/architect-awesome)<br>
+[Github://awesome-distributed-systems](https://github.com/rShetty/awesome-distributed-systems)<br>
+[架构师之路18年精选100篇](https://mp.weixin.qq.com/s/V1hGa6D9aGrP6PiCWEmc0w)<br>
+[淘宝服务端高并发分布式架构演进之路](https://mp.weixin.qq.com/s/2HEwatoJINjI8Dx8GBY5lw)<br>
+[应聘架构师，面试最容易被问啥？](https://mp.weixin.qq.com/s/njZeSILcDp1_2nOCy7G8fw)<br>
+[有意思的业务，有意思的架构设计（含Google三驾马车）](https://mp.weixin.qq.com/s/HClQh9ra79Q0nBKfj1mQkw)<br>
+[云架构师进阶攻略（完整版）](https://mp.weixin.qq.com/s/9IKG9Weh4ERK9j20yecJkg)<br>
+[支付宝架构到底有多牛逼！没看完我就跪了！](https://mp.weixin.qq.com/s/CpY1lJafPCUrmD_rOS0byA)<br>
+[如何快速构建一款联机游戏?](https://mp.weixin.qq.com/s/KXmJzqJXvXzQqS8goDaraw)<br>
+[如何设计一个安全的对外接口?](https://mp.weixin.qq.com/s/yiPzAB5kBUFCoveMG0iicg)<br>

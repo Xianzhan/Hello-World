@@ -4,10 +4,8 @@
     - [C90 标准](#c90-标准)
     - [C99 标准](#c99-标准)
     - [C11 标准](#c11-标准)
-- [基础](#基础)
-    - [指针](#指针)
-    - [宏](#宏)
 - [资源](#资源)
+    - [书籍](#书籍)
 
 <!-- /TOC -->
 
@@ -31,38 +29,16 @@
 
 > 2007 年，C 语言标准委员会又重新开始修订 C 语言，到了 2011 年正式发布了 ISO/IEC 9899:2011，简称为 C11 标准。C11 标准新引入的特征尽管没 C99 相对 C90 引入的那么多，但是这些也都十分有用，比如：字节对齐说明符、泛型机制（generic selection）、对多线程的支持、静态断言、原子操作以及对 Unicode 的支持。
 
-# 基础
-
-## 指针
-
-```c
-// 普通指向整型的指针
-int *pi;
-// 指向整型常量的指针,可以修改指针的值,但不能修改它所指向的值
-int const *pci;
-// 指向整型的常量指针,此时指针是常量,它的值无法修改,但可以修改它所指向的整型的值
-int * const cpi;
-// 指向整型常量的常量指针,不允许修改
-int const * const cpci;
-```
-
-## 宏
-
-```c
-#include <stdio.h>
-
-// 编译时期 被替换
-#define sum(a, b) ((a)+(b))
-
-int main(void)
-{
-    printf("%d\n", sum(1, 2)); // ((1)+(2))
-    return 0;
-}
-```
-
 # 资源
 
+[Github://MicrosoftDocs/cpp-docs](https://github.com/MicrosoftDocs/cpp-docs)<br>
+[Github://luguanxing/Cheating-Plugin-Program](https://github.com/luguanxing/Cheating-Plugin-Program)<br>
+[Github://jiejieTop/TencentOS-Demo](https://github.com/jiejieTop/TencentOS-Demo)<br>
 [cppreference.com](https://en.cppreference.com/w/)<br>
 [【C++】预编译、编译、汇编、链接](https://blog.csdn.net/weixin_40740059/article/details/84075653)<br>
 [C语言：春节回家过年，我发现只有我没有对象！](https://mp.weixin.qq.com/s/QT6abxt5evqxU8kDuhfdHQ)<br>
+[C++ 内存模型](https://paul.pub/cpp-memory-model/)<br>
+
+## 书籍
+
+《C 语言编程魔法书: 基于 C11 标准》<br>

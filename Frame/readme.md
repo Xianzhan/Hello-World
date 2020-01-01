@@ -4,6 +4,7 @@
     - [MVC](#mvc)
         - [Spring MVC](#spring-mvc)
         - [Structs2](#structs2)
+- [资源](#资源)
 
 <!-- /TOC -->
 # Java
@@ -21,3 +22,7 @@
 此处的 `FilterDispatcher` 应为 `StrutsPrepareAndExecuteFilter`
 
 ![Structs2 flow](../.resource/Frame/readme/Structs2_flow.png)
+
+# 资源
+
+[开源巨献：Google最热门60款开源项目](https://mp.weixin.qq.com/s/qo-Rot26y92J5whLnvlMaw)<br>

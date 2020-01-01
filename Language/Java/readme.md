@@ -25,8 +25,9 @@
 # 资源
 
 [Github://advanced-java](https://github.com/doocs/advanced-java)<br>
-[GitHub://Effective-Java-3rd-edition-Chinese-English-bilingual](https://github.com/clxering/Effective-Java-3rd-edition-Chinese-English-bilingual)<br>
+[Github://Effective-Java-3rd-edition-Chinese-English-bilingual](https://github.com/clxering/Effective-Java-3rd-edition-Chinese-English-bilingual)<br>
 [GitHub://Java-Summarize](https://github.com/zaiyunduan123/Java-Summarize)<br>
-[GitHub://onJava8](https://github.com/lingcoder/onJava8/)<br>
+[Github://onJava8](https://github.com/lingcoder/onJava8/)<br>
+[Github://awesome-java-cn](https://github.com/jobbole/awesome-java-cn)<br>
 [有点长的 Java API 设计清单](https://mp.weixin.qq.com/s/RYBJXQKLJ4guqvz8vXZN9Q)<br>
 [我的java问题排查工具单](https://mp.weixin.qq.com/s/nMdBYZjVmF8Tqz6KJLeAaQ)<br>
