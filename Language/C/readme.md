@@ -34,6 +34,7 @@
 [Github://MicrosoftDocs/cpp-docs](https://github.com/MicrosoftDocs/cpp-docs)<br>
 [Github://luguanxing/Cheating-Plugin-Program](https://github.com/luguanxing/Cheating-Plugin-Program)<br>
 [Github://jiejieTop/TencentOS-Demo](https://github.com/jiejieTop/TencentOS-Demo)<br>
+[Github://jobbole/awesome-c-cn](https://github.com/jobbole/awesome-c-cn)<br>
 [cppreference.com](https://en.cppreference.com/w/)<br>
 [【C++】预编译、编译、汇编、链接](https://blog.csdn.net/weixin_40740059/article/details/84075653)<br>
 [C语言：春节回家过年，我发现只有我没有对象！](https://mp.weixin.qq.com/s/QT6abxt5evqxU8kDuhfdHQ)<br>

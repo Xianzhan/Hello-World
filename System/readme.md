@@ -1,6 +1,7 @@
 <!-- TOC -->
 
 - [分布式](#分布式)
+- [数据](#数据)
 - [资源](#资源)
 
 <!-- /TOC -->
@@ -10,6 +11,11 @@
 [分布式架构知识体系必读](https://mp.weixin.qq.com/s/ybkenT9uU8SR5roAK9M_0w)<br>
 [为自己搭建一个分布式 IM(即时通讯) 系统](https://www.cnblogs.com/crossoverJie/p/10206724.html)<br>
 [支付系统如何进行分布式改造](https://mp.weixin.qq.com/s/9M3h7PhlosuRSMHFx_FbqA)<br>
+[两万字深度介绍分布式系统原理，一文入魂](https://mp.weixin.qq.com/s/bIhfgqbo4v5c4zlRG1ekUA)<br>
+
+# 数据
+
+[辨析BI、数据仓库、数据湖和数据中台内涵及差异点(建议收藏)](https://mp.weixin.qq.com/s/_OuiqhENHmHOyNfIqQWY-A)<br>
 
 # 资源
 

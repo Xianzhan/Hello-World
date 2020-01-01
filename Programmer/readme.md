@@ -8,12 +8,15 @@
 
 # Book
 
-[PLMCodeTemplate](https://github.com/xwjie/PLMCodeTemplate)<br>
-[ruanyf/free-books](https://github.com/ruanyf/free-books)<br>
-[free-programming-books](https://github.com/EbookFoundation/free-programming-books)<br>
-[free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)<br>
-[system-design-primer](https://github.com/donnemartin/system-design-primer)<br>
-[《Designing Data-Intensive Application》](https://github.com/Vonng/ddia)<br>
+[Github://Designing Data-Intensive Application](https://github.com/Vonng/ddia)<br>
+[Github://PLMCodeTemplate](https://github.com/xwjie/PLMCodeTemplate)<br>
+[Github://ruanyf/free-books](https://github.com/ruanyf/free-books)<br>
+[Github://free-programming-books](https://github.com/EbookFoundation/free-programming-books)<br>
+[Github://free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN)<br>
+[Github://keithnull/TeachYourselfCS-CN](https://github.com/keithnull/TeachYourselfCS-CN)<br>
+[Github://lancetw/ebook-1](https://github.com/lancetw/ebook-1)<br>
+[Github://songhuiqing/book](https://github.com/songhuiqing/book)<br>
+[Github://system-design-primer](https://github.com/donnemartin/system-design-primer)<br>
 
 # Security
 
