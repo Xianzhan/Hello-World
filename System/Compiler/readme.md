@@ -145,6 +145,10 @@ output: 1 while <WHILE, ->
        11 }     <RP, ->
 ```
 
+- Thompson 算法
+- 子集结构算法（DFA, NFA）
+- Hopcroft 算法
+
 ## 语法分析
 
 **主要任务**：从词法分析器输出的 token 序列中识别出各类短语，并构造语法分析树(parse tree)。语法分析树描述了句子的语法结构。
@@ -156,6 +160,10 @@ output: 1 while <WHILE, ->
 变量声明语句的语法分析树
 
 ![](../../.resource/System/Compiler/readme/parse_tree_declare.png)
+
+- LL(1)，消除左递归，提取公共左因子，构造预测分析表，分析过程
+- LR(0)，构造 DFA，构造 LR(0) 分析表，进行语法分析，写出过程
+- 短语，巨型，产生式，直接短语，句柄概念
 
 ## 语义分析
 
@@ -199,6 +207,8 @@ NAME|TYPE|KIND|VAL|ADDR
         对非过程名使用过程调用操作符<br>
         过程调用的参数类型或数目不匹配<br>
         函数返回类型有误<br>
+
+- 逆波兰表示法
 
 ## 中间代码生成
 
