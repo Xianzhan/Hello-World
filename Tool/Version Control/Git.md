@@ -37,7 +37,15 @@ ssh -T git@github.com
 
 # 常用命令
 
-![status](../../.resource/Tool/Version%20Control/Git/status.png)
+```sh
+ +--------+                                                          +-----------+
+ |        | ---------------------------pull------------------------> |           |
+ |        |                +------------+                            |           |
+ | Remote | -fetch/clone-> |            | ---------checkout--------> | workspace |
+ |        |                | Repository |           +-------+        |           |
+ |        | <----push----- |            | <-commit- | Index | <-add- |           |
+ +--------+                +------------+           +-------+        +-----------+
+```
 
 - workspace: 工作区
 - Index/Stage: 暂存区

@@ -20,7 +20,15 @@
 
 # 计算机的层次与编程语言
 
-![](../.resource/Language/readme/层次.png)
+```sh
+                   Application layer             -+
+                +- High-level language layer      | Virtual machine
+system software |  Assembly language layer        |
+                +- Operating system layer        -+
+                   Traditional machine layer     -+
+                   Microprogramming machine layer | Actual machine
+                   Hardware logic layer          -+
+```
 
 ## 硬件逻辑层
 
