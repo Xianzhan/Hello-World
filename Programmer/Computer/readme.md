@@ -2,7 +2,6 @@
 
 - [硬件](#硬件)
 - [资源](#资源)
-    - [书](#书)
 
 <!-- /TOC -->
 
@@ -34,7 +33,3 @@ RAM 单元; 计数器; <br>
 [【系统编程】高性能网络I/O入门（一）](https://mp.weixin.qq.com/s/IUlwCPvf8okbHsbfd1q2rA)<br>
 [【系统编程】五种IO模型分析](https://mp.weixin.qq.com/s/9YXsJo_u2zVNqvABoGqfqg)<br>
 [计算机是如何诞生的？](https://mp.weixin.qq.com/s/pijV1BmYPOKdlk4B3nGnHQ)<br>
-
-## 书
-
-[<程序是怎么跑起来的>---失泽久雄]
