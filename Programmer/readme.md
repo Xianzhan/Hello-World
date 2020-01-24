@@ -2,7 +2,7 @@
 
 - [Book](#book)
 - [Security](#security)
-- [资源](#资源)
+- [资源](#%e8%b5%84%e6%ba%90)
 
 <!-- /TOC -->
 
@@ -28,6 +28,7 @@
 
 [Github://awesome-programming-books](https://github.com/jobbole/awesome-programming-books)<br>
 [Github://translations](https://github.com/oldratlee/translations)<br>
+[博客园://如何熟悉一个系统？](https://www.cnblogs.com/alisystemsoftware/p/12219134.html)<br>
 [A-to-Z-Resources-for-Students](https://github.com/bradtraversy/A-to-Z-Resources-for-Students)<br>
 [blockchain](https://github.com/LiuBoyu/blockchain)<br>
 [build-your-own-x](https://github.com/danistefanovic/build-your-own-x)<br>
