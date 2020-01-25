@@ -1,27 +1,33 @@
 <!-- TOC -->
 
-- [硬件](#硬件)
 - [WSL](#wsl)
 - [资源](#资源)
 
 <!-- /TOC -->
 
-![](../../.resource/Programmer/Computer/readme/hardware_hierarchy.png)
+```sh
+计算机系统
+ +- 硬件系统
+ |   +- 主机
+ |   |   +- 中央处理单元
+ |   |   |   +- 运算器
+ |   |   |   +- 控制器
+ |   |   +- 主(内)存储器
+ |   |       +- RAM
+ |   |       +- ROM
+ |   +- 外设
+ |       +- 外(辅)存储器(磁盘、光盘、SSD)
+ |       +- 输入设备(键盘、鼠标等)
+ |       +- 输出设备(显示器、打印机等)
+ +- 软件系统
+     +- 系统软件
+     |   +- 操作系统(DOS、Windows、Linux 等)
+     |   +- 程序设计语言处理程序
+     |   +- 开发工具、网络软件、诊断程序
+     +- 应用软件
+         +- 各种软件包、网络套件等
 
-# 硬件
-
-逻辑门; <br>
-布尔运算; <br>
-multiplexor (多路复用器); <br>
-触发器 (flip-flop); <br>
-寄存器 (register); <br>
-RAM 单元; 计数器; <br>
-硬件描述语言 (HDL, Hardware Description Language); <br>
-芯片的仿真及测试.<br>
-
-计算机最关键的三个部分：CPU,内存,I/O控制芯片。
-
-![](../../.resource/Programmer/Computer/readme/hardware_composition.png)
+```
 
 # WSL
 
