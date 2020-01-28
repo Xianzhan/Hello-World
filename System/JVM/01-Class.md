@@ -62,7 +62,38 @@
 - 常量池计数器（constant_pool_count）：由于常量的数量不固定，所以需要先放置两个字节来表示常量池容量计数值。
 - 常量池数据区：数据区是由（constant_pool_count-1）个 cp_info 结构组成，一个 cp_info 结构对应一个常量。在字节码中共有 14 种类型的 cp_info，每种类型的结构都是固定的。
 
-
+<table>
+    <tr>
+        <th>常量</th><th>项目</th><th>类型</th><th>描述</th>
+    </tr>
+    <tr>
+        <td rowspan="3">CONSTANT_Utf8_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 1</td>
+    </tr>
+    <tr>
+        <td>length</td>
+        <td>2byte</td>
+        <td>UTF-8 编码字符串占用的字符数</td>
+    </tr>
+    <tr>
+        <td>bytes</td>
+        <td>1byte</td>
+        <td>长度为 length 的 UTF-8 编码的字符串</td>
+    </tr>
+    <tr>
+        <td rowspan="2">CONSTANT_Integer_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 3</td>
+    </tr>
+    <tr>
+        <td>bytes</td>
+        <td>4byte</td>
+        <td>按照高位在前存储的 int 值</td>
+    </tr>
+</table>
 
 1. `invokestatic`: 用于调用静态方法。
 2. `invokespecial`: 用于调用私有实例方法、构造器，以及使用 `super` 关键字调用父类的实例方法或构造器，和所实现接口的默认方法。
