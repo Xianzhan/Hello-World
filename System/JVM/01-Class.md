@@ -1,18 +1,74 @@
 <!-- TOC -->
 
-- [class 文件格式](#class-文件格式)
-- [magic](#magic)
+- [字节码](#字节码)
+    - [魔数](#魔数)
+    - [版本号](#版本号)
+    - [常量池](#常量池)
 - [生命周期](#生命周期)
     - [加载 Loading](#加载-loading)
     - [链接 Linking](#链接-linking)
     - [初始化 Initalization](#初始化-initalization)
     - [使用 Using](#使用-using)
     - [卸载 Unloading](#卸载-unloading)
-- [字节码](#字节码)
 
 <!-- /TOC -->
 
-# class 文件格式
+# 字节码
+
+> Java 之所以可以“一次编译，到处运行”，一是因为 JVM 针对各种操作系统、平台都进行了定制，二是因为无论在什么平台，都可以编译生成固定格式的字节码（.class 文件）供 JVM 使用。因此，也可以看出字节码对于 Java 生态的重要性。之所以被称之为字节码，是因为字节码文件由十六进制值组成，而 JVM 以两个十六进制值为一组，即以字节为单位进行读取。在 Java 中一般是用 `javac` 命令编译源代码为字节码文件，一个 .java 文件从编译到运行的示例如图:
+
+```sh
+    .java file
+         ↓
+ Java Compiler(javac)
+         ↓
+    .class file
+         ↓
+    ClassLoader ------+
+         ↓            |
+  BytecodeVerifier    |
+         ↓            +- Java Virtual Machine
+ Java Runtime System  |
+         ↓            |
+      Native OS ------+
+```
+
+编译后的 class 文件需要符合 JVM 规范, 每一个字节码文件都要由十部分按照固定的顺序组成:
+
+1. 魔数(Magic)
+2. 版本号(Version)
+3. 常量池(constant_pool)
+4. 访问标志(access_flag)
+5. 当前类索引(this_class)
+6. 父类索引(super_class)
+7. 接口索引(interfaces)
+8. 字段表(fields)
+9. 方发表(methods)
+10. 附加属性(attributes)
+
+## 魔数
+
+所有的 .class 文件的前四个字节都是魔数，魔数的固定值为：`0xCAFEBABE`。魔数放在文件开头，JVM 可以根据文件的开头来判断这个文件是否可能是一个 .class 文件，如果是，才会继续进行之后的操作。
+
+## 版本号
+
+版本号为魔数之后的 4 个字节，前两个字节表示次版本号（Minor Version），后
+两个字节表示主版本号（Major Version）。
+
+## 常量池
+
+紧接着主版本号之后的字节为常量池入口。常量池中存储两类常量：字面量与符号引用。字面量为代码中声明为 Final 的常量值，符号引用如类和接口的全局限定名、字段的名称和描述符、方法的名称和描述符。常量池整体上分为两部分：常量池计数器以及常量池数据区。
+
+- 常量池计数器（constant_pool_count）：由于常量的数量不固定，所以需要先放置两个字节来表示常量池容量计数值。
+- 常量池数据区：数据区是由（constant_pool_count-1）个 cp_info 结构组成，一个 cp_info 结构对应一个常量。在字节码中共有 14 种类型的 cp_info，每种类型的结构都是固定的。
+
+
+
+1. `invokestatic`: 用于调用静态方法。
+2. `invokespecial`: 用于调用私有实例方法、构造器，以及使用 `super` 关键字调用父类的实例方法或构造器，和所实现接口的默认方法。
+3. `invokevirtual`: 用于调用非私有实例方法。
+4. `invokeinterface`: 用于调用接口方法。
+5. `invokedynamic`: 用于调用动态方法。
 
 1. 基本信息，涵盖了原 class 文件的相关信息。
 2. 常量池，用来存放各种常量以及符号引用。
@@ -20,14 +76,6 @@
 4. 方法区域，用来列举该类中的各个方法。
 
 Java 虚拟机所使用的一种平台中立(不依赖于特定硬件及操作系统)的二进制格式表示。
-
-[一张图看懂JVM之类装载系统](https://mp.weixin.qq.com/s/UU4qltVgRsj0SG7YmER-Qw)<br>
-
-# magic
-
-```
-CAFEBABE
-```
 
 # 生命周期
 
@@ -66,6 +114,8 @@ CAFEBABE
 3. 在内存中生成一个代表这个类的 `java.lang.Class` 对象, 作为这个类各种数据的访问入口.
 
 **此外 JVM 判断两个 java.lang.Class 是否相同不仅要依据类的全路径描述符，还要保证是同一个 ClassLoader 加载。**
+
+[一张图看懂JVM之类装载系统](https://mp.weixin.qq.com/s/UU4qltVgRsj0SG7YmER-Qw)<br>
 
 ## 链接 Linking
 
@@ -133,11 +183,3 @@ CAFEBABE
 由 Java 虚拟机自带的类加载器所加载的类，在虚拟机的生命周期中，始终不会被卸载。Java 虚拟机自带的类加载器包括根类加载器、扩展类加载器和系统类加载器。Java 虚拟机本身会始终引用这些类加载器，而这些类加载器则会始终引用它们所加载的类的 Class 对象，因此这些 Class 对象始终是可触及的。
 
 由用户自定义的类加载器加载的类是可以被卸载的。
-
-# 字节码
-
-1. `invokestatic`: 用于调用静态方法。
-2. `invokespecial`: 用于调用私有实例方法、构造器，以及使用 `super` 关键字调用父类的实例方法或构造器，和所实现接口的默认方法。
-3. `invokevirtual`: 用于调用非私有实例方法。
-4. `invokeinterface`: 用于调用接口方法。
-5. `invokedynamic`: 用于调用动态方法。
