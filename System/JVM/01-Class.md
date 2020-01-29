@@ -4,6 +4,13 @@
     - [魔数](#魔数)
     - [版本号](#版本号)
     - [常量池](#常量池)
+    - [访问标志](#访问标志)
+    - [当前类名](#当前类名)
+    - [父类名称](#父类名称)
+    - [接口信息](#接口信息)
+    - [字段表](#字段表)
+    - [方法表](#方法表)
+    - [附加属性表](#附加属性表)
 - [生命周期](#生命周期)
     - [加载 Loading](#加载-loading)
     - [链接 Linking](#链接-linking)
@@ -93,20 +100,212 @@
         <td>4byte</td>
         <td>按照高位在前存储的 int 值</td>
     </tr>
+    <tr>
+        <td rowspan="2">CONSTANT_Float_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 4</td>
+    </tr>
+    <tr>
+        <td>bytes</td>
+        <td>4byte</td>
+        <td>按照高位在前存储的 float 值</td>
+    </tr>
+    <tr>
+        <td rowspan="2">CONSTANT_Long_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 5</td>
+    </tr>
+    <tr>
+        <td>bytes</td>
+        <td>8byte</td>
+        <td>按照高位在前存储的 long 值</td>
+    </tr>
+    <tr>
+        <td rowspan="2">CONSTANT_Double_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 6</td>
+    </tr>
+    <tr>
+        <td>bytes</td>
+        <td>8byte</td>
+        <td>按照高位在前存储的 double 值</td>
+    </tr>
+    <tr>
+        <td rowspan="2">CONSTANT_Class_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 7</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向全限定名常量项的索引</td>
+    </tr>
+    <tr>
+        <td rowspan="2">CONSTANT_String_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 8</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向字符串字面量的索引</td>
+    </tr>
+    <tr>
+        <td rowspan="3">CONSTANT_Fieldref_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 9</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向声明字段的类或者接口描述符 CONSTANT_Class_info 的索引项</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向字段描述符 CONSTANT_NameAndType 的索引项</td>
+    </tr>
+    <tr>
+        <td rowspan="3">CONSTANT_Methodref_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 10</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向声明方法的类描述符 CONSTANT_Class_info 的索引项</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向名称及类型描述符 CONSTANT_NameAndType 的索引项</td>
+    </tr>
+    <tr>
+        <td rowspan="3">CONSTANT_InterfaceMethodref_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 11</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向声明方法的接口描述符 CONSTANT_Class_info 的索引项</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向名称及类型描述符 CONSTANT_NameAndType 的索引项</td>
+    </tr>
+    <tr>
+        <td rowspan="3">CONSTANT_NameAndType_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 12</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向该字段或方法名称常量项的索引项</td>
+    </tr>
+    <tr>
+        <td>index</td>
+        <td>2byte</td>
+        <td>指向该字段或方法描述符常量项的索引项</td>
+    </tr>
+    <tr>
+        <td rowspan="3">CONSTANT_MethodHandle_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 15</td>
+    </tr>
+    <tr>
+        <td>reference_kind</td>
+        <td>1byte</td>
+        <td>值必须在 1~9 之间, 它决定了方法句柄的类型方法, 句柄类型的值表示方法句柄的字节码行为</td>
+    </tr>
+    <tr>
+        <td>reference_index</td>
+        <td>2byte</td>
+        <td>值必须是对常量池的有效索引</td>
+    </tr>
+    <tr>
+        <td rowspan="2">CONSTANT_MethodType_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 16</td>
+    </tr>
+    <tr>
+        <td>descriptor_index</td>
+        <td>2byte</td>
+        <td>值必须是对常量池的有效索引, 常量池在该索引处的项必须是 CONSTANT_Utf8_info 结构, 表示方法的描述符</td>
+    </tr>
+    <tr>
+        <td rowspan="3">CONSTANT_InvokeDynamic_info</td>
+        <td>tag</td>
+        <td>1byte</td>
+        <td>值为 18</td>
+    </tr>
+    <tr>
+        <td>bootstrap_method_attr_index</td>
+        <td>2byte</td>
+        <td>值必须是对当前 Class 文件中引导方法表的 bootstrap_methods[] 数组的有效索引</td>
+    </tr>
+    <tr>
+        <td>name_and_type_index</td>
+        <td>2byte</td>
+        <td>值必须是对当前常量池的有效索引, 常量池在该索引处的项必须是 CONSTANT_NameAndType_info 结构, 表示方法名和方法描述符</td>
+    </tr>
 </table>
 
-1. `invokestatic`: 用于调用静态方法。
-2. `invokespecial`: 用于调用私有实例方法、构造器，以及使用 `super` 关键字调用父类的实例方法或构造器，和所实现接口的默认方法。
-3. `invokevirtual`: 用于调用非私有实例方法。
-4. `invokeinterface`: 用于调用接口方法。
-5. `invokedynamic`: 用于调用动态方法。
+## 访问标志
 
-1. 基本信息，涵盖了原 class 文件的相关信息。
-2. 常量池，用来存放各种常量以及符号引用。
-3. 字段区域，用来列举该类中的各个字段。
-4. 方法区域，用来列举该类中的各个方法。
+常量池结束之后的两个字节，描述该 Class 是类还是接口，以及是否被 Public、
+Abstract、Final 等修饰符修饰。需要注意的是，JVM 并没有穷举所有的访问标志，而是使用按位或操作来进
+行描述的，比如某个类的修饰符为 Public Final，则对应的访问修饰符的值为 ACC_
+PUBLIC | ACC_FINAL，即 0x0001 | 0x0010=0x0011。
 
-Java 虚拟机所使用的一种平台中立(不依赖于特定硬件及操作系统)的二进制格式表示。
+标志名称|标志值|含义
+:---|:---:|:---
+ACC_PUBLIC|0x0001|public
+ACC_PRIVATE|0x0002|private
+ACC_PROTECTED|0x0004|protected
+ACC_STATIC|0x0008|static
+ACC_FINAL|0x0010|final
+ACC_VOLATILE|0x0040|volatile
+ACC_TRANSTENT|0x0080|transient
+ACC_SYNCHETIC|0x1000|字段是否由编译器自动产生
+ACC_ENUM|0x4000|enum
+
+## 当前类名
+
+访问标志后的两个字节，描述的是当前类的全限定名。这两个字节保存的值为常量池中的索引值，根据索引值就能在常量池中找到这个类的全限定名。
+
+## 父类名称
+
+当前类名后的两个字节，描述父类的全限定名，同上，保存的也是常量池中的索引值。
+
+## 接口信息
+
+父类名称后为两字节的接口计数器，描述了该类或父类实现的接口数量。紧接着的 n 个字节是所有接口名称的字符串常量的索引值。
+
+## 字段表
+
+字段表用于描述类和接口中声明的变量，包含类级别的变量以及实例变量，但是不包含方法内部声明的局部变量。字段表也分为两部分，第一部分为两个字节，描述字段个数；第二部分是每个字段的详细信息 fields_info。
+
+## 方法表
+
+字段表结束后为方法表，方法表也是由两部分组成，第一部分为两个字节描述方法的个数；第二部分为每个方的详细信息。方法的详细信息较为复杂，包括方法的访问标志、方法名、方法的描述符以及方法的属性。
+
+## 附加属性表
+
+字节码的最后一部分，该项存放了在该文件中类或接口所定义属性的基本信息。
 
 # 生命周期
 
