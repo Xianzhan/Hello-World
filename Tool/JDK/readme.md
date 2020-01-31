@@ -171,6 +171,9 @@
 > @delete 9<br>
 > 对 Java 应用程序进行可视化监视，故障排除和配置文件。
 
+[介绍](https://blogs.oracle.com/java-platform-group/visual-vm-in-jdk-9-and-beyond) visualVM 将不包括在 jdk9 中, 需要额外下载<br>
+目前 visualVM 移到 github 了, [下载地址](https://visualvm.github.io/download.html)<br>
+
 # 监控虚拟机
 
 ## jps
@@ -221,7 +224,9 @@
 
 ## jmap
 
-> 打印进程，核心文件或远程调试服务器的共享对象内存映射或堆内存详细信息。此命令是实验性的，不受支持。
+> 打印进程，核心文件或远程调试服务器的共享对象内存映射或**堆内存**详细信息。此命令是实验性的，不受支持。
+
+- `jmap -heap 进程ID` 查看堆内存占用情况, 快照
 
 ## ~~jsadebugd~~
 
@@ -235,6 +240,19 @@
 > 已知 Bugs
 
 在 mixed 模式堆栈跟踪中，`-m` 选项不能用于远程调试服务器。
+
+**线程运行诊断**
+
+1. CPU 占用过多
+定位:
+    - 用 `top` 定位哪个进程对 CPU 的占用过高
+    - `ps H -eo pid,tid,%cpu | grep 进程ID` 定位线程
+    - `jstack 进程ID` 十六进制后找到对应代码
+
+2. 程序运行很长时间没有结果(死锁?)
+定位:
+    - 找到对应进程ID
+    - 使用 `jstack 进程ID`
 
 # Java 辅助功能
 
