@@ -23,6 +23,10 @@
 
 [ ] Match case
 
+**tabs 多行显示**
+
+Editors Tabs
+
 ### Code Style
 
 Line separator: Unix and macOS (\n)
